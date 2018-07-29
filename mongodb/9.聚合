@@ -1,0 +1,21 @@
+http://www.runoob.com/mongodb/mongodb-aggregate.html
+
+db.[collection].aggregate(AGGREGATE_OPERATION)
+
+db.school.aggregate([
+    {
+        $group : {
+            _id : "$group",
+            num_tutorial : {$sum : 1}
+        }
+    },
+    {
+        $sort : {
+            count : 1
+        }
+    }
+])
+{_id : "b", "count":1}
+{_id : "a", "count":2}
+
+

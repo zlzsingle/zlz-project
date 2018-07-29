@@ -1,0 +1,102 @@
+1.创建数据库
+    use [databaseName]
+
+2.删除数据库
+    use [databaseName] //先切换到数据库
+    db.dropDatabase()  //然后删除
+
+3.创建集合
+    db.createCollection([name],option);
+    option参数说明:
+        capped : true|false (可选,如果为true,则创建固定集合.固定集合是指有着固定大小的集合,当到最大值时,它会自动覆盖最早的文档。当为true时,必须指定size)
+        autoIndexId : true|false (可选,如果为true,自动在_id字段创建索引.默认为false)
+        size : Number (可选,为集合指定一个最大值,以字节为单位.当capped为true时必须指定)
+        max  : Number (可选,指定固定集合中包含文档的最大数量)
+
+4.删除集合
+    db.[collection].drop() //删除集合
+
+5.显示集合
+    show collections
+
+6.插入文档
+    db.[collection].insert({"student":"庄伦植","age":"18","gender":"M"})
+
+7.查找文档
+    db.[collection].find()
+
+8.声明变量
+    [varName]=({title:"",age:"",student:""})
+
+9.更新文档
+    db.[collection].update(<query>,<update>,{
+        upsert : <boolean>,
+        multi : <boolean>,
+        writeConcern : <document>
+    });
+
+    query : update的查询条件，类似sql update查询内where后面的。
+    update : update的对象和一些更新的操作符（如$,$inc...）等，也可以理解为sql update查询内set后面的
+    upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。
+    multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。
+    writeConcern :可选，抛出异常的级别。
+
+10.删除文档
+    db.[collection].remove(<query>,<justOne>); //2.6以前的版本
+    db.[collection].remove(<query>,{ //2.6以后的版本
+        justOne : <boolean>,
+        writeConcern : <document>
+    });
+
+    query :(可选)删除的文档的条件。
+    justOne : (可选)如果设为 true 或 1，则只删除一个文档。
+    writeConcern :(可选)抛出异常的级别。
+
+11.查询文档
+    db.[collection].find(query,projection)
+        query ：可选，使用查询操作符指定查询条件
+        projection ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略）。
+
+    db.[collection].find().pretty(); //pretty格式化显示的文档格式
+
+    db.[collection].find({key1:value1}) //单条件查询
+
+    db.[collection].find({key1 : value1, key2 : value2}) //两个条件查询,关系是and
+
+    db.[collection].find({key : {$lt : 10 }}) // key的值小于10
+
+    db.[collection].find({key : {$lte : 10 }}) // key的值小于等于10
+
+    db.[collection].find({key : {$gt : 10 }}) // key的值大于10
+
+    db.[collection].find({key : {$gte : 10 }}) // key的值大于等于10
+
+    db.[collection].find({key : {$ne : 10 }}) // key的值不等于10
+
+    db.[collection].find({ $or : [  //OR条件
+        {key1 : value1}, {key2 :value2}
+    ]});
+
+12.查询文档
+    (>)大于 - $gt
+    (>=)大于等于 - $gte
+    (<)小于 - $lt
+    (<=)小于 - $lte
+
+    db.[collection].find({age : {$gte : 18}}) --> select * from [table] where age >= 18
+
+    db.[collection].find({age : {$gte : 18 , $lte : 25}}) --> select * from [table] where age >= 18 and age <=20
+
+13.$type的使用
+    db.[collection].find({title : {$type : 2}}) //检索出title类型为String的数据
+
+14.Limit与Skip
+    db.[collection].find().limit(10) //只取10条
+    db.[collection].find().skip(10)  //从第10条开始取
+    db.[collection].find().skip(10).limit(10) //取第10到20条的数据
+
+    limit:限制多少条
+    skip:跳过多少条
+
+15.排序sort
+    db.[collection].find().sort({key : 1}) //1 为升序排列，-1是用于降序排列

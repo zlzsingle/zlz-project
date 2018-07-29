@@ -1,0 +1,48 @@
+http://www.souvc.com/?p=1661
+
+pcre的下载地址： https://ftp.pcre.org/pub/pcre/pcre-8.12.tar.gz
+
+nginx的下载地址： http://nginx.org/download/nginx-1.12.1.tar.gz
+
+--linux下安装nginx的命令小结
+
+wget -c https://nginx.org/download/nginx-1.11.6.tar.gz
+tar -zxvf nginx-1.11.6.tar.gz
+cd nginx-1.11.6
+
+
+yum install gcc-c++
+yum install -y pcre pcre-devel
+yum install -y zlib zlib-devel
+yum install -y openssl openssl-devel
+
+./configure
+make
+make install
+whereis nginx
+
+
+cd /usr/local/nginx/conf
+cp nginx.conf nginx.conf.back
+vi nginx.conf
+
+
+cd /usr/local/nginx/sbin/
+./nginx
+./nginx -s stop
+./nginx -s quit
+./nginx -s reload
+
+
+ps aux|grep nginx  //查看nginx端口信息
+
+
+// nginx 方向代理服务器,用于接受internet上连接的请求，然后请求转发的其它服务器(tomcat)处理
+
+ps -ef | grep nginx  //查看nginx进程列表
+
+ps -C nginx -o pid   //查看nginx的进程id
+
+nginx -v  // 查看nginx版本
+
+nginx -V //查看nginx的完成信息

@@ -1,0 +1,27 @@
+redis-cli  //redis客户端
+
+redis-cli -h 127.0.0.1 -p 6379 -a password //远程连接redis
+
+键(key)命令
+COMMAND KEY_NAME
+    set [key] "[value]" //设置键值
+    get [key]           //获取键值
+    del [key]           //删除键
+    dump [key]          //序列化
+    exists [key]        //检查key是否存在
+    expire [key] seconds       //给key设置时间过期时间(单位是秒) expire zlz 60
+    expireat [key] timestamp   //给key设置时间过期时间(时间戳) expireat zlz 1529818068
+    pexpire [key] milliseconds //设置key的过期时间以毫秒计 pexpire zlz 60000
+    pexpireat [key] milliseconds-timestamp  //设置 key 过期时间的时间戳(unix timestamp) 以毫秒计 pexpireat zlz 1555555555005
+    keys pattern  //查找key, keys zlz*, keys *
+    move [key] [db] //移动key到数据库 move zlz 1
+    persist [key]   //移除key的过期时间,key将持久保存 persist zlz
+    pttl [key]      //以毫秒为单位返回key的剩余过去时间
+    ttl  [key]      //以秒为单位,返回key的剩余生存时间
+    randomkey       //从数据库中随机返回一个key
+    flushdb         //清空数据库中所有的key
+    rename [key] [newkey] //修改key的名称,如果newkey已经存在,newkey将会被覆盖
+    renamenx [key] [newkey] //仅当newkey不存在时,将key修改为newkey
+    type [key]              //返回key的类型
+
+

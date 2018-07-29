@@ -1,0 +1,1 @@
+console.error("__dirname :" + __dirname);// -->D:\Project\WordFiles\nodejs

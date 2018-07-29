@@ -1,0 +1,17 @@
+docker部署consul
+    1.查询consul
+        docker search consul
+
+    2.拉取consul
+        docker pull consul
+
+    3.docker启动consul
+        docker run -d -e 'CONSUL_LOCAL_CONFIG={"skip_leave_on_interrupt":true}' --name=node1 consul agent -server --bind=127.0.0.1 -bootstrap-expect=3 -node=node1
+        -node 节点名称
+        -bind 绑定的一个地址,用于节点之间通信的地址,可是内外网。必须是可以访问到的地址
+        -server 这个就表示节点的server
+        -bootstrap-expect 这个就是表示期望提供的SERVER节点数目,数目一达到。它就会被激活,然后就是LEADER了
+
+consul 相关的命令
+    https://blog.csdn.net/u010046908/article/details/61916389
+

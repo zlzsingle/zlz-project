@@ -1,0 +1,19 @@
+set [key] value //设置指定key的值
+get [key] //获取指定key的值
+getrange [key] start end //返回 key 中字符串值的子字符 getrange zlz 0 1
+getset [key] value //将给定 key 的值设为 value ，并返回 key 的旧值(old value)
+getbit key offset //对 key 所储存的字符串值，获取指定偏移量上的位(bit)
+mget [key1] [key2] [key3] ... [keyN] //获取所有(一个或多个)给定 key 的值
+setbit [key] offset value //对 key 所储存的字符串值，设置或清除指定偏移量上的位(bit)
+setex [key] [timeout] [value] //给指定的key设置过期时间和值,如果key已经存在。将替换旧的值
+setrange [key] [offset] [value] //用指定的字符串覆盖给定 key 所储存的字符串值，覆盖的位置从偏移量 offset 开始。
+strle [key] //Strlen 命令用于获取指定 key 所储存的字符串值的长度。当 key 储存的不是字符串值时，返回一个错误
+mset [key1] [value1] [key2] [value2] ... [keyN] [valueN] // Mset 命令用于同时设置一个或多个 key-value 对
+msetnx [key1] [value1] [key2] [value2] ... [keyN] [valueN] //Msetnx 命令用于所有给定 key 都不存在时，同时设置一个或多个 key-value 对
+psetex [key] timeout value //Psetex 命令以毫秒为单位设置 key 的生存时间
+incr [key] //Incr 命令将 key 中储存的数字值增一  incr zlz
+incrby [key] incr_num //Incrby 命令将 key 中储存的数字加上指定的增量值 incrby zlz 20
+incrbyfloat [key] incr_float //Incrbyfloat 命令为 key 中所储存的值加上指定的浮点数增量值 incrbyfloat zlz 0.1
+decr [key] //Decr 命令将 key 中储存的数字值减一
+decrby [key] decr_num //Decrby 命令将 key 所储存的值减去指定的减量值 decr zlz 10
+append [key] value  //Append 命令用于为指定的 key 追加值

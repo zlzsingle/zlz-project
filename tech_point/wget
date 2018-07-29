@@ -1,0 +1,9 @@
+/*
+    windows下安装wget
+    linux下安装wget (linux自带)
+
+    1.wget下载出现SSL错误
+        答案: 加上 "--no-check-certificate"参数
+        例如: wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_msvc2015-win64.exe --no-check-certificate
+
+*/

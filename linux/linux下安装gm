@@ -1,0 +1,27 @@
+/*
+    //下载GM软件
+    wget http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.18/GraphicsMagick-1.3.18.tar.bz2
+
+    //进入下载目录
+    cd /xxx/xxx/xxx
+
+    //解压目录
+    tar jxvf GraphicsMagick-1.3.18.tar.bz2
+
+    //进入解压后的目录
+    cd GraphicsMagick-1.3.18
+
+    //安装
+    //./configure –prefix=/usr/local/GraphicsMagick-1.3.18
+    ./configure -prefix=/解压文件所在目录
+    make
+    make install
+
+    //修改环境变量
+    vi /etc/profile
+
+    GM_HOME=/xxx/xxx/xxx
+    PATH=$PATH:$GM_HOME/bin
+
+    export GM_HOME
+*/

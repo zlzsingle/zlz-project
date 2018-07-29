@@ -1,0 +1,46 @@
+git --help                                          //查看帮助
+
+git add <fileName>                                  //添加文件到git
+
+git rm  -r <fileName>                               //从git和本地删除这个文件
+
+git config --global user.name "zlz"                 //设置用户名称
+git config --global user.email "774320433@qq.com"   //设置邮箱
+git config --global --unset user.name               //取消user.name
+git config --global --unset user.email              //取消user.email
+
+git clone http://github.com/xxxxx.com/xxx.git       //http的git方式
+git clone git@github.com:xxxxx/xxx.git              //ssh的git方式
+
+git push                                            //push分支到仓库
+git push origin --delete <BranchName>               //删除远程分支
+git push origin <BranchName>                        //添加分支到仓库
+git push --tag                                      //push tag 到远程
+
+git checkout <fileName>                             //还原文件
+git checkout <BranchName>                           //切换分支
+git checkout -b <BranchName>                        //创建并且切换到这个分支
+
+git branch                                          //查看本地分支
+git branch -a                                       //查看远程和本地分支
+git branch -d <BranchName>                          //删除本地分支
+
+git merge <BranchName>                              //将分支<BranchName>合并到当前分支
+
+git reset <fileName>                                //重置某个文件
+git reset --hard HEAD^                              //回退到上个版本
+git reset --hard HEAD~3                             //回退到前3次提交之前，以此类推，回退到n次提交之前
+git reset --hard <CommitId>                         //回滚到某个commit
+
+git tag                                             //查看所有tag
+git tag -a v1.0.1 -m "新建tag"                      //新建tag
+git tag -d v1.0.1                                   //删除tag
+
+git log                                             //查看日志
+git log <b1> ^<b2>                                  //查看<b1>有,<b2>没有
+git log <b1>..<b2>                                  //查看<b2>比<b1>多提交了什么
+
+git diff                                            //比较文件差异
+
+ssh-keygen -t rsa -C "xxxxx@gmail.com"              //生成密银
+

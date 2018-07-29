@@ -1,0 +1,19 @@
+http://lib.csdn.net/article/nodejs/68013   nodejs设置HTTP响应头解决跨域
+
+//app.js
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1')
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
+
+为什么选择node.js？它有哪些优势呢？
+
+性能：相对于多线程，异步I/O没有了线程间的上下文切换开销，由此带来可观的性能提升是选择它的主要原因。
+成本：由于性能的提升，相同的硬件可以发挥更大的作用，变相的降低了运营成本，由于node.js采用javascript作为开发语言，而javascript的使用已经非常广泛，所以降低了node.js的学习成本。
+效率：node.js采用javascript作为开发语言，使前后端开发语言统一，不需要切换开发语言，使开发效率更高，加之javascript使用者众多，使得node.js迅速的流行起来。
+
+NodeJs适用于高并发、非阻塞、

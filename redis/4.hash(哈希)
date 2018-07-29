@@ -1,0 +1,14 @@
+hash 是一个string类型的field和value的映射表，hash特别适合用于存储对象
+
+hget [key] [field] //Hget 命令用于返回哈希表中指定字段的值
+hdel [key] [field1] [field2] //Hdel 命令用于删除哈希表 key 中的一个或多个指定字段，不存在的字段将被忽略。
+hexists [key] [field] //Hexists 命令用于查看哈希表的指定字段是否存在 hexists obj name
+hgetall [key] //Hgetall 命令用于返回哈希表中，所有的字段和值
+hincrby [key]  //Hincrby 命令用于为哈希表中的字段值加上指定增量值
+hincrbyfloat [key] [floatNum] //Hincrbyfloat 命令用于为哈希表中的字段值加上指定浮点数增量值
+hkeys [key] //Hkeys 命令用于获取哈希表中的所有域（field）
+hlen [key] //Hlen 命令用于获取哈希表中字段的数量
+hmget [key] [field1] [field2] //Hmget 命令用于返回哈希表中，一个或多个给定字段的值 hmget student age name
+hmset [key] [field1] [value1] [field2] [value2] //Hmset 命令用于同时将多个 field-value (字段-值)对设置到哈希表中
+hsetnx [key] [field] [value] //Hsetnx 命令用于为哈希表中不存在的的字段赋值
+hvals [key]    //Hvals 命令返回哈希表所有域(field)的值。

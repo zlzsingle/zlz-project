@@ -1,0 +1,88 @@
+//http://www.runoob.com/linux/linux-intro.html
+//http://www.xitongzhijia.net/xtjc/20170420/96046.html  常用命令大全
+//http://man.linuxde.net linux命令大全
+
+cd [dir_path] //进入某个目录
+
+ls //显示目录列表
+
+ls -la //list显示隐藏和非隐藏文件与目录
+
+clear  //清理上面的笔记
+
+pwd //查看当前路劲
+
+systemctl start tomcat //启动tomcat
+
+systemctl restart tomcat //重启tomcat
+
+systemctl stop tomcat //停止tomcat
+
+systemctl status tomcat //查看tomcat状态
+
+//nginx 相关命令
+ps -ef | grep nginx  //查看nginx进程列表
+
+ps -C nginx -o pid   //查看nginx的进程id
+
+nginx -v  // 查看nginx版本
+
+nginx -V //查看nginx的完成信息
+
+rm -f [filePath] //linux删除文件
+
+rm -rf [dirPath] //linux删除文件夹
+
+touch test.txt //创建文件
+
+mkdir test //创建文件夹
+
+wget htt://www.baidu.com/xxx/xxx/xxx.jpg  //下载图片、视频
+
+shutdown -h now //立马关机
+
+shutdown -h 20:25 //系统会在今天20:25关机
+
+shutdown –h +10 //十分钟后关机
+
+shutdown –r now //系统立马重启
+
+shutdown –r +10 //系统十分钟后重启
+
+reboot //就是重启，等同于 shutdown –r now
+
+yum install -y zlib-de //判断是否安装 zlib
+
+tar zxvf [filename].gz //解压文件.gz
+tar jxvf [filename].tar.bz2 //解压文件.tar.bz2 (安装了bzip2 才能执行此命令,安装命令为: yum install bzip2)
+tar xv -f [filename].xz // 解压文件.xz
+tar zxvf [filename] //解压文件
+
+userdel -r [userName] //删除用户
+useradd [userName] //添加用户
+passwd [userName] //修改用户密码
+
+cat /etc/group //文件包含所有组
+
+ln [dirpath1] [dirpath2] //连接目录
+
+//安装bzip2软件
+yum install bzip2
+
+//检查环境变量
+which gm
+
+//开机自动运行
+vi /etc/rc.d/rc.local
+
+//修改fstab
+vi /etc/fstab
+
+//修改完成之后
+mount -a
+
+//安裝命令
+sudo apt install <deb name>
+
+//分析域名查询命令
+host www.baidu.com

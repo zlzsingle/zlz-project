@@ -1,0 +1,6 @@
+-- http://www.cnblogs.com/puloieswind/p/5856326.html
+
+rpm -qa subversion   //检查是否有安装svn
+
+yum -y install  subversion //安装svn
+

@@ -1,0 +1,15 @@
+https://blog.csdn.net/weibo392/article/details/77368550
+
+1.安装命令
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+2.安装后重启 reboot,查看nvm版本
+    nvm --version
+
+3.nvm ls-remote 查看node版本
+
+4.nvm install v8.3.0 安装node版本
+
+5.nvm use v6.11.0 切换node版本
+
+6.nvm alias default v8.3.0 设置node默认版本

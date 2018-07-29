@@ -1,0 +1,54 @@
+http://www.runoob.com/mongodb/mongodb-databases-documents-collections.html
+
+1.mongodb的基本组成
+    集合collection --> 表table
+    文档document --> row
+    域field --> 列column
+    索引index --> 索引index
+    主键primary key --> 主键primary key
+
+2.数据库名称的命名规则
+    .不能是空字符串（"")。
+    .不得含有' '（空格)、.、$、/、\和\0 (空字符)。
+    .应全部小写。
+    .最多64字节。
+
+3.要点
+    需要注意的是：
+         .文档中的键/值对是有序的。
+         .文档中的值不仅可以是在双引号里面的字符串，还可以是其他几种数据类型（甚至可以是整个嵌入的文档)。
+         .Mongodb区分类型和大小写。
+         .Mongodb的文档不能有重复的键。
+         .文档的键是字符串。除了少数例外情况，键可以使用任意UTF-8字符。
+
+    文档键命名规范：
+        .键不能含有\0 (空字符)。这个字符用来表示键的结尾。
+        .和$有特别的意义，只有在特定环境下才能使用。
+        .以下划线"_"开头的键是保留的(不是严格要求的)。
+
+4.数据类型
+    String
+    Integer
+    Boolean
+    Double
+    Min/Max keys
+    Array
+    Timestamp
+    Object
+    Null
+    Symbol
+    Date
+    ObjectID
+    Binary Data
+    Code
+    Regular expression
+
+5.ObjectId
+    ObjectId类似唯一主键,可以很快的生成和排序,包含12bytes,含义是:
+        .前4个字节表示unix时间戳,格林尼治时间UTC时间,比北京时间早了8小时
+        .接下来3个字节是机器标识码
+        .紧接着两个字节由进程id组成PID
+        .最后三个字节是随机数
+
+总结:
+    mongodb是由集合、文档、域、索引、主键组成。非关系型数据库,键值对文档的形式存储。

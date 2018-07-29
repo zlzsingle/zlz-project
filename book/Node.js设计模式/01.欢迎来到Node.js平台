@@ -1,0 +1,56 @@
+.欢迎来到Node.js平台
+    1.介绍
+        通过讲解Node.js本身核心的设计模式来介绍Node.js程序的设计。包括Node.js生态系统、编程思想,以及Node.js V6版本、ES2015和Reactor模式的简单介绍
+
+    2.目标
+        .Node.js的哲学思想"Node way"
+        .Node.js和ES2015
+        .reactor模式——Node.js异步架构的核心机制
+
+    3.内容
+        .NodeJs的哲学思想
+            a、小核心
+            b、小模块
+            c、小接触面
+            d、简单和实用
+
+            结:设计Node.js模块时,要简单、实用。一个模块只做一件事情,api清晰。
+
+        .认识Node.js和ES2015
+            a、let和const关键字
+                let
+                    1)先定义，后使用
+                    2)块作用域内不能重复声明
+                    3)只在块作用域内有效
+
+                const
+                    1)定义时必须赋值,用于定义只读常量
+                    2)不能重复赋值,常量指向的内存地址不能发生改变
+
+            b、箭头函数
+                1)删除了function关键字
+                2)简化了函数体结构
+                3)this关键字与声明时父级this绑定
+                4)不能使用new关键字,函数内部不能使用arguments
+                5)不能使用yield
+
+            c、类语法
+            d、对象字面量
+            e、Map和Set集合
+            f、WeakMap和WeakSet集合
+            g、模板字面量
+            h、其他ES2015特性
+
+        .Reactor模式
+            a、I/O是缓慢的
+            b、阻塞I/O
+            c、非阻塞I/O
+            d、事件多路分解器
+            e、Reactor模式简介
+            f、Node.js-libuv的非阻塞I/O引擎
+
+        .Node.js的秘诀
+
+    4.问答
+
+    5.总结

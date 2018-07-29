@@ -1,0 +1,31 @@
+{
+  "name": "zlz-project",
+  "version": "1.0.0",
+  "description": "我的个人项目",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/774320433/zlz-project.git"
+  },
+  "keywords": [
+    "zlz"
+  ],
+  "author": "zlz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/774320433/zlz-project/issues"
+  },
+  "homepage": "https://github.com/774320433/zlz-project#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

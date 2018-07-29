@@ -1,0 +1,23 @@
+svn co http://svn.com/xxxx/xxxx  // svn 检出项目
+
+ps -ef | grep svn   // 查看svn进程命令
+
+svnadmin create /opt/svn/repositories // 创建svn
+
+svnserve -d -r /opt/svn/repositories  // 启动svn
+svnserve -d -r /usr/svn/data/  //启动svn服务
+
+------------------配置防火墙------------------
+vi /etc/sysconfig/iptables
+
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3690 -j ACCEPT
+
+service iptables restart
+------------------配置防火墙------------------
+
+netstat -ln |grep 3690 //检查svn接口
+
+killall svnserve  // 停止svn服务
+
+修改svn地址
+svn sw --relocate https://116.19.99.128:19090/svn/newspaper_release/mccp https://116.19.96.147:19090/svn/newspaper_release/mccp

@@ -1,0 +1,55 @@
+docker镜像
+    1.介绍
+        a、父镜像
+            每一个镜像都可能依赖下层的一个或几个镜像。通常我们把下层镜像称为父镜像。
+
+        b、基础镜像
+            没有下层镜像或没有父级镜像的镜像称为基础镜像。
+
+        c、镜像id
+            所有的镜像都是通过一个64位十六进制字符串来标识的。
+
+    2.获取镜像
+        docker pull <imageName> //从仓库里拉取镜像,默认是从 http://registry.hub.docker.com
+        docker pull http://www.xxx.xxx/<imageName> //从指定服务器拉去镜像
+
+    3.列出本地镜像
+        docker images  //列举出本地所有镜像
+
+        列表如下:
+            repository      tag     imageId     create      virtualSize
+
+            repository:来自哪个仓库
+            tag:镜像的标记
+            imageId:镜像id
+            create:创建时间
+            virtualSize:镜像大小
+
+    4.创建镜像
+        a、使用commit来创建镜像
+            .先使用下载的镜像运行容器   sudo docker run -t -i <containerName> /bin/bash
+            .在容器中添加gem、join两个应用  gem install json
+            .使用exit退出,使用commit提交。 sudo docker commit -m "Added join gem" -a "Docker New" <containerId> ouruser/sinatra:v2
+                注:
+                    -m 来指定提交说明
+                    -a 可以指定跟新的用户信息
+
+        b、使用Dockerfile来创建镜像
+            .编写Dockerfile文件内容如下
+                FROM ubuntu:16.04
+                MAINTAINER Docker Newbee <newbee@docker.com>
+                RUN apt-get -qq update
+                RUN apt-get -qqy install ruby ruby-dev
+                RUN gem install sinatra
+
+            .使用 docker build -t="<tagName>" . 来编译docker生成镜像
+
+    5.存出和载入镜像
+        a、存出镜像, docker save -o /xxx/xxx/image.tar <imageName>
+        b、载入镜像, docker load --input <image.tar>
+
+    6.移除本地镜像
+        docker rmi <imageId>
+            注意: 在删除镜像之前要先用 docker rm 删掉依赖与这个镜像的所有容器
+
+    7.镜像的实现原理
