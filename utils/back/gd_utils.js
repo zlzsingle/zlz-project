@@ -1,13 +1,13 @@
 //http://lbs.amap.com/api/webservice/guide/api/ipconfig/
 module.exports = (function () {
 
-    var needle = require('needle');
-    var urlJoin = require("url-join");
-    var qs = require("qs");
-    var host = "http://restapi.amap.com"; //高德api地址
-    var key = "5f4d39a455230ade049a6fef5ddf5ae8";
+    let needle = require('needle');
+    let urlJoin = require("url-join");
+    let qs = require("qs");
+    let host = "http://restapi.amap.com"; //高德api地址
+    let key = "5f4d39a455230ade049a6fef5ddf5ae8";
 
-    var options = {
+    let options = {
         timeout: 30000
         , json: false
         , headers: {
@@ -15,7 +15,7 @@ module.exports = (function () {
             , 'Charset': 'UTF-8'
         }
     };
-    var dfParams = {
+    let dfParams = {
         output: "json",
         key: key,
         page: 1,
@@ -42,7 +42,7 @@ module.exports = (function () {
 
     // lat 经度 , lon 纬度
     function splitLocation(location) {
-        var arr = location.split(",");
+        let arr = location.split(",");
         return {
             lat: arr[0],
             lon: arr[1]
@@ -63,7 +63,7 @@ module.exports = (function () {
     }
 
     function genParams(params) {
-        for (var key in dfParams) {
+        for (let key in dfParams) {
             if (!params[key] && params[key] != 0) {
                 params[key] = dfParams[key];
             }
@@ -72,7 +72,7 @@ module.exports = (function () {
     }
 
     function newPage(page, pageSize, pageTotal, results) {
-        var result = {};
+        let result = {};
         result.currentPage = page;
         result.data = results;
         result.pageSize = pageSize;
@@ -85,8 +85,8 @@ module.exports = (function () {
     }
 
     function getPoi(path,data, callback) {
-        var params = genParams(data);
-        var url = genUrl(path, params);
+        let params = genParams(data);
+        let url = genUrl(path, params);
 
         outInfo("url : " + url);
 
@@ -97,9 +97,9 @@ module.exports = (function () {
             if (!checkBody(body)) {
                 return runCallback(callback, null, genErrInfo(body));
             }
-            var results = [];
-            var pois = body.pois;
-            var count = body.count;
+            let results = [];
+            let pois = body.pois;
+            let count = body.count;
             if (pois && pois.length > 0){
                 pois.forEach(function (poi) {
                     results.push({
@@ -150,9 +150,9 @@ module.exports = (function () {
      * @param callback
      */
     function getCityInfo(data, callback) {
-        var path = "/v3/ip";
-        var params = genParams(data);
-        var url = genUrl(path, params);
+        let path = "/v3/ip";
+        let params = genParams(data);
+        let url = genUrl(path, params);
         needle.get(url, options, function (err, res, body) {
             if (err) {
                 return runCallback(callback, null, err);
@@ -160,7 +160,7 @@ module.exports = (function () {
             if (!checkBody(body)) {
                 return runCallback(callback, null, genErrInfo(body));
             }
-            var result = {
+            let result = {
                 city: body.city, //城市名称
                 adcode: body.adcode, //城市的adcode编码
                 province: body.province //省份名称

@@ -1,9 +1,9 @@
-var fs = require('fs');
-var path = require('path');
-var AdmZip = require('adm-zip');
-var iconv = require('iconv-lite');
-var async = require('async');
-var method2String = {
+let fs = require('fs');
+let path = require('path');
+let AdmZip = require('adm-zip');
+let iconv = require('iconv-lite');
+let async = require('async');
+let method2String = {
     0: 'stored',
     1: 'shrunk',
     6: 'imploded',
@@ -14,7 +14,7 @@ var method2String = {
 
 function fixZipFilename(filename, encoding) {
     encoding = encoding || 'cp437';
-    var str = iconv.decode(filename, encoding);
+    let str = iconv.decode(filename, encoding);
     // if (str.replace(/[\u4e00-\u9fa5_a-zA-Z0-9\/\-\.]/g, '').length > 0) { //有乱码
     //     str = iconv.decode(filename, 'utf-8');
     // }
@@ -22,8 +22,8 @@ function fixZipFilename(filename, encoding) {
 }
 
 function listSync(zipFilename, encoding) {
-    var zip = new AdmZip(zipFilename);
-    var results = zip.getEntries().map(function (x) {
+    let zip = new AdmZip(zipFilename);
+    let results = zip.getEntries().map(function (x) {
         return {
             path: fixZipFilename(x.rawEntryName, encoding),
             time: x.header.time,
@@ -35,17 +35,17 @@ function listSync(zipFilename, encoding) {
 }
 
 function extractSync(zipFilename, targetPath, encoding, filters, callback) {
-    var zip = new AdmZip(zipFilename);
-    var zipEntries = zip.getEntries();
-    var list = [];
+    let zip = new AdmZip(zipFilename);
+    let zipEntries = zip.getEntries();
+    let list = [];
     zipEntries.forEach(function (x) {
         list.push(x)
     });
 
     if (filters && filters.length > 0) {
         async.forEachSeries(list, function (x, cb) {
-            var filePath = fixZipFilename(x.rawEntryName, encoding);
-            var match = filters
+            let filePath = fixZipFilename(x.rawEntryName, encoding);
+            let match = filters
                 .map(function (x) {
                     return filePath.startsWith(x);
                 })
@@ -66,7 +66,7 @@ function extractSync(zipFilename, targetPath, encoding, filters, callback) {
         });
     } else {
         async.forEachSeries(list, function (x, cb) {
-            var filePath = fixZipFilename(x.rawEntryName, encoding);
+            let filePath = fixZipFilename(x.rawEntryName, encoding);
             filePath = path.join(targetPath + "", filePath);
             if (x.isDirectory) {
                 fs.mkdirSync(filePath);

@@ -1,9 +1,9 @@
 (function (exports) {
 
-    var MONTH_NAMES = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-    var DAY_NAMES = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+    let MONTH_NAMES = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+    let DAY_NAMES = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 
-    var constant = {
+    let constant = {
         yyyy_MM_dd_HH_mm_ss: "yyyy-MM-dd HH:mm:ss",
         yyyyMMddHHmmss: "yyyyMMddHHmmss",
         yyyy_MM_dd: "yyyy-MM-dd",
@@ -12,7 +12,7 @@
         HHmmss: "HHmmss"
     };
 
-    var obj = {
+    let obj = {
         constant: constant,
 
         /**
@@ -22,22 +22,22 @@
          * @returns {string}
          */
         formatDate: function (date, format) {
-            var format = (typeof(format) !== 'undefined') ? format : constant.yyyy_MM_dd;
+            let format = (typeof(format) !== 'undefined') ? format : constant.yyyy_MM_dd;
             format = format + "";
-            var result = "";
-            var i_format = 0;
-            var c = "";
-            var token = "";
-            var y = date.getYear() + "";
-            var M = date.getMonth() + 1;
-            var d = date.getDate();
-            var E = date.getDay();
-            var H = date.getHours();
-            var m = date.getMinutes();
-            var s = date.getSeconds();
-            var yyyy, yy, MMM, MM, dd, hh, h, mm, ss, ampm, HH, H, KK, K, kk, k;
+            let result = "";
+            let i_format = 0;
+            let c = "";
+            let token = "";
+            let y = date.getYear() + "";
+            let M = date.getMonth() + 1;
+            let d = date.getDate();
+            let E = date.getDay();
+            let H = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+            let yyyy, yy, MMM, MM, dd, hh, h, mm, ss, ampm, HH, H, KK, K, kk, k;
             // Convert real date parts into formatted versions
-            var value = new Object();
+            let value = new Object();
             if (y.length < 4) {
                 y = "" + (y - 0 + 1900);
             }
@@ -104,8 +104,8 @@
          * @returns {*|string}
          */
         formatDateTime: function (date) {
-            var _this = this;
-            var rr = _this.formatDate(date, constant.yyyy_MM_dd_HH_mm_ss);
+            let _this = this;
+            let rr = _this.formatDate(date, constant.yyyy_MM_dd_HH_mm_ss);
             return rr;
         },
 
@@ -117,8 +117,8 @@
          * @returns {*|string}
          */
         formatForDateStr: function (dateStr, format, newFormat) {
-            var self = this;
-            var dt = self.parseDate(dateStr, format);
+            let self = this;
+            let dt = self.parseDate(dateStr, format);
             return self.formatDate(dt, newFormat);
         },
 
@@ -132,20 +132,20 @@
             var format = (typeof(format) != 'undefined') ? format : constant.yyyy_MM_dd_HH_mm_ss;
             val = val + "";
             format = format + "";
-            var i_val = 0;
-            var i_format = 0;
-            var c = "";
-            var token = "";
-            var token2 = "";
-            var x, y;
-            var now = new Date();
-            var year = now.getYear();
-            var month = now.getMonth() + 1;
-            var date = 1;
-            var hh = now.getHours();
-            var mm = now.getMinutes();
-            var ss = now.getSeconds();
-            var ampm = "";
+            let i_val = 0;
+            let i_format = 0;
+            let c = "";
+            let token = "";
+            let token2 = "";
+            let x, y;
+            let now = new Date();
+            let year = now.getYear();
+            let month = now.getMonth() + 1;
+            let date = 1;
+            let hh = now.getHours();
+            let mm = now.getMinutes();
+            let ss = now.getSeconds();
+            let ampm = "";
 
             while (i_format < format.length) {
                 // Get next token from format string
@@ -184,8 +184,8 @@
                 }
                 else if (token == "MMM" || token == "NNN") {
                     month = 0;
-                    for (var i = 0; i < MONTH_NAMES.length; i++) {
-                        var month_name = MONTH_NAMES[i];
+                    for (let i = 0; i < MONTH_NAMES.length; i++) {
+                        let month_name = MONTH_NAMES[i];
                         if (val.substring(i_val, i_val + month_name.length).toLowerCase() == month_name.toLowerCase()) {
                             if (token == "MMM" || (token == "NNN" && i > 11)) {
                                 month = i + 1;
@@ -202,8 +202,8 @@
                     }
                 }
                 else if (token == "EE" || token == "E") {
-                    for (var i = 0; i < DAY_NAMES.length; i++) {
-                        var day_name = DAY_NAMES[i];
+                    for (let i = 0; i < DAY_NAMES.length; i++) {
+                        let day_name = DAY_NAMES[i];
                         if (val.substring(i_val, i_val + day_name.length).toLowerCase() == day_name.toLowerCase()) {
                             i_val += day_name.length;
                             break;
@@ -318,7 +318,7 @@
             else if (hh > 11 && ampm == "AM") {
                 hh -= 12;
             }
-            var newdate = new Date(year, month - 1, date, hh, mm, ss);
+            let newdate = new Date(year, month - 1, date, hh, mm, ss);
             return newdate.getTime();
         },
 
@@ -332,8 +332,8 @@
             if (!format) {
                 format = constant.yyyy_MM_dd;
             }
-            var self = this;
-            var time = self.getDateFromFormat(dateStr, format);
+            let self = this;
+            let time = self.getDateFromFormat(dateStr, format);
             return new Date(time);
         },
 
@@ -345,7 +345,7 @@
          * @returns {Date}
          */
         dateAdd: function (date, strInterval, number) {
-            var dtTmp = date;
+            let dtTmp = date;
             switch (strInterval) {
                 case 's' :
                     return new Date(dtTmp.valueOf() + (1000 * number));
@@ -372,8 +372,8 @@
     }
 
     function _isInteger(val) {
-        var digits = "1234567890";
-        for (var i = 0; i < val.length; i++) {
+        let digits = "1234567890";
+        for (let i = 0; i < val.length; i++) {
             if (digits.indexOf(val.charAt(i)) == -1) {
                 return false;
             }
@@ -382,8 +382,8 @@
     }
 
     function _getInt(str, i, minlength, maxlength) {
-        for (var x = maxlength; x >= minlength; x--) {
-            var token = str.substring(i, i + x);
+        for (let x = maxlength; x >= minlength; x--) {
+            let token = str.substring(i, i + x);
             if (token.length < minlength) {
                 return null;
             }

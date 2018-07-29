@@ -1,10 +1,10 @@
 module.exports = (function () {
-    var fs = require("fs");
-    var path = require("path");
-    var unzip = require("unzip");
-    var AdmZip = require('adm-zip');
-    var archiver = require('archiver');
-    var recursive = require("recursive-readdir");
+    let fs = require("fs");
+    let path = require("path");
+    let unzip = require("unzip");
+    let AdmZip = require('adm-zip');
+    let archiver = require('archiver');
+    let recursive = require("recursive-readdir");
 
     return {
         /**
@@ -13,7 +13,7 @@ module.exports = (function () {
          */
         delFile: function (filePath) {
             if (fs.existsSync(filePath)) {
-                var stat = fs.statSync(filePath);
+                let stat = fs.statSync(filePath);
                 if (stat.isFile()) {
                     fs.unlinkSync(filePath);
                 }
@@ -32,8 +32,8 @@ module.exports = (function () {
             }
             this.syncCreateDir(targetPath);
 
-            var reader = fs.createReadStream(sourcePath);
-            var writer = fs.createWriteStream(targetPath);
+            let reader = fs.createReadStream(sourcePath);
+            let writer = fs.createWriteStream(targetPath);
             reader.pipe(writer);
             reader.on('end', function () {
                 writer.end();
@@ -49,7 +49,7 @@ module.exports = (function () {
          * @param targetPath "/files/news/a.jpg"
          */
         copyFileSync: function (sourcePath, targetPath) {
-            var _this = this;
+            let _this = this;
             if (fs.existsSync(sourcePath) && fs.statSync(sourcePath).isFile()) {
                 _this.syncCreateDir(path.join(targetPath, ".."));
                 fs.writeFileSync(targetPath, fs.readFileSync(sourcePath));
@@ -64,7 +64,7 @@ module.exports = (function () {
          * @param targetFile "/files/news/a.jpg"
          */
         moveFileSync: function (sourceFile, targetFile) {
-            var _this = this;
+            let _this = this;
             if (!fs.existsSync(sourceFile)) {
                 throw sourceFile + " is not exists";
             }
@@ -79,15 +79,15 @@ module.exports = (function () {
          * @param callback function 回调
          */
         moveDirSync: function (sourceDir, targetDir, callback) {
-            var _this = this;
+            let _this = this;
             if (fs.existsSync(sourceDir) && fs.statSync(sourceDir).isDirectory()) {
                 _this.syncCreateDir(targetDir);
                 recursive(sourceDir, function (err, files) {
                     if (!err) {
                         files.forEach(function (filePath) {
                             //相对路径
-                            var relativePath = path.relative(sourceDir, filePath);
-                            var newFilePath = path.join(targetDir, relativePath);
+                            let relativePath = path.relative(sourceDir, filePath);
+                            let newFilePath = path.join(targetDir, relativePath);
                             if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
                                 _this.moveFileSync(filePath, newFilePath);
                             } else {
@@ -109,13 +109,13 @@ module.exports = (function () {
          * @param delRoot {Boolean} true|false (默认删除)
          */
         delDir: function (dirPath, delRoot) {
-            var files = [];
-            var _del = delRoot === undefined ? true : delRoot; //默认删除
-            var _this = this;
+            let files = [];
+            let _del = delRoot === undefined ? true : delRoot; //默认删除
+            let _this = this;
             if (fs.existsSync(dirPath)) {
                 files = fs.readdirSync(dirPath);
                 files.forEach(function (file) {
-                    var curPath = dirPath + "/" + file;
+                    let curPath = dirPath + "/" + file;
                     if (fs.statSync(curPath).isDirectory()) { // recurse
                         _this.delDir(curPath);
                     } else {
@@ -135,18 +135,18 @@ module.exports = (function () {
          * @returns ["/files/data/test.txt","/files/data/student.txt"]
          */
         getFiles: function (dirPath, suffix) {
-            var result = [];
+            let result = [];
 
             function finder(filePath) {
-                var files = fs.readdirSync(filePath);
+                let files = fs.readdirSync(filePath);
                 files.forEach(function (val) {
-                    var fPath = path.join(filePath, val);
-                    var stats = fs.statSync(fPath);
+                    let fPath = path.join(filePath, val);
+                    let stats = fs.statSync(fPath);
                     if (stats.isDirectory()) {
                         finder(fPath);
                     }
                     if (stats.isFile()) {
-                        var extName = path.extname(fPath);
+                        let extName = path.extname(fPath);
                         if (extName === suffix) {
                             result.push(fPath);
                         }
@@ -165,10 +165,10 @@ module.exports = (function () {
          * @returns {Boolean} true创建成功,false创建失败
          */
         syncCreateDir: function (dirName, isFirst, mode) {
-            var _this = this;
-            var dirPath = dirName;
+            let _this = this;
+            let dirPath = dirName;
             if (isFirst === undefined || isFirst) {
-                var ext = path.extname(dirName);
+                let ext = path.extname(dirName);
                 if (ext) {
                     dirPath = path.dirname(dirName);
                 }
@@ -197,7 +197,7 @@ module.exports = (function () {
             if (!fs.existsSync(output)) {
                 fs.mkdirSync(output);
             }
-            var extract = unzip.Extract({path: output});
+            let extract = unzip.Extract({path: output});
             extract.on("close", function () {
                 callback();
             });
@@ -225,8 +225,8 @@ module.exports = (function () {
             if (path.extname(to) !== ".zip") {
                 return callback("目标文件后缀错误,压缩只支持zip格式");
             }
-            var output = fs.createWriteStream(to);
-            var archive = archiver('zip');
+            let output = fs.createWriteStream(to);
+            let archive = archiver('zip');
 
             output.on('close', function () {
                 callback && callback();
@@ -255,7 +255,7 @@ module.exports = (function () {
          */
         admUnzip: function (input, output, callback) {
             if (fs.existsSync(input) && fs.statSync(input).isFile()) {
-                var zip = new AdmZip(input);
+                let zip = new AdmZip(input);
                 zip.extractAllToAsync(output, true, callback);
             } else {
                 callback(input + "文件路劲不存在!")

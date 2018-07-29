@@ -1,6 +1,6 @@
 module.exports = (function () {
-    var urlJoin = require("url-join");
-    var qs = require('qs');
+    let urlJoin = require("url-join");
+    let qs = require('qs');
 
     return {
         join: function () {

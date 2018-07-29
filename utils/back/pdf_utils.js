@@ -1,7 +1,7 @@
 module.exports = (function () {
-    var pdf = require("html-pdf");
-    var fs = require("fs");
-    var path = require("path");
+    let pdf = require("html-pdf");
+    let fs = require("fs");
+    let path = require("path");
 
     return {
         /**
@@ -11,10 +11,10 @@ module.exports = (function () {
          */
         htmlToPdf: function (data, cb) {
             // data : {html : "", output: "",opt:{}}
-            var html = data.html;
-            var output = data.output;
-            var phPath = path.join(process.cwd(), "node_modules", "phantomjs", "bin", "phantomjs");
-            var options = Object.assign({}, {
+            let html = data.html;
+            let output = data.output;
+            let phPath = path.join(process.cwd(), "node_modules", "phantomjs", "bin", "phantomjs");
+            let options = Object.assign({}, {
                 format: 'Letter'
                 , phantomPath: phPath
             }, data.opt);
@@ -38,10 +38,10 @@ module.exports = (function () {
          */
         htmlFileToPdf: function (data, cb) {
             // data : {htmlFile : "", output: "",opt}
-            var _this = this;
-            var htmlFile = data.htmlFile;
+            let _this = this;
+            let htmlFile = data.htmlFile;
             if (fs.existsSync(htmlFile)) {
-                var stat = fs.statSync(htmlFile);
+                let stat = fs.statSync(htmlFile);
                 if (stat.isFile()) {
                     data.html = fs.readFileSync(htmlFile);
                     data.htmlFile = undefined;

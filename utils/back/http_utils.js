@@ -1,7 +1,7 @@
 module.exports = (function () {
-    var success = "success";
-    var error = "error";
-    var request = require("request");
+    let success = "success";
+    let error = "error";
+    let request = require("request");
 
     function genHeaders(headers) {
         return Object.assign({}, {
@@ -32,7 +32,7 @@ module.exports = (function () {
                 if (response.statusCode !== 200) {
                     return callback(genError("response.statusCode !== 200"));
                 }
-                var data;
+                let data;
                 if (typeof body === "string") {
                     try {
                         data = JSON.parse(body);

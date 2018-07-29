@@ -1,8 +1,8 @@
 module.exports = (function () {
-    var fs = require("fs");
-    var formidable = require("formidable");
-    var request = require("request");
-    var util = require("util");
+    let fs = require("fs");
+    let formidable = require("formidable");
+    let request = require("request");
+    let util = require("util");
 
     function genOption(opt) {
         return Object.assign({}, {
@@ -28,10 +28,10 @@ module.exports = (function () {
          * @param callback {Function} 回调函数
          */
         upload: function (req, opt, callback) {
-            var cb = callback || function(){};
-            var options = genOption(opt);
-            var form = new formidable.IncomingForm();
-            var uploadDir = options.dir;
+            let cb = callback || function(){};
+            let options = genOption(opt);
+            let form = new formidable.IncomingForm();
+            let uploadDir = options.dir;
             if (!fs.existsSync(uploadDir)) {
                 fs.mkdirSync(uploadDir);
             }
@@ -90,7 +90,7 @@ module.exports = (function () {
          * @returns {*}
          */
         postFile: function (postUrl, fileData, bodyData, cb) {
-            // var formData = {
+            // let formData = {
             //     my_field: 'my_value',
             //     my_file: fs.createReadStream(__pdfPath),
             //     attachments: [
@@ -99,8 +99,8 @@ module.exports = (function () {
             //     ]
             // };
 
-            var callback = null;
-            var formData = {};
+            let callback = null;
+            let formData = {};
 
             if (util.isFunction(bodyData)) {
                 callback = bodyData;
@@ -120,8 +120,8 @@ module.exports = (function () {
                 formData = Object.assign(formData, bodyData);
                 formData.attachments = [];
 
-                for (var i = 0; i < fileData.length; i++) {
-                    var fileUrl = fileData[i];
+                for (let i = 0; i < fileData.length; i++) {
+                    let fileUrl = fileData[i];
                     if (!fs.existsSync(fileData[i])) {
                         return callback("url " + fileUrl + "is not exists");
                     }

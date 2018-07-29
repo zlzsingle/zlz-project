@@ -1,15 +1,15 @@
 module.exports = (function () {
-    var gm = require("gm");
-    var fs = require("fs");
-    var path = require("path");
-    var async = require("async");
-    var pdf2img = require("pdf2img");
+    let gm = require("gm");
+    let fs = require("fs");
+    let path = require("path");
+    let async = require("async");
+    let pdf2img = require("pdf2img");
 
     function getFileSize(size) {
         if (!size) {
             return size;
         }
-        var fileSize = 0;
+        let fileSize = 0;
         if (size.indexOf("G") != -1) {
             fileSize = parseFloat(size) * 1024 * 1024 * 1024;
         } else if (size.indexOf("M") != -1) {
@@ -32,10 +32,10 @@ module.exports = (function () {
         resizePhoto: function (data, callback) {
             if (Array.isArray(data) && data.length > 0) {
                 async.forEachSeries(data, function (item, cb) {
-                    var gmFile = gm(item.file);
-                    var targetPath = item.targetPath;
-                    var width = item.width;
-                    var height = item.height;
+                    let gmFile = gm(item.file);
+                    let targetPath = item.targetPath;
+                    let width = item.width;
+                    let height = item.height;
                     if (fs.existsSync(path.dirname(targetPath))) {
                         gmFile.resize(width, height).noProfile().write(targetPath, function (err) {
                             if (err) {
@@ -61,8 +61,8 @@ module.exports = (function () {
          * @returns {boolean}
          */
         isImage: function (suffix) {
-            var ext = suffix.replace('.', '').toUpperCase();
-            var arr = "3FR,8BIM,8BIMTEXT,8BIMWTEXT,APP1,APP1JPEG,ART,ARW,AVS,BIE,BMP,BMP2,BMP3,CALS,CAPTION,CIN,CMYK,CMYKA,CR2,CRW,CUR,CUT,DCM,DCR,DCX,DNG,DPS,DPX,EPDF,EPI,EPS,EPSF,EPSI,EPT,EPT2,EPT3,EXIF,FAX,FITS,FRACTAL,FPX,GIF,GIF87,GRADIENT,GRAY,HRZ,ICB,ICC,ICM,ICO,ICON,IDENTITY,IMAGE,IPTC,IPTCTEXT,IPTCWTEXT,JBG,JBIG,JNG,JP2,JPC,JPEG,JPG,K25,KDC,LABEL,M2V,MAP,MAT,MIFF,MNG,MONO,MPC,MPEG,MPG,MRW,MSL,MTV,MVG,NEF,NULL,OTB,P7,PAL,PALM,PBM,PCD,PCDS,PCT,PCX,PDB,PEF,PFA,PFB,PGM,PGX,PICON,PICT,PIX,PLASMA,PNG,PNG24,PNG32,PNG8,PNM,PPM,PSD,PTIF,PWP,RAF,RAS,RGB,RGBA,RLA,RLE,SCT,SFW,SGI,STEGANO,SUN,SVG,TEXT,TGA,TIFF,TILE,TIM,TOPOL,TTF,UYVY,VDA,VICAR,VID,VIFF,VST,WBMP,WMF,WPG,X,X3F,XBM,XC,XCF,XMP,XPM,XV,XWD,YUV".split(",");
+            let ext = suffix.replace('.', '').toUpperCase();
+            let arr = "3FR,8BIM,8BIMTEXT,8BIMWTEXT,APP1,APP1JPEG,ART,ARW,AVS,BIE,BMP,BMP2,BMP3,CALS,CAPTION,CIN,CMYK,CMYKA,CR2,CRW,CUR,CUT,DCM,DCR,DCX,DNG,DPS,DPX,EPDF,EPI,EPS,EPSF,EPSI,EPT,EPT2,EPT3,EXIF,FAX,FITS,FRACTAL,FPX,GIF,GIF87,GRADIENT,GRAY,HRZ,ICB,ICC,ICM,ICO,ICON,IDENTITY,IMAGE,IPTC,IPTCTEXT,IPTCWTEXT,JBG,JBIG,JNG,JP2,JPC,JPEG,JPG,K25,KDC,LABEL,M2V,MAP,MAT,MIFF,MNG,MONO,MPC,MPEG,MPG,MRW,MSL,MTV,MVG,NEF,NULL,OTB,P7,PAL,PALM,PBM,PCD,PCDS,PCT,PCX,PDB,PEF,PFA,PFB,PGM,PGX,PICON,PICT,PIX,PLASMA,PNG,PNG24,PNG32,PNG8,PNM,PPM,PSD,PTIF,PWP,RAF,RAS,RGB,RGBA,RLA,RLE,SCT,SFW,SGI,STEGANO,SUN,SVG,TEXT,TGA,TIFF,TILE,TIM,TOPOL,TTF,UYVY,VDA,VICAR,VID,VIFF,VST,WBMP,WMF,WPG,X,X3F,XBM,XC,XCF,XMP,XPM,XV,XWD,YUV".split(",");
             return arr.indexOf(ext) !== -1;
         },
 
@@ -78,7 +78,7 @@ module.exports = (function () {
                 return cb("Not the Linux platform doesn't work");
             }
 
-            var df = Object.assign({}, {
+            let df = Object.assign({}, {
                 type: "jpg", //图片的类型   png or jpg, default jpg
                 size: 1024, //图片的大小  default 1024
                 density: 600, //图片的密度  default 600
@@ -134,13 +134,13 @@ module.exports = (function () {
          * @param callback
          */
         addWatermark: function (data, callback) {
-            var watermarkFile = data.watermark;
-            var imgFile = data.source;
-            var outputPath = data.output;
-            var position = data.position;
-            var opacity = data.opacity;
-            var buffer = fs.readFileSync(imgFile);
-            var img = gm(buffer);
+            let watermarkFile = data.watermark;
+            let imgFile = data.source;
+            let outputPath = data.output;
+            let position = data.position;
+            let opacity = data.opacity;
+            let buffer = fs.readFileSync(imgFile);
+            let img = gm(buffer);
 
             img
                 .composite(watermarkFile, '50')
@@ -172,12 +172,12 @@ module.exports = (function () {
                 source: ""//图片源路径
             }, data);
 
-            var output = data.output; //压缩之后,图片输出的路径
-            var quality = data.quality;
-            var width = data.width;
-            var height = data.height;
-            var suffix = data.ext;
-            var img = gm(data.source);
+            let output = data.output; //压缩之后,图片输出的路径
+            let quality = data.quality;
+            let width = data.width;
+            let height = data.height;
+            let suffix = data.ext;
+            let img = gm(data.source);
 
             img.resize(width, height).quality(quality).autoOrient().toBuffer(suffix, function (err, buffer) {
                 if (err) {
@@ -195,8 +195,8 @@ module.exports = (function () {
          * @param callback function(data){}
          */
         imageInfo : function (image, callback) {
-            var _file = gm(image);
-            var data = {}; //{size : "", width : "", height: ""};
+            let _file = gm(image);
+            let data = {}; //{size : "", width : "", height: ""};
             _file.size(function (err2, size) {
                 if (err2) {
                     data.width = "";

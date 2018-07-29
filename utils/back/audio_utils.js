@@ -12,9 +12,9 @@ module.exports = (function () {
          * @returns {boolean}
          */
         isAudio: function (suffix) {
-            var ext = suffix.replace('.', '').toUpperCase();
-            var arr = "MP4,WEBM,OGG,AVI,RMVB,RM,ASF,DIVX,MPG,MPEG,MPE,WMV,MP4,MKV,VOB,MOV,AVS,FLV,3GP,DAT,DSM,OGM,RMVB,TS,TP,IFO,NSV".split(",");
-            return arr.indexOf(ext) != -1;
+            let ext = suffix.replace('.', '').toUpperCase();
+            let arr = "MP4,WEBM,OGG,AVI,RMVB,RM,ASF,DIVX,MPG,MPEG,MPE,WMV,MP4,MKV,VOB,MOV,AVS,FLV,3GP,DAT,DSM,OGM,RMVB,TS,TP,IFO,NSV".split(",");
+            return arr.indexOf(ext) !== -1;
         }
     };
 })();

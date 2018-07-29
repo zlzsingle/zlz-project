@@ -1,5 +1,5 @@
 module.exports = (function () {
-    var os = require("os");
+    let os = require("os");
 
     return {
         isLinux: function () {

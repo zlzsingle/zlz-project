@@ -2,9 +2,9 @@
  * APP 消息推送
  * @type {*|exports|module.exports}
  */
-var JPush = require("jpush-sdk");
+let JPush = require("jpush-sdk");
 //nsbapp
-var jpush_client = JPush.buildClient("xxxxxxxxx", "xxxxxxxxxxx");
+let jpush_client = JPush.buildClient("xxxxxxxxx", "xxxxxxxxxxx");
 
 /**
  * @param sound  是否声音提醒， 通知提示声音，''为默认声音，指定为JPush.DISABLE_SOUND不使用提示声
@@ -24,8 +24,8 @@ function get_default_jpush_param() {
 
 function jpush_to_all(content, title, badgeNumber, options, callback) {
 
-    var ios = JPush.ios(content, options.sound, badgeNumber, options.contentAvailable, options.extras);
-    var android = JPush.android(content, title, 1, options.extras);
+    let ios = JPush.ios(content, options.sound, badgeNumber, options.contentAvailable, options.extras);
+    let android = JPush.android(content, title, 1, options.extras);
 
     jpush_client.push().setPlatform(JPush.ALL)
         .setAudience(JPush.ALL)
@@ -53,11 +53,11 @@ function jpush_to_tag(tags, content, title, badgeNumber, options, callback) {
     if (!tags || !content){
         return;
     }
-    var ios = JPush.ios(content, options.sound, badgeNumber, options.contentAvailable, options.extras);
+    let ios = JPush.ios(content, options.sound, badgeNumber, options.contentAvailable, options.extras);
     //console.log("IOS:"+JSON.parse(ios));
-    var android = JPush.android(content, title, 1, options.extras);
+    let android = JPush.android(content, title, 1, options.extras);
     //console.log("ANDROID:"+JSON.parse(android));
-    var opts =
+    let opts =
     jpush_client.push().setPlatform(JPush.ALL)
         .setAudience(JPush.tag(tags))
         //.setAudience(JPush.registration_id(["18171adc030ef95923a"]))
@@ -92,7 +92,7 @@ function remind_push(tags, content, extras, callback) {
     if (!tags || !content) {
         return;
     }
-    var params = get_default_jpush_param();
+    let params = get_default_jpush_param();
     params.extras = extras;
 
     jpush_to_tag(tags, content, undefined, 1, params, callback);
@@ -102,7 +102,7 @@ function remind_push_all(content, extras, callback) {
     if (!content) {
         return;
     }
-    var params = get_default_jpush_param();
+    let params = get_default_jpush_param();
     params.extras = extras;
 
     jpush_to_all(content, undefined, 1, params, callback);

@@ -1,9 +1,9 @@
 module.exports = (function () {
-    // var gm = require("gm");
-    // var fs = require("fs");
-    // var path = require("path");
-    // var async = require("async");
-    // var pdf2img = require("pdf2img");
+    // let gm = require("gm");
+    // let fs = require("fs");
+    // let path = require("path");
+    // let async = require("async");
+    // let pdf2img = require("pdf2img");
 
     return {
         /**
@@ -12,8 +12,8 @@ module.exports = (function () {
          * @returns {boolean}
          */
         isVideo: function (suffix) {
-            var ext = suffix.replace('.', '').toUpperCase();
-            var arr = "MP4,WEBM,OGG,AVI,RMVB,RM,ASF,DIVX,MPG,MPEG,MPE,WMV,MP4,MKV,VOB,MOV,AVS,FLV,3GP,DAT,DSM,OGM,RMVB,TS,TP,IFO,NSV".split(",");
+            let ext = suffix.replace('.', '').toUpperCase();
+            let arr = "MP4,WEBM,OGG,AVI,RMVB,RM,ASF,DIVX,MPG,MPEG,MPE,WMV,MP4,MKV,VOB,MOV,AVS,FLV,3GP,DAT,DSM,OGM,RMVB,TS,TP,IFO,NSV".split(",");
             return arr.indexOf(ext) !== -1;
         }
     };
