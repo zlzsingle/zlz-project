@@ -13,7 +13,7 @@ var options = {
 };
 
 var url = 'http://yunpian.com/v1/sms/send.json';
-var apikey = '0cf880f7194c9a482bb34928d0935502';
+var apikey = '1111111111111111111111111111111';
 module.exports = {
     name:'yunpain',
     send:function(opt,callback){
