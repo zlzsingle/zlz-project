@@ -4,7 +4,7 @@ let nodeUtil = require('util');
 let outPut = function (callback) {
     let pdfPath = path.join(__dirname, Date.now() + ".pdf");
     let resizeJsPath = path.join(__dirname, "rasterize.js");
-    let pdfUrl = "file:///" + path.join(__dirname, "test_html", "html.html");
+    let pdfUrl = "file:///" + path.join(__dirname, "test-html", "html.html");
     let cmd = nodeUtil.format("phantomjs %s %s %s A4", resizeJsPath, pdfUrl, pdfPath);
 
     console.error("pdfPath : " + pdfPath);
@@ -26,4 +26,4 @@ outPut(function (err, path) {
     } else {
         console.log(path)
     }
-})
+});
