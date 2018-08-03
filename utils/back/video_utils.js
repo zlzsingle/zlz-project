@@ -1,10 +1,4 @@
 module.exports = (function () {
-    // let gm = require("gm");
-    // let fs = require("fs");
-    // let path = require("path");
-    // let async = require("async");
-    // let pdf2img = require("pdf2img");
-
     return {
         /**
          * 是否是视频后缀
