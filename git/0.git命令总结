@@ -9,8 +9,9 @@ git config --global user.email "774320433@qq.com"   //设置邮箱
 git config --global --unset user.name               //取消user.name
 git config --global --unset user.email              //取消user.email
 
-git clone http://github.com/xxxxx.com/xxx.git       //http的git方式
-git clone git@github.com:xxxxx/xxx.git              //ssh的git方式
+git clone http://github.com/xxx.com/xxx.git       //http的git方式
+git clone git@github.com:xxx/xxx.git              //ssh的git方式
+git clone --recursive http://xxx.git              //同时克隆submodule
 
 git push                                            //push分支到仓库
 git push origin --delete <BranchName>               //删除远程分支
@@ -41,6 +42,13 @@ git log <b1> ^<b2>                                  //查看<b1>有,<b2>没有
 git log <b1>..<b2>                                  //查看<b2>比<b1>多提交了什么
 
 git diff                                            //比较文件差异
+
+git submodule add xxx.git                           //添加submodule
+git submodule init                                  //初始化submodule
+git submodule update                                //更新submodule
+git submodule update --remote                       //拉去最新的submodule代码
+git submodule update --init --remote --force        //强制更新最新代码,本地代码不合并
+git submodule update --remote --force --merge       //强制更新最新代码,本地代码合并
 
 ssh-keygen -t rsa -C "xxxxx@gmail.com"              //生成密银
 
