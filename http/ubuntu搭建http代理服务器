@@ -1,0 +1,3 @@
+http://blog.51cto.com/tong707/2051335
+    sudo apt-get install tinyproxy -y
+    sudo service tinyproxy restart
