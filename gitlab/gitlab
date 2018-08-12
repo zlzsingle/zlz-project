@@ -1,0 +1,8 @@
+/etc/gitlab/gitlab.rb
+sudo gitlab-ctl reconfigure
+
+
+安装
+    sudo apt-get install curl openssh-server ca-certificates postfix
+    sudo curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+    sudo apt-get install gitlab-ce
