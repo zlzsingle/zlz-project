@@ -293,3 +293,94 @@ exports.getAttentionBrokers = async ctx =>{
 exports.getUserAlbum = async ctx =>{
 
 };
+
+/**
+ * @api {get}  /api/v2/social/user/:userId/visitor getVisitor
+ * @apiDescription 获取主页访问者  (新增接口)
+ *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
+ * @apiGroup    User
+ *
+ * @apiExample Example usage:
+ *      GET /api/v2/social/user/:userId/visitor?count=8&beginTime=999999
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *      HTTP/1.1 200 OK
+ *      {
+ *          "code": "SUCCESS",
+ *          "data": {
+ *              users : [{
+ *                   UserId : 1,
+ *                   ViewTime : 9999999,
+ *                   ViewTimeDesc : "1分钟前",
+ *                   Avatar: "https://static.followme.com/avatar/avatar-151537-2018-07-10-23-40-10-757331.png",
+ *              }]
+ *          }
+ *      }
+ *
+ * @apiParam    (Parameter: params)  {number}   [userId]            用户id
+ * @apiParam    (Parameter: query)  {number}   [count]              获取的相册数,默认8条.取值 1~100
+ * @apiParam    (Parameter: query)  {number}   [beginTime]          从那个时间点开始获取,不传默认所有
+ *
+ * @apiSuccess  {string}    code                                    SUCCESS
+ * @apiSuccess  {object}    data                                    数据
+ * @apiSuccess  {string}    data.users                              用户
+ * @apiSuccess  {string}    data.users.UserId                       用户id
+ * @apiSuccess  {string}    data.users.ViewTime                     访问时间
+ * @apiSuccess  {string}    data.users.ViewTimeDesc                 访问时间描述
+ * @apiSuccess  {string}    data.users.Avatar                       用户头像
+ *
+ */
+exports.getVisitor = async ctx =>{
+
+};
+
+/**
+ * @api {get}  /api/v2/trade/accounts/follows getFollowRelation
+ * @apiDescription 获取指定用户,他跟随或跟随他的数据  (新增接口)
+ *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
+ * @apiGroup    User
+ *
+ * @apiExample Example usage:
+ *      GET /api/v2/trade/accounts/follows?userId=9
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *      HTTP/1.1 200 OK
+ *      {
+ *          "code": "SUCCESS",
+ *          "data": {
+ *              from : [{
+ *                  BrokerId : "",
+ *                  BrokerName : "",
+ *                  Account : "",
+ *                  AccountIndex : 1,
+ *                  FollowCount : 100
+ *              }],
+ *              to : [{
+ *                   BrokerId : "",
+ *                   BrokerName : "",
+ *                   Account : "",
+ *                   AccountIndex : 1
+ *              }]
+ *          }
+ *      }
+ *
+ * @apiParam    (Parameter: query)  {number}   [userId]             用户id
+ *
+ * @apiSuccess  {string}    code                                    SUCCESS
+ * @apiSuccess  {object}    data                                    数据
+ * @apiSuccess  {string}    data.from                               跟随他账户的数据
+ * @apiSuccess  {string}    data.from.BrokerId                      账号经纪商家id
+ * @apiSuccess  {string}    data.from.BrokerName                    账号经纪商名称
+ * @apiSuccess  {string}    data.from.Account                       账号
+ * @apiSuccess  {string}    data.from.AccountIndex                  账号索引
+ * @apiSuccess  {string}    data.from.FollowCount                   该账号跟随总数
+ * @apiSuccess  {string}    data.to                                 他跟随别人的账户数据
+ * @apiSuccess  {string}    data.to.BrokerId                        账号经纪商家id
+ * @apiSuccess  {string}    data.to.BrokerName                      账号经纪商名称
+ * @apiSuccess  {string}    data.to.Account                         账号
+ * @apiSuccess  {string}    data.to.AccountIndex                    账号索引
+ *
+ */
+exports.getFollowRelation = async ctx =>{
+
+};

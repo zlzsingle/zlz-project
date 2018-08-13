@@ -148,7 +148,7 @@
         }
     }
 
-7.获取主页访问者(新增接口)
+6.获取主页访问者(新增接口)
     url      : /api/v2/social/personal/151537/views?count=8
     method  : get
     query   :{
@@ -160,18 +160,16 @@
         "data": {
             users : [
                 {
-                    {
-                        UserId : 1, //用户id
-                        ViewTime : 9999999, //访问时间
-                        ViewTimeDesc : "1分钟前", //访问时间描述
-                        Avatar: "https://static.followme.com/avatar/avatar-151537-2018-07-10-23-40-10-757331.png", //用户头像
-                    }
+                    UserId : 1, //用户id
+                    ViewTime : 9999999, //访问时间
+                    ViewTimeDesc : "1分钟前", //访问时间描述
+                    Avatar: "https://static.followme.com/avatar/avatar-151537-2018-07-10-23-40-10-757331.png", //用户头像
                 }
             ]
         }
     }
 
-8.获取制定用户,他跟随或跟随他的数据(新增接口)
+7.获取指定用户,他跟随或跟随他的数据(新增接口)
     url    : /api/v2/trade/accounts/follows?userId=9
     method : get
     query  : {
@@ -197,62 +195,4 @@
         ]
     }
 
-9.获取微博信息(原有接口)
-    url    : /api/v2/social/personal/193431/blogs?pageIndex=1&pageSize=10
-    method : get
-    query  : {
-        pageIndex : 1,
-        pageSize : 10
-    }
-    result : {
-       "code": 0,
-       "data": {
-         "TotalCount": "1",
-         "Items": [
-           {
-             "Id": 20477429,
-             "BlogBody": "发一条文博",
-             "CommentCount": 0,
-             "ViewCount": 2,
-             "PraiseCount": 0,
-             "ShareCount": 0,
-             "FavoritesCount": 0,
-             "RecommendCount": 0,
-             "PostType": 0,
-             "CreateTime": "1534162487893",
-             "IsTop": false,
-             "IsElite": false,
-             "BlogType": 0,
-             "RecommendLocation": 0,
-             "Praised": false,
-             "Favoritesd": false,
-             "Attentioned": false,
-             "CreateTimeDesc": "57分钟前",
-             "BlogTag": "",
-             "HtmlBody": "",
-             "PinZhong": "",
-             "Keywords": "Followme文博",
-             "Tags": "",
-             "UserBaseInfo": {
-               "UserId": 193431,
-               "NickName": "followmezlz",
-               "AccountRole": 0,
-               "HeadImg": "https://static.followme.com/avatar/avatar-193431-2018-07-29-21-15-57-233766.png",
-               "UserIntro": ""
-             },
-             "LongBlogInfo": null,
-             "PraiseInfo": [],
-             "CommentInfo": [],
-             "Files": [],
-             "HitSearchKeywords": [],
-             "IsEvent": false
-           }
-         ],
-         "LastId": "0"
-       }
-     }
-    demo-url : https://www.followme.com/api/v2/social/personal/193431/blogs?pageIndex=1&pageSize=10
-
-10.主页@当前用户发送接口 todo
-
-11.
+9.主页@当前用户发送接口 todo
