@@ -1,0 +1,264 @@
+1.交易员个人信息   (现有接口:需要改动.返回结构增加Score(用户交易账号的最高交易能力值))
+    url     :　/api/v1/account/users/:id
+    method  : get
+    params  : {
+        id : 1  //用户id
+    }
+    result  : {
+        "code": 0,
+        "data": {
+          "user": {
+            "UserId": 151537,
+            "UserType": 1,
+            "NickName": "刘庚家",
+            "Gender": 0,        //性别
+            "BrokerId": 104,
+            "AccountIndex": 2,
+            "AccountRole": 0,
+            "Introduction": "投资的第一原则是永远不要亏钱，第二原则是记住第一原则，在别人贪婪时要保持警惕，而在别人警惕时就要贪婪，欲速则不达。建议3000美金设置为0.01手按固定比例跟随，按比例以此类推，谢谢大家对我的支持！",  //介绍
+            "StrategyDescription": "纯手工交易，根据各个国家的经济数据和货币政策做出交易，看日线和周线图趋势为交易方向，以短线交易为主，月收益20%左右！建议3000美金设置为0.01手按固定比例跟随，按比例以此类推！希望能够带你一起赚",
+            "FollowProfit": 99922.93,
+            "ROI": 381.48,
+            "Orders": 1272,
+            "Weeks": 16,
+            "AttentionCount": 15,       //关注数量
+            "FansCount": 333,           //粉丝数量
+            "Expire": 0,
+            "IsShowTrade": true,
+            "IsShowGender": true,
+            "Certifications": "",
+            "AttentState": 0,
+            "CreateTime": "1512906169", //注册时间
+            "Avatar": "https://static.followme.com/avatar/avatar-151537-2018-07-10-23-40-10-757331.png",
+            "BlogCount": 21,            //博客数量
+            "Address": "广东省深圳市",    //地址
+            "views": 11418,     //访问量
+            "Score" : 72.23541 //交易员能力值(需新增字段)
+          }
+        }
+      }
+    demo-url : https://www.followme.com/api/v1/account/users/151537
+    url-doc  : http://dev.fmfe.com/docs/dev/#api-Account-GetV1AccountUsersId
+
+2.获取当前登录用户与目标用户相互关注的状态[需要登录](现有接口,无需改动)
+    url     :　/api/v1/common/attention/state/with/target/user?userId=999
+    method  : get
+    query   : {
+        userId : 999,
+        toUserId :
+    }
+    params  : {
+    }
+    result  : {
+        "code": "SUCCESS",
+        "data": {
+            "AttentionHe": false,   //当前用户是否关注目标用户
+            "AttentionMe": false    //目标用户是否关注当前用户
+        }
+    }
+    demo-url :  https://www.followme.com/api/v1/social/attention/state/with/two/user?userId=193431
+    url-doc  :  http://dev.fmfe.com/docs/dev/#api-Me-GetV1MeRelations
+
+
+3.获取用户常交易的品种信息(新增接口)
+    url     : /api/v2/trader/user/:userId/trader-symbols?count=3
+    method  : get
+    query   : {
+        count : 3   //要获取的品种总数,默认3.取值1~10
+    }
+    params  : {
+        userId : 999    //用户id
+    }
+    result : {
+        symbols : [
+            {
+                SymbolId : 11,          //品种Id
+                SymbolCNName:"澳元/纽元", //品种中文名称
+                SymbolName:"AUD/NZD",   //品种名称
+                StandardLots : 1.98,    //累计标准手
+                Money : 100.25,         //累计收益
+                TraderAccount　：　[     //该品种其他优秀交易员
+                    {
+                       "UserId": 151537,
+                       "UserType": 1,
+                       "NickName": "刘庚家",
+                       "Gender": 0,        //性别
+                       "BrokerId": 104,
+                       "Account" : "888888", //优秀交易员的交易账号
+                       "AccountIndex": 2,
+                       "CreateTime": "1512906169", //注册时间
+                       "Avatar": "https://static.followme.com/avatar/avatar-151537-2018-07-10-23-40-10-757331.png",
+                    }
+                ]
+            }
+        ]
+    }
+
+4.获取关注的经纪商(新增接口)
+    url     : /api/v2/trader/user/attentions/broker
+    method  : get
+    query   : {
+        userId : 999  // 用户id
+    }
+    params  : {
+
+    }
+    result  : {
+        brokers : [
+            {
+                BrokerID: 1,
+                Name: "pico",
+                FullName: "RH晋峰环球国际",
+                Introduce: "晋峰金融集团有限公司(“晋峰金融集团”)为投资控股公司，根据英属维尔京群岛法例注册成立的合法机构。晋峰金融集团由两位具广泛人脉、丰富金融投资经验及知识的独立投资者创立。主要透过其全资拥有的子公司晋峰资本投资管理有限公司(“晋峰资本”)及其旗下子公司进行多元化主流业务，包括：期货﹑证劵经纪业务﹑借贷人业务﹑和资产管理业务。",
+                Website: "http://www.fxrhs.com/",
+                OpenAccountURL: "https://passport.fxrhs.com/Register/MailRegister",
+                IconURL: "https://cdn.followme.com/images/broker/web/1/1_15_15.png",
+                BigIconURL: "https://cdn.followme.com/images/broker/web/1/1_50_50.png",
+                MinLots: 0.1,
+                Flag: 1227,
+                IsActive: true,
+                DepositeURL: "https://passport.fxrhs.com/Account/Login",
+                ShortName: "",
+                Sort: 0
+            }
+        ]
+    }
+
+5.获取相册(新增接口)
+    url     :  /api/v2/social/personal/151537/album?count=6&beginTime=9999999
+    method  : get
+    query   :{
+        count : 6,  //获取的相册数,默认6条.取值 1~20
+        beginTime : 9999999  //从那个时间点开始获取,不传默认所有
+    }
+    result  : {
+        "code": 0,
+        "data": {
+            blogs : [
+                {
+                    Id : 999,  //微博id
+                    BlogBody : "", //微博正文
+                    keywords : "",　//关键词
+                    CreateTime　： "", //创建时间
+                    CreateTimeDesc : "", //创建时间描述
+                    Files : [       //图片
+                        {
+                            ContentType:"png", //文件类型
+                            ObjectId:20471983, //文件id
+                            Seq:47858,         //文件大小
+                            Url:"https://static.followme.com/social/201807/d59d350896ac48b19f3bef379f1cb9d2.png" //文件地址
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+7.获取主页访问者(新增接口)
+    url      : /api/v2/social/personal/151537/views?count=8
+    method  : get
+    query   :{
+        count : 6  //获取的相册数,默认8条.取值 1~100,
+        beginTime : 9999999  //从那个时间点开始获取,不传默认所有
+    }
+    result  : {
+        "code": 0,
+        "data": {
+            users : [
+                {
+                    {
+                        UserId : 1, //用户id
+                        ViewTime : 9999999, //访问时间
+                        ViewTimeDesc : "1分钟前", //访问时间描述
+                        Avatar: "https://static.followme.com/avatar/avatar-151537-2018-07-10-23-40-10-757331.png", //用户头像
+                    }
+                }
+            ]
+        }
+    }
+
+8.获取制定用户,他跟随或跟随他的数据(新增接口)
+    url    : /api/v2/trade/accounts/follows?userId=9
+    method : get
+    query  : {
+        userId : 9
+    }
+    result : {
+        from : [  //跟随他账户的数据
+            {
+                BrokerId : "", //账号经纪商家id
+                BrokerName : "", //账号经纪商名称
+                Account : "",    //账号
+                AccountIndex : 1, //账号索引
+                FollowCount : 100  //该账号跟随总数
+            }
+        ],
+        to : [   //他跟随别人的账户数据
+            {
+                BrokerId : "", //账号经纪商家id
+                BrokerName : "", //账号经纪商名称
+                Account : "",    //账号
+                AccountIndex : 1, //账号索引
+            }
+        ]
+    }
+
+9.获取微博信息(原有接口)
+    url    : /api/v2/social/personal/193431/blogs?pageIndex=1&pageSize=10
+    method : get
+    query  : {
+        pageIndex : 1,
+        pageSize : 10
+    }
+    result : {
+       "code": 0,
+       "data": {
+         "TotalCount": "1",
+         "Items": [
+           {
+             "Id": 20477429,
+             "BlogBody": "发一条文博",
+             "CommentCount": 0,
+             "ViewCount": 2,
+             "PraiseCount": 0,
+             "ShareCount": 0,
+             "FavoritesCount": 0,
+             "RecommendCount": 0,
+             "PostType": 0,
+             "CreateTime": "1534162487893",
+             "IsTop": false,
+             "IsElite": false,
+             "BlogType": 0,
+             "RecommendLocation": 0,
+             "Praised": false,
+             "Favoritesd": false,
+             "Attentioned": false,
+             "CreateTimeDesc": "57分钟前",
+             "BlogTag": "",
+             "HtmlBody": "",
+             "PinZhong": "",
+             "Keywords": "Followme文博",
+             "Tags": "",
+             "UserBaseInfo": {
+               "UserId": 193431,
+               "NickName": "followmezlz",
+               "AccountRole": 0,
+               "HeadImg": "https://static.followme.com/avatar/avatar-193431-2018-07-29-21-15-57-233766.png",
+               "UserIntro": ""
+             },
+             "LongBlogInfo": null,
+             "PraiseInfo": [],
+             "CommentInfo": [],
+             "Files": [],
+             "HitSearchKeywords": [],
+             "IsEvent": false
+           }
+         ],
+         "LastId": "0"
+       }
+     }
+    demo-url : https://www.followme.com/api/v2/social/personal/193431/blogs?pageIndex=1&pageSize=10
+
+10.主页@当前用户发送接口 todo
+
+11.
