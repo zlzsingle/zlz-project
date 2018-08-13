@@ -40,8 +40,8 @@
     demo-url : https://www.followme.com/api/v1/account/users/151537
     url-doc  : http://dev.fmfe.com/docs/dev/#api-Account-GetV1AccountUsersId
 
-2.检查用户是否关注(现有接口,无需改动)
-    url     :　/api/v1/common/attention/state/with/target/user?userId=999
+2.获取两个用户相互关注的状态(现有接口,无需改动)
+    url     :　/api/v1/social/attention/state/with/two/user?userId=100&toUserId=120
     method  : get
     query   : {
         userId : 999,
@@ -54,8 +54,8 @@
             "AttentionMe": false    //目标用户是否关注当前用户
         }
     }
-    demo-url :  https://www.followme.com/api/v1/social/attention/state/with/two/user?userId=193431
-    url-doc  :  http://dev.fmfe.com/docs/dev/#api-Me-GetV1MeRelations
+    demo-url :  http://dev.fmfe.com/api/v1/social/attention/state/with/two/user
+    url-doc  :  http://dev.fmfe.com/docs/dev/#api-Social-GetV1SocialAttentionStateWithTwoUser
 
 3.获取用户常交易的品种信息(新增接口)
     url     : /api/v2/trader/user/:userId/trader-symbols?count=3
@@ -128,7 +128,7 @@
     result  : {
         "code": 0,
         "data": {
-            blogs : [
+            album : [
                 {
                     Id : 999,  //微博id
                     BlogBody : "", //微博正文
