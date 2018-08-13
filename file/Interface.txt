@@ -1,5 +1,5 @@
-1.交易员个人信息   (现有接口:需要改动.返回结构增加Score(用户交易账号的最高交易能力值))
-    url     :　/api/v1/account/users/:id
+1.交易员个人信息  (现有接口:需要改动,返回值增加属性Score)
+    url     : /api/v1/account/users/:id
     method  : get
     params  : {
         id : 1  //用户id
@@ -7,49 +7,47 @@
     result  : {
         "code": 0,
         "data": {
-          "user": {
-            "UserId": 151537,
-            "UserType": 1,
-            "NickName": "刘庚家",
-            "Gender": 0,        //性别
-            "BrokerId": 104,
-            "AccountIndex": 2,
-            "AccountRole": 0,
-            "Introduction": "投资的第一原则是永远不要亏钱，第二原则是记住第一原则，在别人贪婪时要保持警惕，而在别人警惕时就要贪婪，欲速则不达。建议3000美金设置为0.01手按固定比例跟随，按比例以此类推，谢谢大家对我的支持！",  //介绍
-            "StrategyDescription": "纯手工交易，根据各个国家的经济数据和货币政策做出交易，看日线和周线图趋势为交易方向，以短线交易为主，月收益20%左右！建议3000美金设置为0.01手按固定比例跟随，按比例以此类推！希望能够带你一起赚",
-            "FollowProfit": 99922.93,
-            "ROI": 381.48,
-            "Orders": 1272,
-            "Weeks": 16,
-            "AttentionCount": 15,       //关注数量
-            "FansCount": 333,           //粉丝数量
-            "Expire": 0,
-            "IsShowTrade": true,
-            "IsShowGender": true,
-            "Certifications": "",
-            "AttentState": 0,
-            "CreateTime": "1512906169", //注册时间
-            "Avatar": "https://static.followme.com/avatar/avatar-151537-2018-07-10-23-40-10-757331.png",
-            "BlogCount": 21,            //博客数量
-            "Address": "广东省深圳市",    //地址
-            "views": 11418,     //访问量
-            "Score" : 72.23541 //交易员能力值(需新增字段)
-          }
+            "user": {
+                "UserId": 151537,                                                   //用户id
+                "UserType": 1,                                                      //类型
+                "NickName": "刘庚家",                                               //昵称
+                "Gender": 0,                                                        //性别
+                "BrokerId": 104,                                                    //经纪商id
+                "AccountIndex": 2,                                                  //账号索引
+                "AccountRole": 0,                                                   //角色
+                "Introduction": "投资的第一原则是永远不要亏钱，第二原则是记住第一原则，在别人贪婪时要保持警惕，而在别人警惕时就要贪婪，欲速则不达。建议3000美金设置为0.01手按固定比例跟随，按比例以此类推，谢谢大家对我的支持！",                  //介绍
+                "StrategyDescription": "纯手工交易，根据各个国家的经济数据和货币政策做出交易，看日线和周线图趋势为交易方向，以短线交易为主，月收益20%左右！建议3000美金设置为0.01手按固定比例跟随，按比例以此类推！希望能够带你一起赚",         //跟随策略
+                "FollowProfit": 99922.93,                                            //跟随收益
+                "ROI": 381.48,                                                       //点数
+                "Orders": 1272,                                                      //订单
+                "Weeks": 16,                                                         //交易周期
+                "AttentionCount": 15,                                                //关注数量
+                "FansCount": 333,                                                    //粉丝数量
+                "Expire": 0,                                                        //模拟用户是否失效
+                "IsShowTrade": true,                                                //
+                "IsShowGender": true,                                               //
+                "Certifications": "",                                               //认证
+                "AttentState": 0,                                                   //
+                "CreateTime": "1512906169",                                         //注册时间
+                "Avatar": "",                                                       //用户头像地址
+                "BlogCount": 21,                                                    //博客数量
+                "Address": "广东省深圳市",                                           //地址
+                "views": 11418,                                                     //访问量
+                "Score" : 72.23541                                                  //交易员能力值(需新增字段)
+            }
         }
-      }
+    }
     demo-url : https://www.followme.com/api/v1/account/users/151537
     url-doc  : http://dev.fmfe.com/docs/dev/#api-Account-GetV1AccountUsersId
 
-2.获取当前登录用户与目标用户相互关注的状态[需要登录](现有接口,无需改动)
+2.检查用户是否关注(现有接口,无需改动)
     url     :　/api/v1/common/attention/state/with/target/user?userId=999
     method  : get
     query   : {
         userId : 999,
-        toUserId :
+        toUserId : 888
     }
-    params  : {
-    }
-    result  : {
+    result : {
         "code": "SUCCESS",
         "data": {
             "AttentionHe": false,   //当前用户是否关注目标用户
@@ -58,7 +56,6 @@
     }
     demo-url :  https://www.followme.com/api/v1/social/attention/state/with/two/user?userId=193431
     url-doc  :  http://dev.fmfe.com/docs/dev/#api-Me-GetV1MeRelations
-
 
 3.获取用户常交易的品种信息(新增接口)
     url     : /api/v2/trader/user/:userId/trader-symbols?count=3
@@ -72,21 +69,21 @@
     result : {
         symbols : [
             {
-                SymbolId : 11,          //品种Id
-                SymbolCNName:"澳元/纽元", //品种中文名称
-                SymbolName:"AUD/NZD",   //品种名称
-                StandardLots : 1.98,    //累计标准手
-                Money : 100.25,         //累计收益
-                TraderAccount　：　[     //该品种其他优秀交易员
+                SymbolId : 11,              //品种Id
+                SymbolCNName:"澳元/纽元",   //品种中文名称
+                SymbolName:"AUD/NZD",       //品种名称
+                StandardLots : 1.98,        //累计标准手
+                Money : 100.25,             //累计收益
+                TraderAccount　：　[         //该品种其他优秀交易员
                     {
-                       "UserId": 151537,
-                       "UserType": 1,
-                       "NickName": "刘庚家",
-                       "Gender": 0,        //性别
-                       "BrokerId": 104,
-                       "Account" : "888888", //优秀交易员的交易账号
-                       "AccountIndex": 2,
-                       "CreateTime": "1512906169", //注册时间
+                       "UserId": 151537,                //用户id
+                       "UserType": 1,                   //用户类型
+                       "NickName": "刘庚家",            //昵称
+                       "Gender": 0,                     //性别
+                       "BrokerId": 104,                 //经纪商id
+                       "Account" : "888888",            //优秀交易员的交易账号
+                       "AccountIndex": 2,               //账号索引
+                       "CreateTime": "1512906169",      //注册时间
                        "Avatar": "https://static.followme.com/avatar/avatar-151537-2018-07-10-23-40-10-757331.png",
                     }
                 ]
@@ -99,9 +96,6 @@
     method  : get
     query   : {
         userId : 999  // 用户id
-    }
-    params  : {
-
     }
     result  : {
         brokers : [
