@@ -391,8 +391,7 @@ exports.saveNotifyFlag = async ctx => {
 4.(New)获取微博相册                           getUserAlbum
 5.(New)获取访问用户数据                       getVisitorInfo
 6.(New)获取跟随关系                           getFollowRelation
-7.(New)获取当前用户艾特目标用户的微博          getBlog
-8.(Update)交易概览接口                        getStatisticsOfAccount         http://dev.fmfe.com/docs/dev/#api-Follow-getStatisticsOfAccount
+7.(Update)交易概览接口                        getStatisticsOfAccount         http://dev.fmfe.com/docs/dev/#api-Follow-getStatisticsOfAccount
     注:返回结果集增加属性 BingFlag(绑定标签)、BrokerId、BrokerName(经纪商)
-9.(New)保存通知标签                           saveNotifyFlag
+8.(New)保存通知标签                           saveNotifyFlag
 */
