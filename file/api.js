@@ -81,38 +81,6 @@ exports.getUserInfo = async ctx =>{
 };
 
 /**
- * @api {get}  /api/v1/social/attention/state/with/two/user getAttentionFansOfUser
- * @apiDescription 获取两个用户相互关注的状态  (现有接口,无需改动)
- *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    Account
- *
- * @apiExample Example usage:
- *      GET /api/v1/social/attention/state/with/two/user?userId=100&toUserId=120
- *
- * @apiSuccessExample {json} Success-Response:
- *      HTTP/1.1 200 OK
- *      {
- *          "code": "SUCCESS",
- *          "data": {
- *              "AttentionHe": false,
- *              "AttentionMe": false
- *          }
- *      }
- *
- * @apiParam    (Parameter: query)  {number}   [userId]     主用户id
- * @apiParam    (Parameter: query)  {number}   [toUserId]   次用户id
- *
- * @apiSuccess  {string}    code                            SUCCESS
- * @apiSuccess  {object}    data                            数据
- * @apiSuccess  {string}    data.AttentionHe                当前用户是否关注目标用户
- * @apiSuccess  {string}    data.AttentionMe                目标用户是否关注当前用户
- *
- */
-exports.getAttentionFansOfUser = async ctx =>{
-
-};
-
-/**
  * @api {get}  /api/v2/trader/user/:userId/trader-symbols getTraderSymbol
  * @apiDescription 获取用户常交易的品种信息  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
