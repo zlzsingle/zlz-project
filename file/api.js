@@ -104,7 +104,7 @@ exports.getTraderSymbol = async ctx =>{
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
  * @apiSuccess  {string}    data.brokers                            品种列表
- * @apiSuccess  {string}    data.brokers.BrokerID
+ * @apiSuccess  {number}    data.brokers.BrokerID
  * @apiSuccess  {string}    data.brokers.Name
  * @apiSuccess  {string}    data.brokers.FullName
  * @apiSuccess  {string}    data.brokers.Introduce
@@ -112,12 +112,12 @@ exports.getTraderSymbol = async ctx =>{
  * @apiSuccess  {string}    data.brokers.OpenAccountURL
  * @apiSuccess  {string}    data.brokers.IconURL
  * @apiSuccess  {string}    data.brokers.BigIconURL
- * @apiSuccess  {string}    data.brokers.MinLots
- * @apiSuccess  {string}    data.brokers.Flag
- * @apiSuccess  {string}    data.brokers.IsActive
+ * @apiSuccess  {number}    data.brokers.MinLots
+ * @apiSuccess  {number}    data.brokers.Flag
+ * @apiSuccess  {number}    data.brokers.IsActive
  * @apiSuccess  {string}    data.brokers.DepositeURL
  * @apiSuccess  {string}    data.brokers.ShortName
- * @apiSuccess  {string}    data.brokers.Sort
+ * @apiSuccess  {number}    data.brokers.Sort
  *
  */
 exports.getAttentionBrokers = async ctx =>{
@@ -164,14 +164,14 @@ exports.getAttentionBrokers = async ctx =>{
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
  * @apiSuccess  {string}    data.album                              相册
- * @apiSuccess  {string}    data.album.Id                           微博id
+ * @apiSuccess  {number}    data.album.Id                           微博id
  * @apiSuccess  {string}    data.album.BlogBody                     微博正文
  * @apiSuccess  {string}    data.album.keywords                     关键词
- * @apiSuccess  {string}    data.album.CreateTime　                 创建时间
+ * @apiSuccess  {number}    data.album.CreateTime　                 创建时间
  * @apiSuccess  {string}    data.album.CreateTimeDesc               创建时间描述
  * @apiSuccess  {string}    data.album.Files                        图片
  * @apiSuccess  {string}    data.album.Files.ContentType            文件类型
- * @apiSuccess  {string}    data.album.Files.ObjectId               文件id
+ * @apiSuccess  {number}    data.album.Files.ObjectId               文件id
  * @apiSuccess  {string}    data.album.Files.Seq                    文件大小
  * @apiSuccess  {string}    data.album.Files.Url                    文件地址
  *
@@ -209,8 +209,8 @@ exports.getUserAlbum = async ctx =>{
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
  * @apiSuccess  {string}    data.users                              用户
- * @apiSuccess  {string}    data.users.UserId                       用户id
- * @apiSuccess  {string}    data.users.ViewTime                     访问时间
+ * @apiSuccess  {number}    data.users.UserId                       用户id
+ * @apiSuccess  {number}    data.users.ViewTime                     访问时间
  * @apiSuccess  {string}    data.users.ViewTimeDesc                 访问时间描述
  * @apiSuccess  {string}    data.users.Avatar                       用户头像
  *
@@ -254,16 +254,16 @@ exports.getVisitorInfo = async ctx =>{
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
  * @apiSuccess  {string}    data.from                               跟随他账户的数据
- * @apiSuccess  {string}    data.from.BrokerId                      账号经纪商家id
+ * @apiSuccess  {number}    data.from.BrokerId                      账号经纪商家id
  * @apiSuccess  {string}    data.from.BrokerName                    账号经纪商名称
  * @apiSuccess  {string}    data.from.Account                       账号
- * @apiSuccess  {string}    data.from.AccountIndex                  账号索引
- * @apiSuccess  {string}    data.from.FollowCount                   该账号跟随总数
+ * @apiSuccess  {number}    data.from.AccountIndex                  账号索引
+ * @apiSuccess  {number}    data.from.FollowCount                   该账号跟随总数
  * @apiSuccess  {string}    data.to                                 他跟随别人的账户数据
- * @apiSuccess  {string}    data.to.BrokerId                        账号经纪商家id
+ * @apiSuccess  {number}    data.to.BrokerId                        账号经纪商家id
  * @apiSuccess  {string}    data.to.BrokerName                      账号经纪商名称
  * @apiSuccess  {string}    data.to.Account                         账号
- * @apiSuccess  {string}    data.to.AccountIndex                    账号索引
+ * @apiSuccess  {number}    data.to.AccountIndex                    账号索引
  *
  */
 exports.getFollowRelation = async ctx =>{
@@ -292,7 +292,7 @@ exports.getFollowRelation = async ctx =>{
  *
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
- * @apiSuccess  {string}    data.ok                                 是否保存成功
+ * @apiSuccess  {boolean}    data.ok                                 是否保存成功
  *
  */
 exports.saveNotifyFlag = async ctx => {
