@@ -195,4 +195,15 @@
         ]
     }
 
-9.主页@当前用户发送接口 todo
+1.(Update)获取用户基本信息                    getUserInfo
+    注:返回结果集增加属性 Score(当前用户最高交易员能力值)         http://dev.fmfe.com/docs/dev/#api-Account-GetV1AccountUsersId
+2.(New)获取常交易的品种                       getTraderSymbol
+3.(New)获取关注的经纪商                       getAttentionBrokers
+4.(New)获取微博相册                           getUserAlbum
+5.(New)获取访问用户数据                       getVisitorInfo
+6.(New)获取跟随关系                           getFollowRelation
+7.(New)获取当前用户艾特目标用户的微博          getBlog
+8.(Update)交易概览接口                        getStatisticsOfAccount         http://dev.fmfe.com/docs/dev/#api-Follow-getStatisticsOfAccount
+    注:返回结果集增加属性 BingFlag(绑定标签)、BrokerId、BrokerName(经纪商)
+9.(New)保存通知标签                           saveNotifyFlag
+

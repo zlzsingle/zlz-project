@@ -1,5 +1,5 @@
 /**
- * @api {get}  /api/v1/account/users/:id getUserAccounts
+ * @api {get}  /api/v1/account/users/:id getUserInfo
  * @apiDescription 交易员个人信息 (现有接口:需要改动,返回值增加属性Score)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
  * @apiGroup    Account
@@ -76,7 +76,7 @@
  * @apiSuccess  {string}    data.user.Score                 交易员能力值(需新增字段)
  *
  */
-exports.getUserAccounts = async ctx =>{
+exports.getUserInfo = async ctx =>{
 
 };
 
@@ -116,7 +116,7 @@ exports.getAttentionFansOfUser = async ctx =>{
  * @api {get}  /api/v2/trader/user/:userId/trader-symbols getTraderSymbol
  * @apiDescription 获取用户常交易的品种信息  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    Account
+ * @apiGroup    Symbol
  *
  * @apiExample Example usage:
  *      GET /api/v2/trader/user/9999/trader-symbols?count=3
@@ -152,40 +152,40 @@ exports.getAttentionFansOfUser = async ctx =>{
  *      }
  *
  * @apiParam    (Parameter: params)  {number}   [userId]            用户id
- * @apiParam    (Parameter: query)  {number}   [count]              要获取的品种总数,默认3.取值1~10
+ * @apiParam    (Parameter: query)  {number}   [count]              要获取的品种总数,默认3.取值1-10
  *
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
  * @apiSuccess  {string}    data.symbols                            品种列表
- * @apiSuccess  {string}    data.symbols.SymbolId                   品种Id
+ * @apiSuccess  {number}    data.symbols.SymbolId                   品种Id
  * @apiSuccess  {string}    data.symbols.SymbolCNName               品种中文名称
  * @apiSuccess  {string}    data.symbols.SymbolName                 品种名称
- * @apiSuccess  {string}    data.symbols.StandardLots               累计标准手
- * @apiSuccess  {string}    data.symbols.Money                      累计收益
- * @apiSuccess  {string}    data.symbols.TraderAccount　            该品种其他优秀交易员
- * @apiSuccess  {string}    data.symbols.TraderAccount.UserId       用户id
- * @apiSuccess  {string}    data.symbols.TraderAccount.UserType     用户类型
+ * @apiSuccess  {number}    data.symbols.StandardLots               累计标准手
+ * @apiSuccess  {number}    data.symbols.Money                      累计收益
+ * @apiSuccess  {array}     data.symbols.TraderAccount　            该品种其他优秀交易员
+ * @apiSuccess  {number}    data.symbols.TraderAccount.UserId       用户id
+ * @apiSuccess  {number}    data.symbols.TraderAccount.UserType     用户类型
  * @apiSuccess  {string}    data.symbols.TraderAccount.NickName     昵称
- * @apiSuccess  {string}    data.symbols.TraderAccount.Gender       性别
- * @apiSuccess  {string}    data.symbols.TraderAccount.BrokerId     经纪商id
+ * @apiSuccess  {number}    data.symbols.TraderAccount.Gender       性别
+ * @apiSuccess  {number}    data.symbols.TraderAccount.BrokerId     经纪商id
  * @apiSuccess  {string}    data.symbols.TraderAccount.Account      优秀交易员的交易账号
- * @apiSuccess  {string}    data.symbols.TraderAccount.AccountIndex 账号索引
+ * @apiSuccess  {number}    data.symbols.TraderAccount.AccountIndex 账号索引
  * @apiSuccess  {string}    data.symbols.TraderAccount.CreateTime   注册时间
  * @apiSuccess  {string}    data.symbols.TraderAccount.Avatar       交易员头像地址
  *
  */
-exports.getAttentionFansOfUser = async ctx =>{
+exports.getTraderSymbol = async ctx =>{
 
 };
 
 /**
- * @api {get}  /api/v2/trader/user/attentions/broker getAttentionBrokers
+ * @api {get}  /api/v2/trader/user/:userId/attentions/broker getAttentionBrokers
  * @apiDescription 获取关注的经纪商  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    User
+ * @apiGroup    Broker
  *
  * @apiExample Example usage:
- *      GET /api/v2/trader/user/attentions/broker?userId=999
+ *      GET /api/v2/trader/user/89999/attentions/broker
  *
  * @apiSuccessExample {json} Success-Response:
  *      HTTP/1.1 200 OK
@@ -242,10 +242,10 @@ exports.getAttentionBrokers = async ctx =>{
  * @api {get}  /api/v2/social/personal/:userId/album getUserAlbum
  * @apiDescription 获取相册  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    User
+ * @apiGroup    Album
  *
  * @apiExample Example usage:
- *      GET /api/v2/social/personal/151537/album?count=6&beginTime=9999999
+ *      GET /api/v2/social/personal/151537/album?count=6
  *
  * @apiSuccessExample {json} Success-Response:
  *      HTTP/1.1 200 OK
@@ -272,8 +272,8 @@ exports.getAttentionBrokers = async ctx =>{
  *          }
  *      }
  *
- * @apiParam    (Parameter: params)  {number}   [count]             获取的相册数,默认6条.取值 1~20
- * @apiParam    (Parameter: query)  {number}   [beginTime]          从那个时间点开始获取,不传默认所有
+ * @apiParam    (Parameter: params)  {number}   [userId]            用户id
+ * @apiParam    (Parameter: query)  {number}   [count]              相册总数
  *
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
@@ -295,13 +295,13 @@ exports.getUserAlbum = async ctx =>{
 };
 
 /**
- * @api {get}  /api/v2/social/user/:userId/visitor getVisitor
+ * @api {get}  /api/v2/social/user/:userId/visitor getVisitorInfo
  * @apiDescription 获取主页访问者  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
  * @apiGroup    User
  *
  * @apiExample Example usage:
- *      GET /api/v2/social/user/:userId/visitor?count=8&beginTime=999999
+ *      GET /api/v2/social/user/9999/visitor?count=8
  *
  * @apiSuccessExample {json} Success-Response:
  *      HTTP/1.1 200 OK
@@ -319,7 +319,6 @@ exports.getUserAlbum = async ctx =>{
  *
  * @apiParam    (Parameter: params)  {number}   [userId]            用户id
  * @apiParam    (Parameter: query)  {number}   [count]              获取的相册数,默认8条.取值 1~100
- * @apiParam    (Parameter: query)  {number}   [beginTime]          从那个时间点开始获取,不传默认所有
  *
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
@@ -330,18 +329,18 @@ exports.getUserAlbum = async ctx =>{
  * @apiSuccess  {string}    data.users.Avatar                       用户头像
  *
  */
-exports.getVisitor = async ctx =>{
+exports.getVisitorInfo = async ctx =>{
 
 };
 
 /**
- * @api {get}  /api/v2/trade/accounts/follows getFollowRelation
+ * @api {get}  /api/v2/trade/user/:userId/follows getFollowRelation
  * @apiDescription 获取指定用户,他跟随或跟随他的数据  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
  * @apiGroup    User
  *
  * @apiExample Example usage:
- *      GET /api/v2/trade/accounts/follows?userId=9
+ *      GET /api/v2/trade/user/9999/follows
  *
  * @apiSuccessExample {json} Success-Response:
  *      HTTP/1.1 200 OK
@@ -364,7 +363,7 @@ exports.getVisitor = async ctx =>{
  *          }
  *      }
  *
- * @apiParam    (Parameter: query)  {number}   [userId]             用户id
+ * @apiParam    (Parameter: params)  {number}   [userId]             用户id
  *
  * @apiSuccess  {string}    code                                    SUCCESS
  * @apiSuccess  {object}    data                                    数据
@@ -384,3 +383,48 @@ exports.getVisitor = async ctx =>{
 exports.getFollowRelation = async ctx =>{
 
 };
+
+/**
+ * @api {post}  /api/v2/social/user/save/flags saveNotifyFlag
+ * @apiDescription 保存通知标签[需要登录]  (新增接口)
+ *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
+ * @apiGroup    User
+ *
+ * @apiExample Example usage:
+ *      GET /api/v2/social/user/save/flags
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *      HTTP/1.1 200 OK
+ *      {
+ *          "code": "SUCCESS",
+ *          "data": {
+ *              ok : true
+ *          }
+ *      }
+ *
+ * @apiParam    (Parameter: body)  {string}   [flags]               JSON字符串
+ *
+ * @apiSuccess  {string}    code                                    SUCCESS
+ * @apiSuccess  {object}    data                                    数据
+ * @apiSuccess  {string}    data.ok                                 是否保存成功
+ *
+ */
+exports.saveNotifyFlag = async ctx => {
+
+};
+
+
+
+/*
+1.(Update)获取用户基本信息                    getUserInfo
+    注:返回结果集增加属性 Score(当前用户最高交易员能力值)         http://dev.fmfe.com/docs/dev/#api-Account-GetV1AccountUsersId
+2.(New)获取常交易的品种                       getTraderSymbol
+3.(New)获取关注的经纪商                       getAttentionBrokers
+4.(New)获取微博相册                           getUserAlbum
+5.(New)获取访问用户数据                       getVisitorInfo
+6.(New)获取跟随关系                           getFollowRelation
+7.(New)获取当前用户艾特目标用户的微博          getBlog
+8.(Update)交易概览接口                        getStatisticsOfAccount         http://dev.fmfe.com/docs/dev/#api-Follow-getStatisticsOfAccount
+    注:返回结果集增加属性 BingFlag(绑定标签)、BrokerId、BrokerName(经纪商)
+9.(New)保存通知标签                           saveNotifyFlag
+*/
