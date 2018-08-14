@@ -84,7 +84,7 @@ exports.getUserInfo = async ctx =>{
  * @api {get}  /api/v2/trader/user/:userId/trader-symbols getTraderSymbol
  * @apiDescription 获取用户常交易的品种信息  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    Symbol
+ * @apiGroup    Account
  *
  * @apiExample Example usage:
  *      GET /api/v2/trader/user/9999/trader-symbols?count=3
@@ -150,7 +150,7 @@ exports.getTraderSymbol = async ctx =>{
  * @api {get}  /api/v2/trader/user/:userId/attentions/broker getAttentionBrokers
  * @apiDescription 获取关注的经纪商  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    Broker
+ * @apiGroup    Account
  *
  * @apiExample Example usage:
  *      GET /api/v2/trader/user/89999/attentions/broker
@@ -210,7 +210,7 @@ exports.getAttentionBrokers = async ctx =>{
  * @api {get}  /api/v2/social/personal/:userId/album getUserAlbum
  * @apiDescription 获取相册  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    Album
+ * @apiGroup    Account
  *
  * @apiExample Example usage:
  *      GET /api/v2/social/personal/151537/album?count=6
@@ -266,7 +266,7 @@ exports.getUserAlbum = async ctx =>{
  * @api {get}  /api/v2/social/user/:userId/visitor getVisitorInfo
  * @apiDescription 获取主页访问者  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    User
+ * @apiGroup    Account
  *
  * @apiExample Example usage:
  *      GET /api/v2/social/user/9999/visitor?count=8
@@ -305,7 +305,7 @@ exports.getVisitorInfo = async ctx =>{
  * @api {get}  /api/v2/trade/user/:userId/follows getFollowRelation
  * @apiDescription 获取指定用户,他跟随或跟随他的数据  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    User
+ * @apiGroup    Account
  *
  * @apiExample Example usage:
  *      GET /api/v2/trade/user/9999/follows
@@ -356,7 +356,7 @@ exports.getFollowRelation = async ctx =>{
  * @api {post}  /api/v2/social/user/save/flags saveNotifyFlag
  * @apiDescription 保存通知标签[需要登录]  (新增接口)
  *                 <br/><br/>开发者：[庄伦植](mailto:zhuanglunzhi@followme-inc.com)
- * @apiGroup    User
+ * @apiGroup    Account
  *
  * @apiExample Example usage:
  *      GET /api/v2/social/user/save/flags
