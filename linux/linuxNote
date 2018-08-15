@@ -89,3 +89,6 @@ host www.baidu.com
 
 //设置用户权限
 sudo usermod -a -G docker $USER
+
+//超级搜索
+sudo apt install silversearcher-ag
