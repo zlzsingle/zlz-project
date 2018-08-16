@@ -1,1 +1,34 @@
 docker容器
+    1.启动容器
+        两种方式,一种是基于镜像新建一个容器并启动,另外一个是将在终止状态的容器重新启动
+
+    1.1新建并启动
+        所需要的命令主要为docker run
+        例如:
+            sudo docker run ubuntu:16.04 /bin/echo "Hello World"
+            sudo docker run -t -i ubuntu:16.04 /bin/bash
+
+            -t 让Docker分配一个伪终端(pseudo-ty)并绑定到容器的标准输入上
+            -i 则让容器的标准输入保持打开
+
+        当利用docker run来创建容器时,Docker在后台运行的标准包括
+            .检查本地是否存在指定的镜像,不存在就从公有仓库下载
+            .利用镜像创建并启动一个容器
+            .分配一个文件系统,并在只读的镜像层外面挂载一层可读写层
+            .从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去
+            .从地址池配置一个ip地址给容器
+            .执行用户指定的应用程序
+            .执行完毕后容器被终止
+
+    1.2启动已终止容器
+        docker start <containerId>
+
+    2.守护态运行
+        更多的时候,需要让Docker容器在后台以守护态形式运行,通过-d参数来实现
+            sudo docker run -d ubuntu:16.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+
+        通过 docker ps 命令查看
+
+        通过 docker logs <containerName> 查看日志
+
+    3.终止容器 docker stop <containerId>
