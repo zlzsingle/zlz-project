@@ -4,6 +4,7 @@
   "description": "我的个人项目",
   "main": "index.js",
   "dependencies": {
+    "area-data": "^5.0.6",
     "commitizen": "^2.10.1"
   },
   "devDependencies": {
