@@ -16,6 +16,7 @@ docker run [options] [image] [command] [arguments]
         -i          以交互模式运行容器，通常与 -t 同时使用
         -p          [hostPort]:[containerPort],将容器端口映射到宿主机端口
         --name      指定名称
+        --restart   重启策略
 
 docker built [options] (path | url | -)
     [options]
@@ -40,3 +41,13 @@ docker import [options] file|url| [repository:tag]
     [options]
         -c          应用docker指令创建镜像
         -m          提交时的说明文字
+
+docker update [options] [container1] [container2]
+    [options]
+        --restart   容器重启策略
+
+docker exec [options] [container1] [container2]
+    [options]
+        -d          分离模式,后台运行
+        -t          分配一个伪终端
+        -i          即使没有附加也保持STDIN 打开
