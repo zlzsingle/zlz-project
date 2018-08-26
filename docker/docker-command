@@ -1,0 +1,42 @@
+docker search [imageName]
+
+docker pull [imageName]
+
+docker ps
+docker ps -a
+
+docker rmi [imageId]
+docker rmi -f [tagName]  //删除tag
+
+docker rm [containerId]
+
+docker run [options] [image] [command] [arguments]
+    [options]
+        -d          后台运行
+        -i          以交互模式运行容器，通常与 -t 同时使用
+        -p          [hostPort]:[containerPort],将容器端口映射到宿主机端口
+        --name      指定名称
+
+docker built [options] (path | url | -)
+    [options]
+        --tag,-t    镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签
+        -f          指定要使用的Dockerfile文件路径 [docker build -f /path/url/Dockerfile .]
+
+docker login [options] [server]
+    [options]
+        -u          用户名
+        -p          登录密码
+
+    demo : docker login -u [name] -p [pass] hub.docker.com
+
+docker logout [server]
+    demo : docker logout [server]
+
+docker export [options] [container]
+    [options]
+        --output,-o  输出的文件路径 docker -o /path/url/container.tar
+
+docker import [options] file|url| [repository:tag]
+    [options]
+        -c          应用docker指令创建镜像
+        -m          提交时的说明文字
