@@ -81,6 +81,9 @@ vi /etc/fstab
 //修改完成之后
 mount -a
 
+//ubuntu挂载window目录
+mount -t cifs -o username="",password="" //192.168.xxx.xxx/share /home/xxx/xxx
+
 //安裝命令
 sudo apt install <deb name>
 
