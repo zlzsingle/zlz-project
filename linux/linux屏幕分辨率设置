@@ -1,0 +1,6 @@
+xrandr命令例子
+    https://www.jianshu.com/p/4df7f386aedf
+
+1.设置分辨率
+    xrandr --output VGA-1 --mode 1920x1080
+
