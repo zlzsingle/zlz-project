@@ -6,3 +6,4 @@
 // pm2 start {name id path} --name {name} -- param1 param2 param3 启动时传参给进程
 // pm2 startup
 // pm2 resurrect 复活
+// pm2 ecosystem 生成ecosystem.json.js文件
