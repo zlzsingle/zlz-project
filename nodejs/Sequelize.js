@@ -1,4 +1,5 @@
 // https://github.com/sequelize/sequelize
+// https://blog.csdn.net/zjw0742/article/details/76861013
 const Sequelize = require('Sequelize');
 const Op = Sequelize.Op;
 const operatorsAliases = {
