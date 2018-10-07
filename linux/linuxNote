@@ -95,3 +95,9 @@ sudo usermod -a -G docker $USER
 
 //超级搜索
 sudo apt install silversearcher-ag
+
+//远程连接
+ssh 192.168.x.x
+
+//生成sshId
+ssh-copy-id xxx
