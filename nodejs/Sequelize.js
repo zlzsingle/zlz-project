@@ -97,7 +97,12 @@ user.find({where: {id: 1}});
 user.findAll({where: {name: '1'}});
 
 // 查询总数
-user.count({where: {name: '1'}});
+user.count({
+    where: {
+        name: '1',
+        type: {$in: [1]}
+    }
+});
 
 // 修改
 user.update({name: '2'}, {where: {id: 1}});
