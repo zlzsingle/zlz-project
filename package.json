@@ -8,7 +8,10 @@
     "commitizen": "^2.10.1",
     "koa": "^2.5.2",
     "koa-router": "^7.4.0",
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.39.0"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0"

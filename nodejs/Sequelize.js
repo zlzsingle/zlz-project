@@ -109,3 +109,9 @@ user.update({name: '2'}, {where: {id: 1}});
 
 // 新建
 user.create({name: 3});
+
+// 一对多
+// DataSource.belongsTo(User, {foreignKey: 'user_id'})
+
+//　多对一
+// DataSource.hasMany(DataGroup, {foreignKey: 'source_id', as: 'dataSources'})
