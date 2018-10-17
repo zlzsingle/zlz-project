@@ -62,8 +62,8 @@
 /*------------------------------------测试代码----------------------------------*/
 (() => {
     // client.js
-    var net = require("net");
-    var client = net.connect({
+    let net = require("net");
+    let client = net.connect({
         // host: "116.19.98.191",
         port: 5000
     }, function () {
