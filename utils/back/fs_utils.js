@@ -164,7 +164,7 @@ module.exports = (function () {
          * @param mode 0
          * @returns {Boolean} true创建成功,false创建失败
          */
-        syncCreateDir: function (dirName, isFirst, mode) {
+        syncCreateDir: function (dirName, isFirst = undefined, mode = 0) {
             let _this = this;
             let dirPath = dirName;
             if (isFirst === undefined || isFirst) {
