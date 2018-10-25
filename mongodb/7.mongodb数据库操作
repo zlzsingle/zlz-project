@@ -77,6 +77,19 @@
         {key1 : value1}, {key2 :value2}
     ]});
 
+    db.[collection].find({ $and : [ // AND条件
+        {key1 : value1},{key2 :value2}
+    ]});
+
+    db.[collection].find({ $and : [ // AND OR 条件
+        {
+            key1 : value1 ,
+            $or : [{
+                key2 : value2
+            }]
+        }
+    ]})
+
 12.查询文档
     (>)大于 - $gt
     (>=)大于等于 - $gte
