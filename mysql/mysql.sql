@@ -48,3 +48,9 @@ show columns from [table_name];
 --mysql修改密码命令
 set password for 'root'@'localhost'=password('newPassword');
 
+-- mysql 临时结果集
+select * from (
+  select 10000 as login  union all
+  select 10001 as login  union all
+  select 10002 as login
+) t
