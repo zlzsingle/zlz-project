@@ -87,6 +87,13 @@ const user = mysql.define('user', {
     }
 });
 
+//创建数据库
+Sequelize.createSchema('schema', {}).then(rs => {
+
+}).catch(err => {
+
+});
+
 // Sequelize.INTEGER   // 数值
 // Sequelize.STRING    // 字符串
 
