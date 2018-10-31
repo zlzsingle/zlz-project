@@ -54,3 +54,17 @@ select * from (
   select 10001 as login  union all
   select 10002 as login
 ) t
+
+-- mysql 创建临时表, session 一断开,temp临时表就失效.存在内存里
+create temporary table temp_table (
+    id int not null,
+    name varchar(256) not null
+)
+
+create temporary table temp_table
+    select 10000 as login union
+    select 10001 as login union
+    select 10002 as login
+
+create temporary table temp_talbe
+    select id,name from table_anem;
