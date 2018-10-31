@@ -67,4 +67,8 @@ create temporary table temp_table
     select 10002 as login
 
 create temporary table temp_talbe
-    select id,name from table_anem;
+    select id,name from table_name;
+
+-- 判断临时表是否存在,不存在则创建
+create temporary table if not exists temp_table
+    select id,name from table_name
