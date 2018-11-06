@@ -101,3 +101,6 @@ ssh 192.168.x.x
 
 //生成sshId
 ssh-copy-id xxx
+
+//查看目录占用空间大小
+du -sh ./xxx
