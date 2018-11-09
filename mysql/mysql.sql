@@ -1,4 +1,5 @@
 -- mysql 命令大全
+-- https://www.yiibai.com/mysql/mysqltips.html
 
 --选择数据库
 use 'databasename';

@@ -21,3 +21,6 @@ select md5(rand() * 10000)　-- d6b6f1fd8ecdb9bd643743236740d557
 
 -- 根据x是正数,负数,0;返回1,-1,0
 select sign(10); -- 1
+
+-- 获取平方根
+select sqrt(9); -- 3
