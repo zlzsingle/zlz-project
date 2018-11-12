@@ -24,3 +24,6 @@ select sign(10); -- 1
 
 -- 获取平方根
 select sqrt(9); -- 3
+
+-- 当前时间戳
+select unix_timestamp(now()); -- 1541994931
