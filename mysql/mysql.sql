@@ -73,3 +73,6 @@ create temporary table temp_talbe
 -- 判断临时表是否存在,不存在则创建
 create temporary table if not exists temp_table
     select id,name from table_name
+
+-- mysql 数据增量更新
+insert into ${tablename} (login) values (123123),(456456) on duplicate key update login=login
