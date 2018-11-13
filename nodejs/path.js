@@ -9,3 +9,4 @@ console.error(path.isAbsolute("/student/test/name")); //true
 console.error(path.isAbsolute("../../student")); //false
 console.error(path.normalize("F://application\\zhagnsan\\lisi/student.js")); // F:\application\zhagnsan\lisi\student.js
 console.error(path.basename('/foo/bar/baz/asdf/quux.html', '.html')); // quux
+console.error(path.resolve([from], to)); //　从to里得到绝对路径
