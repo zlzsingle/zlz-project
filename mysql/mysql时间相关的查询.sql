@@ -21,3 +21,6 @@ select * from [table_name] where date_format([column_name], '%y%m' ) = date_form
 
 -- 查询“上一月”的记录
 select * from [table_name] where period_diff( date_format( now() , '%y%m' ) , date_format( [column_name], '%y%m' ) ) =1;
+
+-- 格式化时间
+select date_format([column_name], '%Y-%m-%d %H:%i:%s') from [table_name]

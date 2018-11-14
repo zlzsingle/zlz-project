@@ -27,3 +27,7 @@ select sqrt(9); -- 3
 
 -- 当前时间戳
 select unix_timestamp(now()); -- 1541994931
+
+-- 格式化时间
+select date_format(now(),'%Y-%m-%d '); --2018-11-14
+select date_format(now(),'%Y-%m-%d %H:%i:%s'); --2018-11-14 11:46:15
