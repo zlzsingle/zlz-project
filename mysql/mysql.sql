@@ -79,3 +79,6 @@ insert into ${tablename} (login) values (123123),(456456) on duplicate key updat
 
 -- mysql 锁表
 lock tables tab_name read;
+
+-- 判断数据库表是否存在
+show tables like 'tab_name';
