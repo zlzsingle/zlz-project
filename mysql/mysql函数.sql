@@ -31,3 +31,15 @@ select unix_timestamp(now()); -- 1541994931
 -- 格式化时间
 select date_format(now(),'%Y-%m-%d '); --2018-11-14
 select date_format(now(),'%Y-%m-%d %H:%i:%s'); --2018-11-14 11:46:15
+
+-- 时间比较函数
+--FRAC_SECOND。表示间隔是毫秒
+--SECOND。秒
+--MINUTE。分钟
+--HOUR。小时
+--DAY。天
+--WEEK。星期
+--MONTH。月
+--QUARTER。季度
+--YEAR。年
+select timestampdiff(day,'2012-08-24','2012-08-30') as day;
