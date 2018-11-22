@@ -90,6 +90,14 @@
         }
     ]})
 
+    db.[collection].find( { key : { $regex : '123' } } )    // LIKE查询
+
+    db.[collection].find( { key : /xxx/ } )    // 查询包含xxx
+
+    db.[collection].find( { key : /^xxx/ } )    // 查询以xxx开头
+
+    db.[collection].find( { key : /xxx/i } )    // 查询忽略大小写
+
 12.查询文档
     (>)大于 - $gt
     (>=)大于等于 - $gte
