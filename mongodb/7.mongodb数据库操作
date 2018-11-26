@@ -92,6 +92,16 @@
 
     db.[collection].find( { key : { $regex : '123' } } )    // LIKE查询
 
+    db.[collection].find( { key : {$regex: `^((?!${value}).)*$`, $options: 'i'} } ) // NOT LIKE
+
+    db.[collection].find( { key : null } )      // IS NULL
+
+    db.[collection].find( { key : { $exists : true } } ) // IS NOT NULL
+
+    db.[collection].find( { key : { $nin : [value1, value2] } } ) // NOT IN
+
+    db.[collection].find( { key : { $in : [value1, value2]} } ) // IN
+
     db.[collection].find( { key : /xxx/ } )    // 查询包含xxx
 
     db.[collection].find( { key : /^xxx/ } )    // 查询以xxx开头
