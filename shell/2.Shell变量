@@ -1,0 +1,67 @@
+定义变量时，变量名不加美元符号（$，PHP语言中变量需要），如
+    name='ZS'
+    注意:变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则
+        1.命名只能使用英文字母，数字和下划线，首个字符不能以数字开头
+        2.中间不能有空格，可以使用下划线（_）
+        3.不能使用标点符号
+        4.不能使用bash里的关键字（可用help命令查看保留关键字）
+
+    有效的变量名
+        RUNOOB
+        LD_LIBRARY_PATH
+        _var
+        var2
+
+    无效的变量命名：
+        ?var=123
+        user*name=runoob
+
+    除了显式地直接赋值，还可以用语句给变量赋值，如
+        for file in `ls /etc`; do
+            echo "${file}"
+        done
+
+    只读变量readonly
+        name='ZS'
+        readonly name
+        name='LS' (异常:name: readonly variable)
+
+    删除变量
+        unset variable_name (删除后不能再次使用,unset命令不能删除只读变量)
+
+    变量类型
+        运行shell时,会同时存在三种变量
+        1)局部变量
+        2)环境变量
+        3)shell变量
+
+    Shell字符串
+        单引号
+            .单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的
+            .单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用
+
+        双引号
+            .双引号里可以有变量
+            .双引号里可以出现转义字符
+
+        拼接字符号
+            name=ZS
+            age=18
+            string1="my name is ${name} , age ${age}"
+            string2='my name is ${name} , age ${age}'
+            echo ${string1}
+
+        获取字符串长度
+            string='abc'
+            echo ${#string}
+
+        提取子字符串
+            string='run is a great site'
+            echo ${string:0:4}
+
+        查找子字符串
+            string='my name is job'
+            echo `expr index "${string}" job`
+
+    Shell数组
+
