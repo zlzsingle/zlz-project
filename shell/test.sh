@@ -121,5 +121,7 @@ b=20
 #    echo ' a != b '
 #fi
 
-echo -e "OK! \c"
-echo "It is a test"
+#echo -e "OK! \c"
+#echo "It is a test"
+
+echo `date`

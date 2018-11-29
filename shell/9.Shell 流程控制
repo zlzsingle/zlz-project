@@ -1,0 +1,26 @@
+Shell 流程控制
+    if流程语句控制
+        if condition
+        then
+            ...
+        fi
+        --------------------------------------------------------
+        if condition
+        then
+            ...
+        else
+            ...
+        if
+        --------------------------------------------------------
+        if condition
+        then
+            ...
+        elif condition
+        then
+            ...
+        else
+            ...
+        fi
+
+    for流程语句控制
+
