@@ -124,4 +124,6 @@ b=20
 #echo -e "OK! \c"
 #echo "It is a test"
 
-echo `date`
+#echo `date`
+
+

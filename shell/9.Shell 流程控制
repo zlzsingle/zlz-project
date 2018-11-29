@@ -23,4 +23,29 @@ Shell 流程控制
         fi
 
     for流程语句控制
+        for loop in 1 2 3 4
+        do
+            echo "${loop}"
+        done
 
+        for str in 'this is string'
+        do
+            echo "${str}"
+        done
+
+    while流程语句控制
+        int=1
+        while(( $int <= 5 ))
+        do
+            echo $int
+            let "int=int+1"
+        done
+
+        echo '按下 <CTRL-D> 退出'
+        echo -n '输入你最喜欢的网站名: '
+        while read FILM
+        do
+            echo "是的！$FILM 是一个好网站"
+        done
+
+    until流程语句控制
