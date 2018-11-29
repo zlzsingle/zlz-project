@@ -116,7 +116,10 @@ b=20
 #    echo ' a == b'
 #fi
 
-if [ ${a} == ${b} ]
-then
-    echo ' a != b '
-fi
+#if [ ${a} == ${b} ]
+#then
+#    echo ' a != b '
+#fi
+
+echo -e "OK! \c"
+echo "It is a test"
