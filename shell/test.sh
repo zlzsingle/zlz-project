@@ -109,9 +109,14 @@ b=20
 #    echo 'a 小于等于 b'
 #fi
 
-if [ ${a} != ${b} ]
+#if [ ${a} != ${b} ]
+#then
+#    echo ' a != b'
+#else
+#    echo ' a == b'
+#fi
+
+if [ ${a} == ${b} ]
 then
-    echo ' a != b'
-else
-    echo ' a == b'
+    echo ' a != b '
 fi
