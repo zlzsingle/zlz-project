@@ -49,3 +49,57 @@ Shell 流程控制
         done
 
     until流程语句控制
+        (
+            until 循环执行一系列命令直至条件为true时停止,until 循环与 while 循环在处理方式上刚好相反
+        )
+        until condition
+        do
+
+        done
+
+    case(Shell case语句为多选择语句。可以用case语句匹配一个值与一个模式，如果匹配成功，执行相匹配的命令。case语句格式如下)
+
+        echo '输入 1 到 4 之间的数字:'
+        echo '你输入的数字为:'
+        read aNum
+        case ${aNum} in
+            1) echo "1"
+            ;;
+            2) echo "2"
+            ;;
+            *) echo "${aNum}"
+            ;;
+        esac
+
+    break
+        a=0
+        echo 'start'
+        while :
+        do
+            if [ ${a} -gt 10 ]
+            then
+                echo 'a > 10'
+                break
+            else
+                let "a++"
+                echo ${a}
+            fi
+        done
+
+    continue
+        while :
+        do
+            echo -n "输入 1 到 5 之间的数字: "
+            read aNum
+            case $aNum in
+                1|2|3|4|5) echo "你输入的数字为 $aNum!"
+                ;;
+                *) echo "你输入的数字不是 1 到 5 之间的!"
+                    continue
+                    echo "游戏结束"
+                ;;
+            esac
+        done
+
+    esac
+        case的语法和C family语言差别很大，它需要一个esac（就是case反过来）作为结束标记，每个case分支用右圆括号，用两个分号表示break。

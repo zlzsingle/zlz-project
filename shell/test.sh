@@ -126,4 +126,16 @@ b=20
 
 #echo `date`
 
+#echo '输入 1 到 4 之间的数字:'
+#echo '你输入的数字为:'
+#read aNum
+#case ${aNum} in
+#    1) echo "1"
+#    ;;
+#    2) echo "2"
+#    ;;
+#    *) echo "${aNum}"
+#    ;;
+#esac
+
 
