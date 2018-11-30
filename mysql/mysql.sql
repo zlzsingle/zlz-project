@@ -1,3 +1,4 @@
+-- https://www.yiibai.com/mysql/functions.html
 -- mysql 命令大全
 -- https://www.yiibai.com/mysql/mysqltips.html
 
