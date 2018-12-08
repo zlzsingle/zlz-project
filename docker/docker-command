@@ -52,3 +52,7 @@ docker exec [options] [container1] [container2]
         -d          分离模式,后台运行
         -t          分配一个伪终端
         -i          即使没有附加也保持STDIN 打开
+
+docker save [options] [container]
+    [option]
+        -o
