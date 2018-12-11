@@ -43,3 +43,24 @@ select date_format(now(),'%Y-%m-%d %H:%i:%s'); --2018-11-14 11:46:15
 --QUARTER。季度
 --YEAR。年
 select timestampdiff(day,'2012-08-24','2012-08-30') as day;
+
+-- ifnull函数
+select ifnull(null,1);
+
+-- 返回当前日期 2018-12-11
+select curdate();
+select curdate() + 0;  -- 20181211
+
+--convert函数
+-- 二进制，同带binary前缀的效果 : BINARY
+-- 字符型，可带参数 : CHAR()
+-- 日期 : DATE
+-- 时间: TIME
+-- 日期时间型 : DATETIME
+-- 浮点数 : DECIMAL
+-- 整数 : SIGNED
+-- 无符号整数 : UNSIGNED
+CONVERT(value, type);
+
+-- cast函数
+select CAST('12.123' AS DECIMAL(10,6));

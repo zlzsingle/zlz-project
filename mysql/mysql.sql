@@ -47,6 +47,12 @@ show triggers;
 -- 显示表的列
 show columns from [table_name];
 
+-- 判断数据库表是否存在
+show tables like 'tab_name';
+
+-- 表索引
+show index from ${tab_name};
+
 --mysql修改密码命令
 set password for 'root'@'localhost'=password('newPassword');
 
@@ -81,5 +87,6 @@ insert into ${tablename} (login) values (123123),(456456) on duplicate key updat
 -- mysql 锁表
 lock tables tab_name read;
 
--- 判断数据库表是否存在
-show tables like 'tab_name';
+-- 删除表索引
+drop ${index_name} on ${tab_name};
+
