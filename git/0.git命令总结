@@ -9,9 +9,13 @@ git config --global user.email "774320433@qq.com"   //设置邮箱
 git config --global --unset user.name               //取消user.name
 git config --global --unset user.email              //取消user.email
 
-git clone http://github.com/xxx.com/xxx.git       //http的git方式
-git clone git@github.com:xxx/xxx.git              //ssh的git方式
-git clone --recursive http://xxx.git              //同时克隆submodule
+git clone http://github.com/xxx.com/xxx.git         //http的git方式
+git clone git@github.com:xxx/xxx.git                //ssh的git方式
+git clone --recursive http://xxx.git                //同时克隆submodule
+
+git pull                                            //拉取代码
+git pull origin <BranchName>                        //拉取指定分支
+git pull --tag                                      //拉取最新tag
 
 git push                                            //push分支到仓库
 git push origin --delete <BranchName>               //删除远程分支
