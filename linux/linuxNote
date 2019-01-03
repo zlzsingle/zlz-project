@@ -104,3 +104,6 @@ ssh-copy-id xxx
 
 //查看目录占用空间大小
 du -sh ./xxx
+
+// 查看硬盘是SSD还是HHD, 1(HHD), 2(SSD)
+cat /sys/block/*/queue/rotational
