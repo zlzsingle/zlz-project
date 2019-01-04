@@ -54,5 +54,7 @@ git submodule update --remote                       //拉去最新的submodule�
 git submodule update --init --remote --force        //强制更新最新代码,本地代码不合并
 git submodule update --remote --force --merge       //强制更新最新代码,本地代码合并
 
+git cherry-pick <CommitId>                          //合并某个commit到当前分支
+
 ssh-keygen -t rsa -C "xxxxx@gmail.com"              //生成密银
 
