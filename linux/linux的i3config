@@ -165,6 +165,18 @@ bindsym --release $mod+Print exec "scrot -u -b -m /tmp/screenshot.png && xclip -
 # 鼠标选择区域
 bindsym --release $mod+Shift+Print exec "scrot -s -b -m /tmp/screenshot.png && xclip -selection clipoard -t 'image/png' /tmp/screenshot.png"
 
+# i3lock i3锁屏
+# sudo apt-get install i3lock
+
+# 图片处理工具
+# sudo apt-get install imagemagick
+
+# 自动锁频
+# sudo apt-get install xautolock
+
+# 截屏工具scrot
+# sudo apt-get install scrot
+
 # 锁屏带模糊的截图
 bindsym $mod+l exec "scrot /tmp/lockscreen.png && mogrify -scale 50% -gaussian-blur 0x4 -gamma 0.8 -scale 200% /tmp/lockscreen.png && i3lock -i /tmp/lockscreen.png"
 
