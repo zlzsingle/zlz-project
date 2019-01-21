@@ -7,6 +7,7 @@
     "area-data": "^5.0.6",
     "commitizen": "^2.10.1",
     "crawler": "^1.2.0",
+    "gm": "^1.23.1",
     "koa": "^2.5.2",
     "koa-router": "^7.4.0",
     "moment": "^2.22.2",
