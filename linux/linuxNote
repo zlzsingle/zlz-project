@@ -107,3 +107,6 @@ du -sh ./xxx
 
 // 查看硬盘是SSD还是HHD, 1(HHD), 2(SSD)
 cat /sys/block/*/queue/rotational
+
+// https://blog.csdn.net/sky__man/article/details/78178821
+systemctl
