@@ -1,0 +1,5 @@
+// 安装consul
+sudo apt install consul
+
+// 检查安装
+consul version
