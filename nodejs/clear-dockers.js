@@ -34,3 +34,5 @@ _.forEach(list, item => {
         }
     }
 });
+
+console.info(cp.execSync(`docker images`).toString('utf-8'));
