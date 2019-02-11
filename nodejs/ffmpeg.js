@@ -37,7 +37,7 @@ function screenshots(src, dest, ss, cb) {
     //     fs.writeFileSync("F:\\MyZlzWord\\ZLZSVNProject\\file\\test.mp4", data);
     // });
 
-    let mp4 = "F:\\MyZlzWord\\ZLZSVNProject\\file\\test.mp4";
+    let mp4 = "./test.mp4";
 
     try {
         new ffmpeg(mp4, function (err, video) {
