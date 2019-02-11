@@ -2,7 +2,7 @@
 // http://blog.csdn.net/yanglang1987500/article/details/42423843 (截取视频开头当封面图)
 // https://github.com/damianociarla/node-ffmpeg
 
-var  ffmpeg = require("ffmpeg");
+const ffmpeg = require("ffmpeg");
 
 /**
  * 截取视频一帧当图片

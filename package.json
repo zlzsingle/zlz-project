@@ -7,6 +7,8 @@
     "area-data": "^5.0.6",
     "commitizen": "^2.10.1",
     "crawler": "^1.2.0",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
     "gm": "^1.23.1",
     "koa": "^2.5.2",
     "koa-router": "^7.4.0",
