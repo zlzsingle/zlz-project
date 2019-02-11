@@ -29,13 +29,13 @@
         let promise = new Promise(function(resolve,reject){
             if(Date.now() % 2 === 0){
                 resolve(1);
-            }else{
+            } else {
                 reject(0);
             }
         });
-        promise.then((result)=>{
+        promise.then(result => {
             console.info(result);
-        }).catch((err)=>{
+        }).catch(err => {
             console.error("err:",err);
         });
 
