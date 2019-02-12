@@ -53,12 +53,12 @@ const cuttingVideo = (videoSrc, ss, t, outputSrc) => new Promise((resolve, rejec
 const videoConvertGif = (videoSrc, ss, t, outputSrc) => new Promise((resolve, reject) => {
     ffmpeg()
         .input(videoSrc)
-        .inputOption('-ss', ss)
-        .inputOption('-t', t)
+        .seekOutput(ss)
+        .setDuration(t)
         .outputOption('-s', '300*500')
         .outputOption('-pix_fmt', 'rgb24')
         .outputFormat('gif')
-        .save(outputSrc)
+        .output(outputSrc)
         .on('error', err => reject(err))
         .on('end', () => resolve())
         .run();
