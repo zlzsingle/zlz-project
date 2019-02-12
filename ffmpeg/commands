@@ -14,7 +14,7 @@ ffmpeg -i input.mp4 -vcodec copy -an output.mp4
 
 // 提取视频中的音频
 ffmpeg -i input.mp4 -acodec copy -vn output.mp3
-// -vn: 去掉音频; -acodec: 音频选项,一般后面加copy表示拷贝
+// -vn: 去掉视频; -acodec: 音频选项,一般后面加copy表示拷贝
 
 // 音视频合成
 ffmpeg -y -i input.mp4 -i input.mp3 -vcodec copy -acodec copy output.mp4
