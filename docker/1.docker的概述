@@ -1,9 +1,12 @@
-1.什么是Docker
-    Docker是一个容器,是为了实现轻量级系统虚拟化而推出的一款解决方案产品。最初是dotCloud公司内部的一个业余产品,基于google公司推出的go语言实现。后来加入Linux基金会,遵循Apache2.0协议。
+阮一峰,docker入門
+    http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html
 
-2.为什么选择Docker
-    开源、轻量级、跨平台、可以轻松的实现自动化部署。
+    1.什么是Docker
+        Docker是一个容器,是为了实现轻量级系统虚拟化而推出的一款解决方案产品。最初是dotCloud公司内部的一个业余产品,基于google公司推出的go语言实现。后来加入Linux基金会,遵循Apache2.0协议。
 
-3.Docker的运行机制
+    2.为什么选择Docker
+        开源、轻量级、跨平台、可以轻松的实现自动化部署。
 
-4.使用Docker部署一个Hello world
+    3.Docker的运行机制
+
+    4.使用Docker部署一个Hello world
