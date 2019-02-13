@@ -20,4 +20,4 @@ netstat -ln |grep 3690 //检查svn接口
 killall svnserve  // 停止svn服务
 
 修改svn地址
-svn sw --relocate https://116.19.99.128:19090/svn/newspaper_release/mccp https://116.19.96.147:19090/svn/newspaper_release/mccp
+svn sw --relocate https://xxx.xxx.xxx:xxx/svn/newspaper_release/mccp https://116.19.96.147:19090/svn/newspaper_release/mccp
