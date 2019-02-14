@@ -7,12 +7,13 @@
     //csdn下载安装指导步骤
     //http://blog.csdn.net/zhangkezhi_471885889/article/details/52184700
 
-    let fs = require("fs");
+    // let fs = require("fs");
     let path = require("path");
     let wkhtmltopdf = require("wkhtmltopdf");
-
+    let pdfpath = path.join(process.cwd(), 'demo', 'a.pdf');
+    console.error(pdfpath);
     //将网页转成pdf
-    wkhtmltopdf('http://163.com', { output: 'f:/out.pdf' });
+    wkhtmltopdf('http://163.com', {output: pdfpath});
 
 
     //将html转成pdf

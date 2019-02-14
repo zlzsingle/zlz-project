@@ -2,7 +2,7 @@ var page = require('webpage').create();
 var count = 1;
 
 function getPage() {
-    
+
     page.open('https://www.followme.com/api/v1/account/users/193431', function () {
         console.error(2);
         setTimeout(function () {
@@ -11,7 +11,7 @@ function getPage() {
                 phantom.exit();
             } else {
                 count = count + 1;
-              getPage();
+                getPage();
             }
         }, 200);
     });
