@@ -11,7 +11,6 @@
     let path = require("path");
     let wkhtmltopdf = require("wkhtmltopdf");
     let pdfpath = path.join(process.cwd(), 'demo', 'a.pdf');
-    console.error(pdfpath);
     //将网页转成pdf
     wkhtmltopdf('http://163.com', {output: pdfpath});
 
