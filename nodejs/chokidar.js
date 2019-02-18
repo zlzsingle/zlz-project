@@ -1,6 +1,6 @@
 //目录监控
-var chokidar = require('chokidar');
-var watcher = chokidar.watch(["F:/Student"], {
+const chokidar = require('chokidar');
+const watcher = chokidar.watch([/xxx/xxx], {
     persistent: true
     , usePolling: true
     , interval: 3000
@@ -9,6 +9,6 @@ var watcher = chokidar.watch(["F:/Student"], {
     , depth: 1
 });
 
-watcher.on("add", function (path) {
+watcher.on('add', function (path) {
     console.error("path :" + path)
 });
