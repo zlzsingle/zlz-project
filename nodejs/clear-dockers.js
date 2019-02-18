@@ -22,7 +22,7 @@ for (let i = 1; i < dockerImagesList.length; i++) {
     });
     list.push(obj);
 }
-const noRepository = ['redis'];
+const noRepository = ['redis', 'mysql'];
 _.forEach(list, item => {
     if (!noRepository.includes(item['‌repository'])) {
         const cmd = `docker rmi ${item['imageId']}`;
