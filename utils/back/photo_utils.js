@@ -26,8 +26,8 @@ module.exports = (function () {
     return {
         /**
          * 重置图片大小到指定的路径
-         * @param data [{file : "/files/data/student.jpg",width : "400",height : "400",targetPath : "/files/school/student.jpg"}]
-         * @param callback
+         * @param {array} data [{file : "/files/data/student.jpg",width : "400",height : "400",targetPath : "/files/school/student.jpg"}]
+         * @param {function} callback
          */
         resizePhoto: function (data, callback) {
             if (Array.isArray(data) && data.length > 0) {
@@ -57,8 +57,8 @@ module.exports = (function () {
 
         /**
          * 判断后缀是否是图片
-         * @param ext ".jpn"|"jpg"
-         * @returns {boolean}
+         * @param {string} suffix ".jpg"|"jpg"
+         * @returns {boolean} is photo suffix
          */
         isImage: function (suffix) {
             let ext = suffix.replace('.', '').toUpperCase();
@@ -68,8 +68,8 @@ module.exports = (function () {
 
         /**
          * 将pdf文件转换成图片,注意这个方法只有在linux上才才能运行
-         * @param data {type : "",size : "",density : "",outputdir : "", outputname : "", page: "",pdf :""}
-         * @param cb
+         * @param {object} data {type : "",size : "",density : "",outputdir : "", outputname : "", page: "",pdf :""}
+         * @param {function} cb
          * @returns {*}
          */
         pdfToImg: function (data, cb) {
@@ -130,8 +130,8 @@ module.exports = (function () {
 
         /**
          * 给图片添加水印
-         * @param data {source : "", watermark : "", output : "", position :"", opacity :""}
-         * @param callback
+         * @param {object} data {source : "", watermark : "", output : "", position :"", opacity :""}
+         * @param {function} callback
          */
         addWatermark: function (data, callback) {
             let watermarkFile = data.watermark;
@@ -158,8 +158,8 @@ module.exports = (function () {
 
         /**
          * 压缩图片
-         * @param data {output : "", source : "", width : "", height : "", quality : "",ext:""}
-         * @param callback
+         * @param {string} data {output : "", source : "", width : "", height : "", quality : "",ext:""}
+         * @param {function} callback
          */
         compression: function (data, callback) {
 
@@ -191,8 +191,8 @@ module.exports = (function () {
 
         /**
          * 图片信息
-         * @param image "/files/data/a.jpg"
-         * @param callback function(data){}
+         * @param {string} image "/files/data/a.jpg"
+         * @param {function} callback function(data){}
          */
         imageInfo : function (image, callback) {
             let _file = gm(image);
