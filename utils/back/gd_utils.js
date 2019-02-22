@@ -77,7 +77,7 @@ module.exports = (function () {
         result.data = results;
         result.pageSize = pageSize;
         result.totalResult = pageTotal;
-        result.totalPage = pageTotal % pageSize == 0 ? pageTotal / pageSize : pageTotal / pageSize + 1;
+        result.totalPage = pageTotal % pageSize === 0 ? pageTotal / pageSize : pageTotal / pageSize + 1;
         result.start = page * pageSize + 1;
         result.queryTime = null;
         result.userdata = null;
