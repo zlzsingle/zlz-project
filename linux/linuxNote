@@ -110,3 +110,6 @@ cat /sys/block/*/queue/rotational
 
 // https://blog.csdn.net/sky__man/article/details/78178821
 systemctl
+
+// 更新时间
+sudo ntpdate -u ntp.api.bz
