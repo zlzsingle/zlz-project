@@ -113,3 +113,6 @@ systemctl
 
 // 压缩文件夹
 zip -r file.zip ./dir
+
+// 更新时间
+sudo ntpdate -u ntp.api.bz
