@@ -110,3 +110,6 @@ cat /sys/block/*/queue/rotational
 
 // https://blog.csdn.net/sky__man/article/details/78178821
 systemctl
+
+// 压缩文件夹
+zip -r file.zip ./dir
