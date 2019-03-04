@@ -8,12 +8,12 @@
 
     exports.sms = {
         send:function(send_obj,cb){
-            var url = zlz.common.api_tools.gen_url('/sms/send');
-            zlz.common.api_tools.post_data(url,null,send_obj,cb);
+            var url = api_tools.gen_url('/sms/send');
+            api_tools.post_data(url,null,send_obj,cb);
         },
         get_last_send_time:function(cb){
-            var url = zlz.common.api_tools.gen_url('/sms/last_send_date');
-            zlz.common.api_tools.get_data(url,null,cb);
+            var url = api_tools.gen_url('/sms/last_send_date');
+            api_tools.get_data(url,null,cb);
         }
     };
 /////////////////////////////////////////////////////

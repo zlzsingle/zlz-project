@@ -19,7 +19,7 @@ var app = require('express')();
 /// <returns>详见sms/service.js -> send方法</returns>
 app.post('/send', function (req, res) {
     service.send(req.body, req.session, function (result) {
-        tycom.common.api_tools.return_result(result, res);
+        api_tools.return_result(result, res);
     });
 });
 
@@ -57,7 +57,7 @@ app.post('/sendValidCode', function (req, res) {
     console.log("短信验证码 code : " + code);
 
     service.sendValidCode(data, req.session, function (result) {
-        tycom.common.api_tools.return_result(result, res);
+        api_tools.return_result(result, res);
     });
 });
 
@@ -76,10 +76,10 @@ app.post('/sendValidCode', function (req, res) {
 //    console.log("last_send_date req.session.mobile :" + req.session.mobile);
 //    var mobile = req.session.mobile ? req.session.mobile : "";
 //    var result = {code: 'success', data: {dateInterval: dateInterval, mobile: mobile}};
-//    tycom.common.api_tools.return_result(result, res);
+//    api_tools.return_result(result, res);
 //});
 
 /////////////////////////////////////////////////////
 //以下勿动
 /////////////////////////////////////////////////////
-module.exports = tycom.common.create_module(app, service, __dirname);
+module.exports = create_module(app, service, __dirname);

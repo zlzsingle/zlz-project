@@ -108,8 +108,6 @@ module.exports.checkEmailSendTime = function (email, time) {
  * @returns {boolean} true 验证通过 ，false 验证不通过
  */
 module.exports.checkValidCode = function (mobile, code, bool) {
-    //2016-12-7 18:36:17 by zhaojj 手机验证码使用后移除
-    //bool = true;
     var flag = false;
     try {
         isValidCodeLock = true;
