@@ -21,7 +21,23 @@ moment().format('llll'); // 2018年8月26日星期日晚上6点25分
 
 moment().endOf('month').format('YYYY-MM-DD HH:mm:ss'); // 获取这个月最后一天
 
-moment().add(-1, 'M').format('YYYY-MM-DD HH:mm:ss'); // 获取上个月
-moment().add(-1, 'd').format('YYYY-MM-DD HH:mm:ss'); // 获取昨天
+moment().add(1, 'M').format('YYYY-MM-DD HH:mm:ss'); // 月份加1
+moment().add(1, 'd').format('YYYY-MM-DD HH:mm:ss'); // 天数加1
+
+moment().add(-1, 'M').format('YYYY-MM-DD HH:mm:ss'); // 月份加-1
+moment().add(-1, 'd').format('YYYY-MM-DD HH:mm:ss'); // 天数加-1
+
+moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss'); // 天数加-1
+moment().subtract(1, 'months').format('YYYY-MM-DD HH:mm:ss'); // 月份-1
+
+moment().startOf('year').format('YYYY-MM-DD HH:mm:ss'); // 从今年开始
+moment().startOf('month').format('YYYY-MM-DD HH:mm:ss');   // set to the first of this month, 12:00 am
+moment().startOf('quarter').format('YYYY-MM-DD HH:mm:ss');  // set to the beginning of the current quarter, 1st day of months, 12:00 am
+moment().startOf('week').format('YYYY-MM-DD HH:mm:ss');    // set to the first day of this week, 12:00 am
+moment().startOf('isoWeek').format('YYYY-MM-DD HH:mm:ss'); // set to the first day of this week according to ISO 8601, 12:00 am
+moment().startOf('day').format('YYYY-MM-DD HH:mm:ss');     // set to 12:00 am today
+moment().startOf('hour').format('YYYY-MM-DD HH:mm:ss');    // set to now, but with 0 mins, 0 secs, and 0 ms
+moment().startOf('minute').format('YYYY-MM-DD HH:mm:ss');  // set to now, but with 0 seconds and 0 milliseconds
+moment().startOf('second').format('YYYY-MM-DD HH:mm:ss');  // same as moment().milliseconds(0);
 
 // ‌03,07,08,17,19,23
