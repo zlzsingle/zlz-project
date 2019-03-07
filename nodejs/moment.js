@@ -21,5 +21,7 @@ moment().format('llll'); // 2018年8月26日星期日晚上6点25分
 
 moment().endOf('month').format('YYYY-MM-DD HH:mm:ss'); // 获取这个月最后一天
 
+moment().add(-1, 'M').format('YYYY-MM-DD HH:mm:ss'); // 获取上个月
+moment().add(-1, 'd').format('YYYY-MM-DD HH:mm:ss'); // 获取昨天
 
 // ‌03,07,08,17,19,23
