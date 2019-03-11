@@ -17,3 +17,7 @@ console.error('item2 : ', JSON.stringify(item2)); // undefined
 
 const filter = _.filter(a, i => i.age % 2 === 0);
 console.error('filter : ', JSON.stringify(filter)); // [{"age":20},{"age":4}]
+
+const uniqArr = _.uniq(a);
+
+const keys = _.keys(a);
