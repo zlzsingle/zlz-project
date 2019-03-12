@@ -9,3 +9,5 @@
 // pm2 ecosystem 生成ecosystem.json.js文件
 
 // https://blog.csdn.net/gong1422425666/article/details/74943073  pm2 deploy 部署
+
+// https://blog.csdn.net/cs380637384/article/details/82682799
