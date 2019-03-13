@@ -1,0 +1,5 @@
+1.安装
+    npm i -g @nestjs/cli
+
+2.创建项目
+    nest new project
