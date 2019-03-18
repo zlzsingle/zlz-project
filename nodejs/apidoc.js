@@ -6,5 +6,4 @@
 
     2.apidoc -i [source/path] -o [dest/path]
 
-    3.
 */
