@@ -5,4 +5,6 @@
         npm install -g apidoc
 
     2.apidoc -i [source/path] -o [dest/path]
+
+    3.
 */
