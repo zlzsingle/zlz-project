@@ -4,6 +4,10 @@ git add <fileName>                                  //添加文件到git
 
 git rm  -r <fileName>                               //从git和本地删除这个文件
 
+git remote -v                                       //查看版本
+git remote add origin <url>
+git remote rm  origin
+
 git config --global user.name "zlz"                 //设置用户名称
 git config --global user.email "774320433@qq.com"   //设置邮箱
 git config --global --unset user.name               //取消user.name
