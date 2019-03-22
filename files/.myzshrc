@@ -31,5 +31,4 @@ _gacp() {
 # git 命令简写
 alias gac=_gac
 alias gacp=_gacp
-# alias gacp="git add . && git commit -m \"add or update files\" && git push origin master"
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
