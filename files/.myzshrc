@@ -10,13 +10,12 @@ alias shadowsocks-app="$APPDIR/Shadowsocks-app/Shadowsocks-Qt5-3.0.1-x86_64.AppI
 # git 命令相关的函数
 _gac() {
     commitInfo=$1
-    if [ -z $commitInfo ]
-    then
-        commitInfo="add or update files"
-    if
-    echo "commitInfo=${commitInfo}"
-    # git add .
-    # git commit -m ${commitInfo}
+        if [ -z ${commitInfo} ]
+        then
+            commitInfo="add or update files"
+        fi
+     git add .
+     git commit -m ${commitInfo}
 }
 
 # git 命令简写
