@@ -8,17 +8,31 @@ alias clear-dockers="node $PROJECT/myfm/zlz/shell/clear-dockers.js"
 alias shadowsocks-app="$APPDIR/Shadowsocks-app/Shadowsocks-Qt5-3.0.1-x86_64.AppImage &"
 
 # git 命令相关的函数
+_current_branch() {
+    br=`git branch | grep "*"`
+    echo ${br/* /}
+}
+
 _gac() {
-    commitInfo=$1
-        if [ -z ${commitInfo} ]
+    commit_info=$1
+        if [ -z ${commit_info} ]
         then
-            commitInfo="add or update files"
+            commit_info="add or update files"
         fi
      git add .
-     git commit -m ${commitInfo}
+     git commit -m ${commit_info}
+}
+
+_gacp() {
+    echo "提交信息=${1}"
+    echo "_current_branch=${_current_branch}"
+
+    _gac $1
+    git push origin ${_current_branch}
 }
 
 # git 命令简写
 alias gac=_gac
-alias gacp="git add . && git commit -m \"add or update files\" && git push origin master"
+alias gacp=_gacp
+# alias gacp="git add . && git commit -m \"add or update files\" && git push origin master"
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
