@@ -19,8 +19,9 @@ _gac() {
         then
             commit_info="add or update files"
         fi
-     git add .
-     git commit -m ${commit_info}
+    echo "${commit_info}"
+    git add .
+    git commit -m ${commit_info}
 }
 
 _gacp() {
