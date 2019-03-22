@@ -25,10 +25,10 @@ _gac() {
 
 _gacp() {
     echo "提交信息=${1}"
-    echo "_current_branch=${_current_branch}"
+    echo `_current_branch`
 
     _gac $1
-    git push origin ${_current_branch}
+    git push origin `_current_branch`
 }
 
 # git 命令简写
