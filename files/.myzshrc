@@ -15,7 +15,6 @@ _gac() {
             commitInfo="add or update files"
         fi
      git add .
-
      git commit -m ${commitInfo}
 }
 
