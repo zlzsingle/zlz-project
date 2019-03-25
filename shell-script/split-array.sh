@@ -18,6 +18,6 @@ splitArray(){
     echo "arr[2]=${arr[2]}"
 }
 
-splitArray "1 2 3" " "
+splitArray "1,2,3"
 
 result=${?}
