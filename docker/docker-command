@@ -63,7 +63,12 @@ docker exec [options] [container1] [container2]
     demo : docker exec -it redis bash
 
 docker save [options] [container]
-    [option]
+    [options]
         -o
 
     demo : docker save -o redis.tar redis
+
+docker image prune [options]
+    [options]
+        -a          删除所有none的镜像
+        -f          强制删除所有none的镜像
