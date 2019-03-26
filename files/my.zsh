@@ -50,6 +50,7 @@ alias gsshp="git stash pop"
 alias gsshls="git stash list"
 alias gadd="git add ."
 
-
+alias gr='git remote'
+alias grv='git remote -v'
 
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
