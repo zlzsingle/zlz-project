@@ -43,8 +43,13 @@ alias gp=_gp
 alias gac=_gac
 alias gacp=_gacp
 alias gfp=_gfp
+
 alias gsta="git status"
 alias gssh="git stash"
 alias gsshp="git stash pop"
 alias gsshls="git stash list"
+alias gadd="git add ."
+
+
+
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
