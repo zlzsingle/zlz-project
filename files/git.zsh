@@ -42,6 +42,8 @@ alias gsshp="git stash pop"
 alias gsshls="git stash list"
 alias gadd="git add ."
 
+alias gba="git branch -a"
+
 alias gr='git remote'
 alias grv='git remote -v'
 
