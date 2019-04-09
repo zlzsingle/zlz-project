@@ -18,16 +18,16 @@ _gac() {
 
 _gacp() {
     _gac $1
-    git push origin `_current_branch`
+    git push origin "$(_current_branch)"
 }
 
 _gp() {
-    git push origin `_current_branch`
+    git push origin "$(_current_branch)"
 }
 
 _gfp() {
     git fetch
-    git pull origin `_current_branch`
+    git pull origin "$(_current_branch)"
 }
 
 # git 命令简写
