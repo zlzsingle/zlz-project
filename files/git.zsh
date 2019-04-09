@@ -30,11 +30,18 @@ _gfp() {
     git pull origin "$(_current_branch)"
 }
 
+_gc() {
+    echo "commit info = $1"
+    git add .
+    git commit -m "$1"
+}
+
 # git 命令简写
 alias gp=_gp
 alias gac=_gac
 alias gacp=_gacp
 alias gfp=_gfp
+alias gc=_gc
 
 alias gstat="git status"
 alias gssh="git stash"
