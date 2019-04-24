@@ -8,6 +8,7 @@
     "axios": "^0.18.0",
     "commitizen": "^2.10.1",
     "crawler": "^1.2.0",
+    "fast-csv": "^2.5.0",
     "ffmpeg": "^0.0.4",
     "fluent-ffmpeg": "^2.1.2",
     "gm": "^1.23.1",
