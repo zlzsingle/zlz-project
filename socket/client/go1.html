@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>go1</title>
+    <script>
+        const conn = new WebSocket('ws://localhost:4000/followquant/v2.1/websocket/connect?userid=1');
+        conn.addEventListener('open', function () {
+            console.log('open')
+        });
+        conn.addEventListener('close', function () {
+            console.log('close')
+        });
+        conn.addEventListener('message', function () {
+            console.log('message')
+        });
+    </script>
+</head>
+
+<body></body>
+</html>
