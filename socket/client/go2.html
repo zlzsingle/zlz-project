@@ -2,16 +2,19 @@
 <head>
     <title>go2</title>
     <script>
-        const conn = new WebSocket('ws://localhost:4000/followquant2/websocket/connect?userid=1');
+        const conn = new WebSocket('ws://localhost:8000/followquant2/ws');
         conn.addEventListener('open', function () {
             console.log('open')
         });
-        conn.addEventListener('close', function () {
+        conn.addEventListener('close', function (err) {
             console.log('close')
         });
         conn.addEventListener('message', function () {
             console.log('message')
         });
+        window.conn = conn;
+
+        // window.conn.send('from client test data')
     </script>
 </head>
 

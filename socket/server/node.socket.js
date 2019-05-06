@@ -12,19 +12,32 @@ const config = {
         "prefix": "/followquant2"
     }
 };
-const wsProxy = proxy({
+// const wsProxy = proxy({
+//     ws: true,
+//     changeOrigin: true,
+//     target: config.go2.host,
+//     router: function (req) {
+//         const url = req.url;
+//         console.log('node socket url :', url);
+//         if (url.includes(config.go1.prefix)) {
+//             return config.go1.host;
+//         }
+//         return config.go2.host;
+//     },
+// });
+// app.use(wsProxy);
+const ws1 = proxy({
+    ws: true,
+    changeOrigin: true,
+    target: config.go1.host,
+});
+const ws2 = proxy({
     ws: true,
     changeOrigin: true,
     target: config.go2.host,
-    router: function (req) {
-        const url = req.url;
-        console.log('node socket url :', url);
-        if (url.includes(config.go1.prefix)) {
-            return config.go1.host;
-        }
-        return config.go2.host;
-    },
 });
-app.use(wsProxy);
-const server = app.listen(port);
-server.on('upgrade', wsProxy.upgrade);
+
+app.use(config.go1.prefix, ws1);
+app.use(config.go2.prefix, ws2);
+
+app.listen(port);
