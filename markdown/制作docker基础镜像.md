@@ -71,4 +71,10 @@
     
     # 推送成功之后,拉取测试一下
     docker pull xxx/node:v1
+    
+    # 运行容器
+    docker run -itd --name node xxx/node:v1
+    
+    # 进入容器内
+    docker exec -it node bash 
 ```
