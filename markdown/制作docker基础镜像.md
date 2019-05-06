@@ -58,7 +58,7 @@
 ```bash
     docker commit -a 'auth name' -m 'commit info' 4e481178cd60 xxx/node:v1
     # 4e481178cd60 --> containerId
-    # xxx/node:v1  --> 自定义容器命令
+    # xxx/node:v1  --> 自定义容器名称
 ```
 
 - 6.推送镜像
