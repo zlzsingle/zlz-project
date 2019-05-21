@@ -46,6 +46,7 @@ sudo systemctl start docker
 
 **image** 是二进制文件.实际开发中,一个 **image** 文件往往通过继承另一个 **image** 文件,加上一些个性化设置而生成.  [**举例**](https://www.zlzsingle.com/2019/05/09/%E5%88%B6%E4%BD%9Cdocker%E9%95%9C%E5%83%8F-node/) 来说,你可以基于```ubuntu```的**image**基础上,安装```node```环境.形成自己的**image**
 
+**image** 文件是通用的,一台机器的 **image** 文件拷贝到另一台机器,照样可以使用.通常使用 ``` docker save [option] [imageName] ``` 可以将镜像保存为.tar的文件
 
 ```bash
 # 例如本机所有的image文件
@@ -57,4 +58,87 @@ docker image ls
 docker rmi [imageId]
 docker rmi [imageName]
 docker image rm [imageName]
+
+# 将image保存为文件
+docker save -o filename.tar [imageName]
+
+# filename.tar文件可以拷贝到其他机器上,重新load
+docker load -i filename.tar 
 ```
+
+
+## 五、实例: ubuntu
+
+1.拉取ubuntu16.04的镜像
+
+```bash
+# 拉取node镜像
+docker pull ubuntu:16.04
+# or 
+docker image pull ubuntu:16.04
+```
+
+
+2.基于ubuntu镜像启动一个容器
+
+```bash
+# 以交互模式运行容器
+docker run -it --name ubuntu ubuntu:16.04
+
+# 后台运行容器
+docker run -d --name ubuntu ubuntu:16.04 
+```
+
+
+3.查看正在运行的容器
+
+```bash
+# 查看所有容器,包括未运行的
+docker ps -a 
+# or 
+docker container ls -a
+
+# 查看所有正在运行的容器
+docker ps 
+# or
+docker container ls 
+```
+
+
+4.进入正在运行的容器内
+
+```bash
+docker exec -it ubuntu
+```
+
+5.启动/停止/重启/删除容器
+
+```bash
+# 启动容器 docker start [containerName]
+docker start ubuntu
+
+# 停止容器 docker stop [containerName]
+docker stop ubuntu
+
+# 重启容器 docker stop [containerName]
+docker restart ubuntu 
+
+# 删除容器 docker rm [containerName] 注:删除前要停止容器
+docker rm ubuntu
+```
+
+
+6.删除镜像
+
+```bash
+# 删除image之前,要确保这个容器没有被使用
+docker rmi ubuntu:16.04
+```
+
+
+## 六、制作Dockerfile
+
+Dockerfile是一种被Docker程序解释的脚本,Dockerfile由一条一条的指令组成,没条指令对应Linux下面的一条命令.
+
+
+
