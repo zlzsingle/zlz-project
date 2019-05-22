@@ -138,7 +138,9 @@ docker rmi ubuntu:16.04
 
 ## 六、制作Dockerfile
 
-Dockerfile是一种被Docker程序解释的脚本,Dockerfile由一条一条的指令组成,没条指令对应Linux下面的一条命令.
+### 描述
+> Dockerfile是一种被Docker程序解释的脚本,Dockerfile由一条一条的指令组成,没条指令对应Linux下面的一条命令.
+
 
 
 
