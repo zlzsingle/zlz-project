@@ -22,6 +22,7 @@ RUN apt-get update && \
     ./configure && \
     make && \
     make install && \
+    rm -rf /app/node-* && \
     node -v
 
 
