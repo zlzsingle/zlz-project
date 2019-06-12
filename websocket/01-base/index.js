@@ -53,14 +53,14 @@ function encodeWsFrame(data) {
     if (payloadLen < 126) {
         frame.push(payloadLen);
     } else if (payloadLen < 65536) {
-        frame.push(126, payloadLen >> 8, payloadLen && 0xFF);
+        frame.push(126, payloadLen >> 8, payloadLen & 0xFF);
     } else {
         frame.push(127);
         for (let i = 7; i >= 0; --i) {
-            frame.push(payloadLen & (0xFF << (i * 8)) >> (i * 8));
+            frame.push((payloadLen & (0xFF << (i * 8))) >> (i * 8));
         }
     }
-    const result  = payloadData ? Buffer.concat([new Buffer(frame), payloadData]) : new Buffer(frame);
+    const result = payloadData ? Buffer.concat([new Buffer(frame), payloadData]) : new Buffer(frame);
 
     console.dir(decodeWsFrame(frame));
 
@@ -69,11 +69,11 @@ function encodeWsFrame(data) {
 
 // 解码ws帧
 function decodeWsFrame(data) {
-    let start = 0 ;
+    let start = 0;
     let frame = {
         isFinal: (data[start] & 0x80) === 0x80,
         opcode: data[start++] & 0xF,
-        masked: (data[start++] & 0x80) === 0x80,
+        masked: (data[start] & 0x80) === 0x80,
         payloadLen: data[start++] & 0x7F,
         maskingKey: '',
         payloadData: null
@@ -81,15 +81,15 @@ function decodeWsFrame(data) {
 
     if (frame.payloadLen === 126) {
         frame.payloadLen = (data[start++] << 8) + data[start++];
-    } else if (frame.payloadLen === 127){
+    } else if (frame.payloadLen === 127) {
         frame.payloadLen = 0;
-        for (let i = 7; i >= 0; --i){
+        for (let i = 7; i >= 0; --i) {
             frame.payloadLen += (data[start++] << (i * 8));
         }
     }
 
     if (frame.payloadLen) {
-        if (frame.masked){
+        if (frame.masked) {
             const maskingKey = [
                 data[start++],
                 data[start++],
