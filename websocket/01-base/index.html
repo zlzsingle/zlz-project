@@ -1,0 +1,27 @@
+<html>
+    <title>websocket</title>
+    <script type="text/javascript">
+        (function () {
+            const websocket = new WebSocket('ws://localhost:3000');
+
+            websocket.onopen = function () {
+                console.log('open');
+            };
+
+            websocket.onclose = function () {
+                console.log('close');
+            };
+
+            websocket.onmessage = function (event) {
+                console.log('message', event.data);
+            };
+
+            websocket.onerror = function (error) {
+                console.error('error : ', error);
+            };
+
+            window.websocket = websocket;
+
+        })();
+    </script>
+</html>
