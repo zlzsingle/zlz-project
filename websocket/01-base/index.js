@@ -42,7 +42,8 @@ function encodeWsFrame(data) {
     const opcode = data.opcode !== undefined ? data.opcode : 1;
     const payloadData = data.payloadData ? new Buffer(data.payloadData) : null;
     const payloadLen = payloadData ? payloadData.length : 0;
-    const frame = [];
+
+    let frame = [];
 
     if (isFinal) {
         frame.push((1 << 7) + opcode);
@@ -60,11 +61,11 @@ function encodeWsFrame(data) {
             frame.push((payloadLen & (0xFF << (i * 8))) >> (i * 8));
         }
     }
-    const result = payloadData ? Buffer.concat([new Buffer(frame), payloadData]) : new Buffer(frame);
+
+    frame = payloadData ? Buffer.concat([new Buffer(frame), payloadData]) : new Buffer(frame);
 
     console.dir(decodeWsFrame(frame));
-
-    return result;
+    return frame;
 }
 
 // 解码ws帧
@@ -143,6 +144,9 @@ function mountCustomerEvent(socket) {
     socket.on('message', data => {
         decodeWsFrame(data);
         console.log('msg : ', JSON.stringify(data));
+
+        // socket.send({data: new Buffer('bsdf')});
+        socket.send('asdf');
     });
 
     // 关闭事件
