@@ -42,4 +42,8 @@ Sec-WebSocket-Key: lBaC1f0WoA3XVhF6bECLEw==
 Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 ```
 
-客户端发起一个http升级请求,`Connection`为`Upgrade`, 升级方式为`websocket`
+- `GET /websocket/connect?userId=3 HTTP/1.1` http协议+url+query 版本号
+- `Connection: Upgrade` 通知服务器连接协议升级
+- `Upgrade: websocket` 升级为websocket协议
+- `Sec-WebSocket-Version` 当前使用协议的版本号
+- `Sec-WebSocket-Key` 终端随机生成一组16位的随机base64编码
