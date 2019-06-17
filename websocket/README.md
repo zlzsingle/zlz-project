@@ -38,7 +38,7 @@ Connection: Upgrade
 Upgrade: websocket
 Origin: http://server.example.com
 Sec-WebSocket-Version: 13
-Sec-WebSocket-Key: lBaC1f0WoA3XVhF6bECLEw==
+Sec-WebSocket-Key: xUmMgSW9Hpt1PGw/X1UCHg==
 Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 ```
 
@@ -47,3 +47,102 @@ Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 - `Upgrade: websocket` 升级为websocket协议
 - `Sec-WebSocket-Version` 当前使用协议的版本号
 - `Sec-WebSocket-Key` 终端随机生成一组16位的随机base64编码
+
+2) 服务端响应响应的协议
+```
+HTTP/1.1 101 Switching Protocols
+upgrade: websocket
+connection: Upgrade
+sec-websocket-accept: iLkXOjF0f9x4bGvi9GnUKeEdnIM=
+```
+
+- `HTTP/1.1 101 Switching Protocols` 服务器端切换协议
+- `connection: Upgrade` 升级为websocket协议
+- `upgrade: websocket` 升级为websocket协议
+- `sec-websocket-accept` 与GUID **258EAFA5-E914-47DA-95CA-C5AB0DC85B11** 字符串进行拼接,然后进行sha-1运算.最后编码成base64
+
+#### 3.3 通信例子
+
+1) 客户端主动连接发送数据 [WebSocket](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket)
+```javascript
+    const websocket = new WebSocket('ws://localhost:8080');
+    
+    websocket.readyState;
+    websocket.CONNECTING;
+    websocket.OPEN;
+    websocket.CLOSING; 
+    websocket.CLOSED;
+    
+    websocket.onopen = function() {
+        console.log('open');
+        websocket.send('hello world');
+    };
+    
+    websocket.onmessage = function(event) {
+        console.log('message :', event.data);
+    };
+    
+    websocket.onerror = function(err) {
+        console.error('err :' ,err);
+    };
+    
+    websocket.onclose = function() {
+        console.log('close');
+    };
+```
+
+- `websocket.readyState` 请求处理的状态 0(连接中) 1(连接打开) 2(关闭中) 3(已关闭)
+- `websocket.CONNECTING (0)` 连接中
+- `websocket.OPEN (1)` 连接已打开
+- `websocket.CLOSING (2)` 连接关闭中
+- `websocket.CLOSED (3)` 连接已关闭
+- `websocket.onopen` 连接建立时触发
+- `websocket.onmessage` 客户端接收服务端数据时触发
+- `websocket.onerror` 通信发生错误时触发
+- `websocket.onclose` 连接关闭时触发
+- `websocket.send('hello world')` 发送数据事件
+ 
+2) 服务端接收握手升级协议
+```javascript
+    const http = require('http');
+    const crypto = require('crypto');
+    const path = require('path');
+    const fs = require('fs');
+    const GUID = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11';
+    
+    const server = http.createServer(function(req,res) {
+        const url = req.url;
+        if (url.indexOf('index.html') > -1) {
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            fs.createReadStream(path.join(__dirname, 'index.html')).pipe(res);
+        } else {
+            res.writeHead(404, {'Content-Type': 'text/plain'});
+            res.end();
+        }
+    });
+    
+    server.on('upgrade', function(req,socket,head) {
+        
+        console.log('head :',JSON.stringify(head));
+        
+        // 建立握手连接
+        const websocketKey = req.headers['sec-websocket-key'];
+        const websocketAccept = crypto.createHash('sha1').update(GUID + websocketKey).digest('base64');
+        const resMsg = [
+            'HTTP/1.1 101 Switching Protocols', // 切换协议
+            'Connection: Upgrade', // 连接升级
+            'Upgrade: websocket', //　升级为websocket
+            'Sec-Websocket-Accept: '+ websocketAccept,
+            '\r\n'
+        ].join('\r\n');
+        
+        // 回应客户端协议
+        socket.write(resMsg);
+        
+        // 监听客户端发送过来的数据
+        socket.on('data', rawFrame =>{
+            // rawFrame 解码websocket帧
+            socket.write(new Buffer(rawFrame));
+        });
+    });
+```
