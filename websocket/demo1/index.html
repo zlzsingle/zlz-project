@@ -1,5 +1,14 @@
 <html>
     <title>websocket</title>
+
+    <body>
+        <div>
+            <input id="file" type="file" value="file"/>
+            <br><br><br>
+            <input id="send" type="button" value="send"/>
+        </div>
+    </body>
+
     <script type="text/javascript">
         (function () {
             const websocket = new WebSocket('ws://localhost:3000');
@@ -20,8 +29,13 @@
                 console.error('error : ', error);
             };
 
-            window.websocket = websocket;
+            document.getElementById('send').onclick = function () {
+                const file = document.getElementById('file');
+                debugger
+                console.log('send');
+            };
 
+            window.websocket = websocket;
         })();
     </script>
 </html>
