@@ -30,6 +30,14 @@ server.on('upgrade', function (req, socket, head) {
 
     // 原始ws帧解析处理
     rawFrameParseHandle(socket);
+
+    let numberCount = 0;
+
+
+    setInterval(() => {
+        socket.send((numberCount++) + '');
+    }, 1000);
+
 });
 
 server.listen(port, function () {
@@ -64,7 +72,7 @@ function encodeWsFrame(data) {
 
     frame = payloadData ? Buffer.concat([new Buffer(frame), payloadData]) : new Buffer(frame);
 
-    console.dir(decodeWsFrame(frame));
+    // console.dir(decodeWsFrame(frame));
     return frame;
 }
 
@@ -144,9 +152,7 @@ function mountCustomerEvent(socket) {
     socket.on('message', data => {
         decodeWsFrame(data);
         console.log('msg : ', JSON.stringify(data));
-
-        // socket.send({data: new Buffer('bsdf')});
-        socket.send('asdf');
+        socket.send('data : ' + JSON.stringify(data));
     });
 
     // 关闭事件
@@ -266,13 +272,13 @@ function opHandle(socket, frame) {
         case 9:
             // ping帧
             socket.emit('ping');
-            console.dir(frame);
+            // console.dir(frame);
             socket.write(encodeWsFrame({opcode: 10}));
             break;
         case 10:
             // pong帧
             socket.emit('pong');
-            console.dir(frame);
+            // console.dir(frame);
             break;
     }
 }
