@@ -11,8 +11,10 @@
 
     <script type="text/javascript">
         (function () {
-            const websocket = new WebSocket('ws://localhost:3000');
+            // const websocket = new WebSocket('ws://47.112.6.94/followquant2/websocket/connect?userid=3');
 
+            // const websocket = new WebSocket('wss://quant.followme.com/followquant2/websocket/connect?userid=3');
+            const websocket = new WebSocket('wss://quant.followme.com/followquant2/websocket/connect?userid=3');
             websocket.onopen = function () {
                 console.log('open');
             };
@@ -30,8 +32,7 @@
             };
 
             document.getElementById('send').onclick = function () {
-                const file = document.getElementById('file');
-                debugger
+                document.getElementById('file');
                 console.log('send');
             };
 
