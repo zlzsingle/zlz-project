@@ -129,3 +129,13 @@ demo:
     grep -in "JSON" ./*.js
     grep -irn "json" ./*
 
+// 查看8000端口是否被使用
+lsof -i:8000
+
+// 查看所有使用了3306的进程
+sudo lsof -t -i:3306
+
+// 杀掉所有使用了3306的进程
+sudo kill 'sudo lsof -t -i:9001'
+
+
