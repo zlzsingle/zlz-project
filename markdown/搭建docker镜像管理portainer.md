@@ -9,5 +9,5 @@
 - 运行portainer
 
 ```bash
-    docker run 
+    docker run -d -p 9000:9000 --name docker-dashboard -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 ```
