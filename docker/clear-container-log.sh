@@ -13,3 +13,5 @@ for log in $logs
     done
 
 echo "======== end clean docker containers logs ========"
+
+# sudo sh -c "$(curl https://raw.githubusercontent.com/zlzlife/zlz-project/master/docker/clear-container-log.sh)"
