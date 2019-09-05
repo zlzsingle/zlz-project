@@ -7,6 +7,8 @@
 // pm2 startup
 // pm2 resurrect 复活
 // pm2 ecosystem 生成ecosystem.json.js文件
+// pm2 start npm -- start  运行npm的start
+// pm2 start npm --run <scriptname>  运行package的脚本
 
 // https://blog.csdn.net/gong1422425666/article/details/74943073  pm2 deploy 部署
 
