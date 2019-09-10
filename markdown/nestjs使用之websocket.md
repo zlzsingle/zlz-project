@@ -2,22 +2,10 @@
 
 
 ```typescript
-import {
-  SubscribeMessage,
-  WebSocketGateway,
-  WebSocketServer,
-  WsResponse,
-  OnGatewayInit,
-  OnGatewayConnection,
-  OnGatewayDisconnect,
-  WsException,
-} from '@nestjs/websockets';
-import { from, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Server } from 'ws';
-import { UseFilters, UseGuards } from '@nestjs/common';
-import { WebsocketFilter } from './websocket.filter';
-import { AuthGuard } from '../guard/auth.guard';
+import {OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit, SubscribeMessage, WebSocketGateway, WebSocketServer, WsResponse, } from '@nestjs/websockets';
+import {Server} from 'ws';
+import {UseGuards} from '@nestjs/common';
+import {AuthGuard} from '../guard/auth.guard';
 
 @WebSocketGateway({ path: '/followquant2/websocket/connect' })
 export class QuantGateway implements OnGatewayConnection, OnGatewayInit, OnGatewayDisconnect {
