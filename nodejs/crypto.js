@@ -1,5 +1,7 @@
-import * as config from 'config';
 import {createCipheriv, createDecipheriv} from "crypto";
+
+// AES-128-CBC 是一种分组对称加密算法
+
 
 class cryptoUtils {
     /**
@@ -7,8 +9,8 @@ class cryptoUtils {
      * @param str 要解密的字符串
      */
     static encryptString(str) {
-        const saltCode = config.get('saltCode');
-        const key = Buffer.from(saltCode, 'utf8');
+        const aesCode = '1234567890123456';
+        const key = Buffer.from(aesCode, 'utf8');
         const cipheriv = createCipheriv('aes-128-cbc', key, key);
         const one = cipheriv.update(str, 'utf8', 'hex');
         const two = cipheriv.final('hex');
@@ -20,8 +22,8 @@ class cryptoUtils {
      * @param str 加密过后的字符串
      */
     static decryptString(str) {
-        const saltCode = config.get('saltCode');
-        const key = Buffer.from(saltCode, 'utf8');
+        const aesCode = '1234567890123456';
+        const key = Buffer.from(aesCode, 'utf8');
         const cipheriv = createDecipheriv('aes128', key, key);
         const one = cipheriv.update(str, 'hex', 'utf8');
         const two = cipheriv.final('utf8');
