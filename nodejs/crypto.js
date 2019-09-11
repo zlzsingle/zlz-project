@@ -1,24 +1,30 @@
-(function () {
-    const crypto = require('crypto');
-    const cipher = crypto.createCipher('aes192', 'a password');
+import * as config from 'config';
+import {createCipheriv, createDecipheriv} from "crypto";
 
-    let encrypted = '';
-    cipher.on('readable', () => {
-        const data = cipher.read();
-        if (data) {
-            encrypted += data.toString('hex');
-        }
-    });
-    cipher.on('end', () => {
-        console.log(encrypted);
-        // Prints: ca981be48e90867604588e75d04feabb63cc007a8f8ad89b10616ed84d815504
-    });
+class cryptoUtils {
+    /**
+     * 字符创加密
+     * @param str 要解密的字符串
+     */
+    static encryptString(str) {
+        const saltCode = config.get('saltCode');
+        const key = Buffer.from(saltCode, 'utf8');
+        const cipheriv = createCipheriv('aes-128-cbc', key, key);
+        const one = cipheriv.update(str, 'utf8', 'hex');
+        const two = cipheriv.final('hex');
+        return one + two;
+    }
 
-    cipher.write('some clear text data');
-    cipher.end();
-
-})();
-
-(() => {
-
-})();
+    /**
+     * 字符串解密
+     * @param str 加密过后的字符串
+     */
+    static decryptString(str) {
+        const saltCode = config.get('saltCode');
+        const key = Buffer.from(saltCode, 'utf8');
+        const cipheriv = createDecipheriv('aes128', key, key);
+        const one = cipheriv.update(str, 'hex', 'utf8');
+        const two = cipheriv.final('utf8');
+        return one + two;
+    }
+}
