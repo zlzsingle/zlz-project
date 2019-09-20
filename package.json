@@ -17,6 +17,7 @@
     "http-proxy": "^1.17.0",
     "http-proxy-middleware": "^0.19.1",
     "http-to-curl": "^1.4.2",
+    "jimp": "^0.8.2",
     "koa": "^2.5.2",
     "koa-router": "^7.4.0",
     "loadsh": "0.0.4",
