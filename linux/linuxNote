@@ -102,6 +102,9 @@ ssh 192.168.x.x
 //生成sshId
 ssh-copy-id xxx
 
+// ssh key生成
+ssh-keygen -t rsa -C "xxxxx@gmail.com"
+
 //查看目录占用空间大小
 du -sh ./xxx
 
