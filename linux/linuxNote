@@ -138,4 +138,5 @@ sudo lsof -t -i:3306
 // 杀掉所有使用了3306的进程
 sudo kill 'sudo lsof -t -i:9001'
 
-
+// 修改当前执行的shell环境
+chsh -s /bin/zsh
