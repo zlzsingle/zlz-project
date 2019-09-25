@@ -26,4 +26,10 @@ function main() {
     _.filter({a: 1, b: 2, c: 3}, (value, key) => {
         return value % 2 === 0;
     });
+
+    // 提取对象key
+    _.pick({a: "a1", b: "b1"}, ["b"]);
+
+    // 合并对象
+    _.assign({a: "a"}, {b: "b"});
 }
