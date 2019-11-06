@@ -54,12 +54,12 @@ module.exports.send = function(mail_obj, option_obj,callback){
 //         // tls:{
 //         //     rejectUnauthorized:false
 //         // },
-//         user:'2180001@qq.com',
-//         passwd:'lzkbhej'
+//         user:'xxxxx@qq.com',
+//         passwd:'xxxx'
 //     },
 //
-//     from: '腾云科技信使', // 发件人称呼
-//     to: '2180001@qq.com', // 收件人列表
+//     from: 'xxxxx', // 发件人称呼
+//     to: 'xxxxx@qq.com', // 收件人列表
 //     subject: '邮件标题UTF8',
 //     text: '邮件正文UTF8' // plain text body
 // };
