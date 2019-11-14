@@ -1,23 +1,30 @@
 
 const queue = require('queue');
 
-const calls = {};
-
 const q = queue({
-    concurrency: 5,
+    concurrency: 1,
     autostart: true,
     results: []
     // timeout: 4000
 });
 
 q.on('success', result => {
-    console.log('The result is:', result)
+    console.log('The result is success:', result)
+    console.log(q.length)
 });
 
 q.on('error', result => {
     console.log('The result is error :', result)
+    console.log(q.length)
 });
 
+// q.on('end', (err, rs) => {
+//     console.log('end : ', err, rs);
+// });
+//
+// q.on('start', job => {
+//     console.log('The result start:', job.nn)
+// });
 // q.on('timeout', (next, job) => {
 //     console.log('timeout job : ', job.nn);
 //     next();
@@ -26,7 +33,6 @@ q.on('error', result => {
 function job(n) {
     const a = () => new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log(n);
             if (n % 2 === 0) {
                 reject(n)
             } else {
@@ -37,6 +43,8 @@ function job(n) {
 
     a.nn = n;
 
+    a.results = n;
+
     return a;
 }
 
@@ -45,8 +53,6 @@ function main() {
     arr.forEach((v, i) => {
         q.push(job(i + 1))
     });
-
-    console.log(q.results)
 }
 
 main();
