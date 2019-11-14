@@ -32,6 +32,7 @@
     "puppeteer": "^1.19.0",
     "qrcode-terminal": "^0.12.0",
     "qs": "^6.7.0",
+    "queue": "^6.0.1",
     "redis": "^2.8.0",
     "redis-commands": "^1.5.0",
     "request-promise": "^4.2.4",
@@ -43,7 +44,7 @@
     "uglify-js": "^3.5.9",
     "url-join": "^4.0.0",
     "uuid": "^3.3.2",
-    "websocket": "^1.0.29",
+    "websocket": "^1.0.30",
     "wechaty": "^0.22.6",
     "wkhtmltopdf": "^0.3.4",
     "ws": "^6.2.1"
