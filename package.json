@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "area-data": "^5.0.6",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "commitizen": "^2.10.1",
     "crawler": "^1.2.0",
     "express": "^4.17.1",
