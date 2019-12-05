@@ -1,11 +1,12 @@
-const Tesseract = require('tesseract.js');
+import * as t from 'tesseract.js';
 
-const { createWorker } = Tesseract;
+const worker = t.createWorker();
+
 (async () => {
-    const worker = createWorker();
     await worker.load();
     await worker.loadLanguage('eng');
     await worker.initialize('eng');
-    const result = await worker.recognize('/home/zlz/Downloads/captcha.jpg');
-    console.log(JSON.stringify(result));
+    const { data: { text } } = await worker.recognize('https://tesseract.projectnaptha.com/img/eng_bw.png');
+    console.log(text);
+    await worker.terminate();
 })();
