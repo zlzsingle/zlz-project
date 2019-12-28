@@ -21,5 +21,16 @@
     // 新开一个页面
     await page.goto('http://www.baidu.com');
 
+    // 等待3000毫秒
+    await page.waitFor(3000);
 
+    // 截屏
+    await page.screenshot({
+        path: 'screenshot.png', // 文件存放路径
+        fullPage: true, // 是否截取整页
+        quality: 100, // 图像质量，介于0到100之间。 不适用于png图片
+    });
+
+    // 关闭浏览器
+    await browser.close();
 })();
