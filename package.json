@@ -46,6 +46,7 @@
     "uglify-js": "^3.5.9",
     "url-join": "^4.0.0",
     "uuid": "^3.3.2",
+    "webimgpdf-convert": "0.0.1",
     "websocket": "^1.0.30",
     "wechaty": "^0.22.6",
     "wkhtmltopdf": "^0.3.4",

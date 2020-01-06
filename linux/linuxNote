@@ -141,5 +141,8 @@ sudo lsof -t -i:3306
 // 杀掉所有使用了3306的进程
 sudo kill 'sudo lsof -t -i:9001'
 
+// 杀掉所有8000端口的进程
+sudo lsof -t -i tcp:8000 | xargs kill -9
+
 // 修改当前执行的shell环境
 chsh -s /bin/zsh
