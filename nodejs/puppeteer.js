@@ -2,6 +2,8 @@
 
 // https://pptr.dev/
 
+// https://zhaoqize.github.io/puppeteer-api-zh_CN/
+
 (async () => {
 
     const puppeteer = require('puppeteer');
