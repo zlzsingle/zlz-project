@@ -1,4 +1,5 @@
 // https://www.html.cn/doc/lodash/
+// https://www.lodashjs.com/docs/latest
 
 const _ = require('loadsh');
 
