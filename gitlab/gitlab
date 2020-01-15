@@ -6,3 +6,8 @@ sudo gitlab-ctl reconfigure
     sudo apt-get install curl openssh-server ca-certificates postfix
     sudo curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
     sudo apt-get install gitlab-ce
+
+安装 gitlab ci
+    1. 安装 sudo apt install gitlab-runner
+    2. 注册 gitlab-runner register
+    3. 编写.gitlab-ci.yml文件
