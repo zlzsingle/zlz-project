@@ -64,3 +64,6 @@ CONVERT(value, type);
 
 -- cast函数
 select CAST('12.123' AS DECIMAL(10,6));
+
+-- 格式化时间戳
+select from_unixtime(1582888310, '%Y-%m-%d %H:%i:%S');
