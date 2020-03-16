@@ -23,5 +23,5 @@ COMMAND KEY_NAME
     rename [key] [newkey] //修改key的名称,如果newkey已经存在,newkey将会被覆盖
     renamenx [key] [newkey] //仅当newkey不存在时,将key修改为newkey
     type [key]              //返回key的类型
-
+    persist [key]   // 持久化key persist student
 
