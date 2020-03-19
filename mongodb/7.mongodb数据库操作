@@ -20,7 +20,7 @@
     show collections
 
 6.插入文档
-    db.[collection].insert({"student":"庄伦植","age":"18","gender":"M"})
+    db.[collection].insert({"student":"zlz","age":"18","gender":"M"})
 
 7.查找文档
     db.[collection].find()
