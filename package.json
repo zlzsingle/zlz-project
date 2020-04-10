@@ -63,7 +63,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/774320433/zlz-project.git"
+    "url": "git+https://github.com/zlzlife/zlz-project.git"
   },
   "keywords": [
     "zlz"
@@ -71,9 +71,9 @@
   "author": "zlz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/774320433/zlz-project/issues"
+    "url": "https://github.com/zlzlife/zlz-project/issues"
   },
-  "homepage": "https://github.com/774320433/zlz-project#readme",
+  "homepage": "https://github.com/zlzlife/zlz-project#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
