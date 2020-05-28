@@ -17,8 +17,11 @@ git config --global --unset user.email              //取消user.email
 git config --global http.proxy 'socks5://127.0.0.1:1080'  // 设置全局代理
 git config --global https.proxy 'socks5://127.0.0.1:1080' // 设置全局代理
 
-git config --global --unset http.proxy 'socks5://127.0.0.1:1080'  // 取消全局代理
-git config --global --unset https.proxy 'socks5://127.0.0.1:1080' // 取消全局代理
+git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
 
 git config --list // 查看配置列表
 
