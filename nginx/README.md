@@ -8,6 +8,26 @@
     apt install nginx 
 ```
 
+- mac安装
+```bash
+    # 1. 安装nginx 
+    brew install nginx
+
+    # 2. 检查是否安装成功
+    cd /usr/local/Cellar/nginx/1.19.0/bin && ./nginx
+
+    # 3. 浏览器访问 localhost:8080
+
+    # 4. 配置环境变量
+    vim /etc/profile 
+
+    # 5. 最底加入
+    export PATH=$PATH:/usr/local/Cellar/nginx/1.19.0/bin
+
+    # 6. 立即生效
+    source /etc/profile
+```
+
 - 常用的命令
 
 ```bash
