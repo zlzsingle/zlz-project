@@ -51,8 +51,8 @@
     # 退出
     nginx -s quit
     
-    # 测试语法是否有误
-    ngixn -t     
+    # 测试语法是否有误(查看配置文件地址)
+    nginx -t     
     
     # 查看帮助
     nginx -h 
@@ -64,5 +64,13 @@
 - 配置文件说明
 
 ```editorconfig
-    
+    server {
+        listen       80;                    # 监听的端口                                                   
+        server_name  service.name.com;      # 服务域名
+
+        location / {
+            proxy_pass http://192.168.1.xxx:3000/;
+            proxy_set_header Host $host:$server_port;
+        }
+    }
 ```
