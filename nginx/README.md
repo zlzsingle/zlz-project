@@ -63,14 +63,22 @@
 
 - 配置文件说明
 
-```editorconfig
+```
     server {
         listen       80;                    # 监听的端口                                                   
         server_name  service.name.com;      # 服务域名
 
         location / {
+            
+            # 反向代理
             proxy_pass http://192.168.1.xxx:3000/;
             proxy_set_header Host $host:$server_port;
+
+            # websocket的配置
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+
         }
     }
 ```
