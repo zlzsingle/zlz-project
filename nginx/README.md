@@ -82,28 +82,23 @@
         }
     }
 
-    server {  
-        listen 4431;  
-        server_name localhost;  
-        ssl on;  
-        root html;  
-        ssl_certificate   cert/XXXXXXXXX.pem;  
-        ssl_certificate_key  cert/XXXXXXXXX.key;  
-        ssl_session_timeout 5m;  
-        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;  
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2 SSLv2 SSLv3;  
-        ssl_prefer_server_ciphers on;  
-        #布置websocket处理服务器  
-        location / {
-                    proxy_pass http://127.0.0.1:8110;  
-                       
-                    #配置Nginx支持webSocket开始  
-                    proxy_set_header Host $http_host;  
-      
-                    proxy_http_version 1.1;  
-                    proxy_set_header Upgrade $http_upgrade;  
-                    proxy_set_header Connection "upgrade";  
-        }  
-    } 
+    server {
+       listen       443 ssl;
+       server_name  www.xxxxx.com;
+
+       ssl_certificate      ~/files/1_www.xxxxx.com_bundle.crt;
+       ssl_certificate_key  ~/files/2_www.xxxxx.com.key;
+
+       ssl_session_cache    shared:SSL:1m;
+       ssl_session_timeout  5m;
+
+       ssl_ciphers  HIGH:!aNULL:!MD5;
+       ssl_prefer_server_ciphers  on;
+
+       location / {
+            proxy_pass http://127.0.0.1:3000/;
+            proxy_set_header Host $host:$server_port;
+        }
+    }
 
 ```
