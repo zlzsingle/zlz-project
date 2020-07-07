@@ -1,1 +1,1 @@
-// http://typeorm.cn/#/
+// https://typeorm.io/
