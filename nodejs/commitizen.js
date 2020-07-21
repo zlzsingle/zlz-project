@@ -10,5 +10,11 @@
     . revert: 撤销上一次的 commit
     . chore: 构建过程或辅助工具的变动
 
+    "config": {
+        "commitizen": {
+        "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+
     commitizen init cz-conventional-changelog --save --save-exact  //初始化commitzen
 */
