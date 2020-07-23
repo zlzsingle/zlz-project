@@ -1,25 +1,28 @@
 #!/usr/bin/env bash
 
-current_path=$(pwd)
-
-dirs=$(ls)
-
-for dir in ${dirs[@]};do
-
-  repo_dir="${current_path}/${dir}"
-
-  if [ -d ${repo_dir}];then
-
-    cd "${repo_dir}"
-
-    if [ -d ".git" ];then
+pull(){
+    if [ -d "${repo_dir}/.git" ];then
+      cd ${repo_dir}
       git pull origin $(git symbolic-ref --short -q HEAD)
     fi
+}
 
-  else
+main(){
+  current_path=$(pwd) # 当前路径
+  list=$(ls)  # list目录
 
-    echo "${repo_dir}目录不存在"
+  for item in ${list[@]};do
 
-  fi
+    dir="${current_path}/${item}"
 
-done
+    echo ${dir}
+
+    if [ -d ${dir} ];then
+      pull ${dir}
+    fi
+
+  done
+
+}
+
+main
