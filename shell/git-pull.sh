@@ -16,6 +16,10 @@ for dir in ${dirs[@]};do
       git pull origin $(git symbolic-ref --short -q HEAD)
     fi
 
-  do
+  else
+
+    echo "${repo_dir}目录不存在"
+
+  fi
 
 done
