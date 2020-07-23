@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 pull(){
+    repo_dir=$1
     if [ -d "${repo_dir}/.git" ];then
       cd ${repo_dir}
       git pull origin $(git symbolic-ref --short -q HEAD)
@@ -15,9 +16,8 @@ main(){
 
     dir="${current_path}/${item}"
 
-    echo ${dir}
-
     if [ -d ${dir} ];then
+      echo ${dir}
       pull ${dir}
     fi
 
