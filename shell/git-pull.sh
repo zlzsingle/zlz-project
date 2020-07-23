@@ -6,10 +6,16 @@ dirs=$(ls)
 
 for dir in ${dirs[@]};do
 
-  cd "${current_path}/${dir}"
+  repo_dir="${current_path}/${dir}"
 
-  if [ -d ".git" ];then
-    git pull origin $(git symbolic-ref --short -q HEAD)
-  fi
+  if [ -d ${repo_dir}];then
+
+    cd "${repo_dir}"
+
+    if [ -d ".git" ];then
+      git pull origin $(git symbolic-ref --short -q HEAD)
+    fi
+
+  do
 
 done
