@@ -41,4 +41,10 @@ moment().startOf('hour').format('YYYY-MM-DD HH:mm:ss');    // set to now, but wi
 moment().startOf('minute').format('YYYY-MM-DD HH:mm:ss');  // set to now, but with 0 seconds and 0 milliseconds
 moment().startOf('second').format('YYYY-MM-DD HH:mm:ss');  // same as moment().milliseconds(0);
 
+moment().weekday(1).format('YYYY-MM-DD'); // 获取本周第一天
+moment().weekday(7).format('YYYY-MM-DD'); // 获取本周最后一天
+
+moment('2020-32','YYYY-w').weekday(1).format('YYYY-MM-DD');
+moment('2020-32','YYYY-w').weekday(7).format('YYYY-MM-DD');
+
 // ‌03,07,08,17,19,23

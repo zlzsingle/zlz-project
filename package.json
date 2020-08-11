@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "loadsh": "^0.0.4",
+    "moment": "^2.27.0",
     "qrcode": "^1.4.4"
   },
   "devDependencies": {
