@@ -21,3 +21,5 @@ console.error('filter : ', JSON.stringify(filter)); // [{"age":20},{"age":4}]
 const uniqArr = _.uniq(a);
 
 const keys = _.keys(a);
+
+_.floor(a); // 向下舍入的值
