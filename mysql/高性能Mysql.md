@@ -77,3 +77,45 @@
     - 不支持事务
     - 不支持外键约束
     - 存储限制为256TB
+    
+## 第二章 Schema与数据类型优化
+
+### 2.1 选择优化的数据类型
+
+- 整数类型
+    - TINYINT(存储空间 8)
+    - SMALLINT(存储空间 16)
+    - MEDIUMINT(存储空间 24)
+    - INT(存储空间 32)
+    - BIGINT(存储空间 64)
+    
+(注:取值范围 **-2的N-1** 到 **2的N-1 -1**)
+
+- 实数类型
+    - DECIMAL
+    - DOUBLE(存储空间 8字节)
+    - FLOAT(存储空间 4字节)
+
+- 字符串类型
+    - CHAT
+    - VARCHAR
+    
+    - TEXT
+    - TINYTEXT
+    - MEDIUMTEXT
+    - LONGTEXT
+    
+    - BLOB
+    - TINYBLOB
+    - MEDIUMBLOB
+    - LONGBLOB
+
+- 日期和时间类型
+    - DATETIME
+    - TIMESTAMPS
+
+- 位数据类型
+
+- 选择标识符
+
+- 特殊类型数据
