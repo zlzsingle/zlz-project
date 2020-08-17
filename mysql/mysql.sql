@@ -53,6 +53,9 @@ show tables like 'tab_name';
 -- 表索引
 show index from ${tab_name};
 
+-- 参数
+show variables like '%autocommit%'
+
 --mysql修改密码命令
 set password for 'root'@'localhost'=password('newPassword');
 
