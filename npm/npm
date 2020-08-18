@@ -1,0 +1,3 @@
+npm config ls -l
+npm config set https-proxy http://192.168.x.xx:1087
+npm config rm https-proxy

@@ -1,0 +1,1 @@
+yarn config set proxy http://192.168.x.xx:1087
