@@ -1,2 +1,16 @@
 https://blog.csdn.net/yessharing/article/details/55806090#1apt%E6%96%B9%E5%BC%8F
 
+1. apt使用代理
+
+    a. 修改/etc/apt/apt.conf（或者/etc/envrionment
+    b. 增加
+        Acquire::http::proxy "http://127.0.0.1:8000/";
+        Acquire::ftp::proxy "ftp://127.0.0.1:8000/";
+        Acquire::https::proxy "https://127.0.0.1:8000/";
+
+2. apt更换源
+
+    a. 备份 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+    b. 编辑 sudo vim /etc/apt/sources.list
+    c. 写入国内源
+
