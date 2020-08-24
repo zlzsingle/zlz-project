@@ -23,4 +23,7 @@ select * from [table_name] where date_format([column_name], '%y%m' ) = date_form
 select * from [table_name] where period_diff( date_format( now() , '%y%m' ) , date_format( [column_name], '%y%m' ) ) =1;
 
 -- 格式化时间
-select date_format([column_name], '%Y-%m-%d %H:%i:%s') from [table_name]
+select date_format([column_name], '%Y-%m-%d %H:%i:%s') from [table_name];
+
+-- 函数返回两个日期之间的天数
+select datediff('2015-01-04','2015-01-03');
