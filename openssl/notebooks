@@ -1,2 +1,2 @@
-openssl pkcs12 -in trade.pfx -nocerts -nodes -out 1.key
-
+openssl pkcs12 -in trade.pfx -nocerts -nodes -out privateCert.pem
+openssl pkcs12 -in trade.pfx -clcerts -nokeys -out publicCert.pem
