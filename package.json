@@ -4,14 +4,8 @@
   "description": "我的个人项目",
   "main": "index.js",
   "dependencies": {
-    "amqplib": "^0.6.0",
     "loadsh": "^0.0.4",
-    "moment": "^2.27.0",
-    "qrcode": "^1.4.4",
-    "querystring": "^0.2.0"
-  },
-  "devDependencies": {
-    "cz-conventional-changelog": "^2.1.0"
+    "moment": "^2.27.0"
   },
   "scripts": {
     "test": "npm run test"
