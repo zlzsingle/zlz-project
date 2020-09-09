@@ -1,6 +1,6 @@
 // https://github.com/sequelize/sequelize
 // https://blog.csdn.net/zjw0742/article/details/76861013
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const operatorsAliases = {
     $eq: Op.eq,
@@ -62,7 +62,12 @@ const mysql = new Sequelize('database', 'user', 'password', {
         timestamps: false,
         // 禁用修改表名; 默认情况下，sequelize将自动将所有传递的模型名称（define的第一个参数）转换为复数。
         freezeTableName: true
-    }
+    },
+    logging(...args) {
+        // if benchmark enabled, log used
+        const used = typeof args[1] === 'number' ? `[${args[1]}ms]` : '';
+        console.info('[egg-sequelize]%s %s', used, args[0]);
+    },
 });
 
 mysql.authenticate().then(() => {
