@@ -64,6 +64,13 @@
 - 配置文件说明
 
 ```
+    # 负载均衡配置
+    upstream testserver {
+        server 127.0.0.1:7007;
+        server 127.0.0.1:7008;
+    }
+
+    # http配置
     server {
         listen       80;                    # 监听的端口                                                   
         server_name  service.name.com;      # 服务域名
@@ -71,17 +78,17 @@
         location / {
             
             # 反向代理
-            proxy_pass http://192.168.1.xxx:3000/;
+            proxy_pass http://testserver/;
             proxy_set_header Host $host:$server_port;
 
             # websocket的配置
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";
-
         }
     }
 
+    # https配置
     server {
        listen       443 ssl;
        server_name  www.xxxxx.com;
@@ -96,9 +103,9 @@
        ssl_prefer_server_ciphers  on;
 
        location / {
-            proxy_pass http://127.0.0.1:3000/;
-            proxy_set_header Host $host:$server_port;
-        }
+           proxy_pass http://127.0.0.1:3000/;
+           proxy_set_header Host $host:$server_port;
+       }
     }
 
 ```
