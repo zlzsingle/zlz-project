@@ -70,6 +70,41 @@
         server 127.0.0.1:7008;
     }
 
+    # 负载均衡策略(默认:轮询 round robin)
+    upstream testround {
+        server 127.0.0.1:7007;
+        server 127.0.0.1:7008;
+    }
+
+    # 负载均衡策略(随机 random)
+    upstream testrandom {
+        random; 
+        server 127.0.0.1:7007;
+        server 127.0.0.1:7008;
+    }
+
+    # 负载均衡策略(权重 weight)
+    upstream testweight {
+        server 127.0.0.1:7007 weight=5;
+        
+        # 默认为不配置权重为1
+        server 127.0.0.1:7008;
+    }
+
+    # 负载均衡策略(ip配置 ip_hash)
+    upstream testiphash {
+        ip_hash;
+        server 127.0.0.1:7007;
+        server 127.0.0.1:7008;
+    }
+    
+    # 负载均衡策略(最小连接数 least_conn)
+    upstream testleastconn {
+        least_conn;
+        server 127.0.0.1:7007;
+        server 127.0.0.1:7008;
+    }
+
     # http配置
     server {
         listen       80;                    # 监听的端口                                                   
