@@ -89,8 +89,28 @@ const user = mysql.define('user', {
         type: Sequelize.STRING,
         allowNull: false,
         field: 'name'
+    },
+    gradeId : {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: 'grade_id'
     }
 });
+
+const grade = {
+    id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        unique: true,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: 'name'
+    },
+}
 
 //创建数据库
 Sequelize.createSchema('schema', {}).then(rs => {
