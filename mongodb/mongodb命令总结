@@ -1,3 +1,5 @@
 db //显示当前数据库
 show dbs //显示所有数据库
 use test //如果test数据库不能存在就创建test数据库,否则切换到test数据库
+db.collection.remove({}) // 清空collection数据
+db.collection.find({}) // 查询
