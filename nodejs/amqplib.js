@@ -11,7 +11,7 @@ const config = {
     vhost: '/test/',
 }
 
-const queue = 'student_zlzlife';
+const queue = 'student';
 
 // 创建消息
 async function producer() {
