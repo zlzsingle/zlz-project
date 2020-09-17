@@ -90,7 +90,7 @@ const user = mysql.define('user', {
         allowNull: false,
         field: 'name'
     },
-    gradeId : {
+    gradeId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'grade_id'
@@ -127,6 +127,29 @@ user.find({where: {id: 1}});
 
 // 过滤查询
 user.findAll({where: {name: '1'}});
+
+user.find({
+    where: {
+        id: {
+            $in: [1, 2, 3]
+        }
+    }
+});
+
+user.find({
+    where: {
+        $or: [
+            {
+                id: {
+                    $in: [1, 2, 3]
+                }
+            },
+            {
+                name: ''
+            }
+        ]
+    }
+});
 
 // 查询总数
 user.count({
