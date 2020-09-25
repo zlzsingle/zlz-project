@@ -99,6 +99,8 @@ sudo apt install silversearcher-ag
 //远程连接
 ssh 192.168.x.x
 
+ssh -o serveraliveinterval=60 username@host
+
 //生成sshId
 ssh-copy-id xxx
 
