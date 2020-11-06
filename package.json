@@ -6,6 +6,8 @@
   "dependencies": {
     "amqplib": "^0.6.0",
     "axios": "^0.20.0",
+    "encoding": "^0.1.13",
+    "iconv-lite": "^0.6.2",
     "loadsh": "^0.0.4",
     "moment": "^2.27.0"
   },
