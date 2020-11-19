@@ -154,3 +154,6 @@ crontab -e
 
 // 查看linux定时任务
 crontab -l
+
+// 防火墙端口开启
+ufw
