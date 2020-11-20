@@ -10,7 +10,7 @@ docker rm jira
 rm -rf /root/jira-data
 
 docker run \
-  -e ATL_JDBC_URL="jdbc:mysql://172.24.120.4:3306/jira?useUnicode=true&amp;characterEncoding=UTF8&amp;sessionVariables=default_storage_engine=InnoDB" \
+  -e ATL_JDBC_URL="jdbc:mysql://xxx.xxx.xx:3306/jira?useUnicode=true&amp;characterEncoding=UTF8&amp;sessionVariables=default_storage_engine=InnoDB" \
   -e ATL_JDBC_USER="root" \
   -e ATL_JDBC_PASSWORD="123456" \
   -e ATL_DB_DRIVER="com.mysql.cj.jdbc.Driver" \
