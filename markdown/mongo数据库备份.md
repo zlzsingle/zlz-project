@@ -10,6 +10,6 @@
 - 数据库恢复
 
 ```bash
-    mongorestore -h localhost:27018 -d yapi ./yapi
+    mongorestore -h 127.0.0.1:27017 -d yapi ./yapi
 ```
 
