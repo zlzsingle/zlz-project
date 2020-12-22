@@ -4,6 +4,7 @@ const moment = require("moment");
 moment.locale('zh-cn');
 
 moment("2018-01-01 00:00:00", "YYYY-MM-DD HH:mm:ss"); //指定时间
+moment('2020-12-14T07:04:47.000Z','YYYY-MM-DDTHH:mm:ss.SSSZ').format('YYYY-MM-DD HH:mm:ss')
 
 moment().valueOf(); // 13位时间戳
 
