@@ -1,0 +1,7 @@
+Host server-name            # 服务名称
+HostName xxx.xxx.xxx        # ip地址
+User xxx                    # 用户名称
+Port xx                     # 端口
+ServerAliveInterval 60      # 每隔60秒，向服务器发出一次心跳
+ServerAliveCountMax 100     # 若超过100次请求，都没有发送成功，则会主动断开与服务器端的连接
+IdentifyFile ~/file         # 私钥地址
