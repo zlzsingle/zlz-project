@@ -23,3 +23,8 @@ IdentityFile    [认证文件]
 Port            [端口]
 ProxyCommand    [代理命令]
 ```
+
+- ssh连接
+```
+ssh server-name -o serveraliveinterval=60
+```
