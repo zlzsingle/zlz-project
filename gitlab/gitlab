@@ -11,3 +11,6 @@ sudo gitlab-ctl reconfigure
     1. 安装 sudo apt install gitlab-runner
     2. 注册 gitlab-runner register
     3. 编写.gitlab-ci.yml文件
+
+
+curl --request POST "https://xxx.xxx.xxx/api/v4/runners" --form "token=<register-token>" --form "description=runner的描述" --form "tag_list=tag1,tag2"
