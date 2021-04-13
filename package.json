@@ -4,6 +4,7 @@
   "description": "我的个人项目",
   "main": "index.js",
   "dependencies": {
+    "@nestjs/schedule": "^0.4.3",
     "amqplib": "^0.6.0",
     "axios": "^0.20.0",
     "encoding": "^0.1.13",
