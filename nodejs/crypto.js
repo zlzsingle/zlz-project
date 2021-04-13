@@ -2,7 +2,7 @@ import { createCipheriv, createDecipheriv } from "crypto";
 
 // AES-128-CBC 是一种分组对称加密算法
 
-class cryptoUtils {
+class CryptoUtils {
 	/**
 	 * 字符创加密
 	 * @param str 要解密的字符串
