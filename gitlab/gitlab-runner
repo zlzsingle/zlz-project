@@ -1,3 +1,5 @@
+docker pull gitlab/gitlab-runner:latest
+
 curl --request POST "https://xxx.xxx.xxx/api/v4/runners" --form "token=<register-token>" --form "description=runner的描述" --form "tag_list=tag1,tag2"
 
 [config.toml]
@@ -13,6 +15,7 @@ check_interval = 0
 [[runners]]
   name = "docker-runner"
   url = "http://xxx.xx.xx.xx/"
+  tls-ca-file = "/etc/gitlab-runner/xxxx.com.crt"
   token = "<runner-token>"
   executor = "docker"
   [runners.custom_build_dir]
