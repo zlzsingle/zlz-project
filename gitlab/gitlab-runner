@@ -1,5 +1,7 @@
 docker pull gitlab/gitlab-runner:latest
 
+docker run -d --name gitlab-runner --restart always -v /git-runner:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
+
 curl --request POST "https://xxx.xxx.xxx/api/v4/runners" --form "token=<register-token>" --form "description=runner的描述" --form "tag_list=tag1,tag2"
 
 [config.toml]
