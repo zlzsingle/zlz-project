@@ -24,4 +24,6 @@ COMMAND KEY_NAME
     renamenx [key] [newkey] //仅当newkey不存在时,将key修改为newkey
     type [key]              //返回key的类型
     persist [key]   // 持久化key persist student
+    publish [channle] [message] // 发布订阅信息
+    subscribe [channle] // 订阅信息
 
